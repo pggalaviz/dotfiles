@@ -10,11 +10,13 @@ ln -sf `pwd`/fish/functions/fish_prompt.fish ~/.config/fish/functions/
 # hyper
 ln -sf `pwd`/hyper/hyper.js ~/.hyper.js
 
-
 # neovim
 mkdir -p ~/.config/nvim
 ln -sf `pwd`/nvim/init.vim ~/.config/nvim/
 
+# plug (vim package manager)
+curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 
 
