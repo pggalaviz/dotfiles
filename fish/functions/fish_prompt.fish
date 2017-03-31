@@ -51,7 +51,7 @@ function fish_prompt
   set -l blue (set_color blue)
   set -l normal (set_color normal)
   set -l red (set_color red)
-  set -l upper_line_color (set_color 333333)
+  set -l upper_line_color (set_color 4F5B66)
 
   set -l arrow "»"
   set -l cwd (set_color $fish_color_cwd)(prompt_pwd)
@@ -75,6 +75,6 @@ function fish_prompt
   else
     set window " ($pane)"
   end
-  echo -n -s $upper_line_color --------------------------------------------- \n
+  echo -n -s $upper_line_color ------------------------------------------ \n
   echo -n -s $normal (_remote_hostname) ' ' $cwd $yellow $window $cyan $git_status $blue ' ' $arrow ' '
 end
