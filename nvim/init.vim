@@ -9,32 +9,43 @@ set termguicolors
 call plug#begin()
 
 """ SYNTAX
-Plug 'othree/html5.vim'                             " HTML5 syntax & completion
-Plug 'valloric/MatchTagAlways', {'on_ft': 'html'}   " Highlights matching tag
+Plug 'othree/html5.vim', {'for': ['html', 'vue']}           " HTML5 syntax & completion
+Plug 'valloric/MatchTagAlways', {'for': ['html', 'vue']}    " Highlights matching tag
 
 Plug 'othree/yajs.vim'   " Javascript syntax 
 Plug 'othree/jspc.vim'   " Javascript parameter completion
 Plug 'moll/vim-node'     " Node tools
 
-Plug 'elzr/vim-json', {'on_ft': 'json'}    " JSON highlighting
+Plug 'elzr/vim-json', {'for': 'json'}    " JSON highlighting
+    let g:vim_json_syntax_conceal = 0
 
-Plug 'hail2u/vim-css3-syntax', {'on_ft':['css','scss']}     " CSS and SCSS syntax & highlighting
-Plug 'ap/vim-css-color'                                     " Show colors on CSS files
+Plug 'posva/vim-vue', {'for': 'vue'}  " Vue.js syntax highlighting
+
+Plug 'hail2u/vim-css3-syntax', {'for': ['css','scss', 'vue']}    " CSS and SCSS syntax & highlighting
+Plug 'ap/vim-css-color', {'for':['css','scss', 'vue']}          " Show colors on CSS files
 
 Plug 'elixir-lang/vim-elixir'   " Elixir language highlightning
 Plug 'slashmili/alchemist.vim'  " Elixir Integration
 
-Plug 'tmux-plugins/vim-tmux'    " Tmux file highlightning
+Plug 'tmux-plugins/vim-tmux'            " Tmux file highlighting
+Plug 'dag/vim-fish', {'for': 'fish'}    " Fish shell highlighting
 
 """ UTILITIES
 
 Plug 'itmammoth/doorboy.vim'        " Auto close brackets, quotations, etc.
 Plug 'tpope/vim-surround'           " Easily change surroundings (parenthesis, brackets, etc)
 Plug 'tomtom/tcomment_vim'          " Easily comment/uncomment words, lines or group of lines
-Plug 'mattn/emmet-vim'              " Easy workflow for html & CSS
+
+Plug 'mattn/emmet-vim', {'for': ['html', 'vue']}    " Easy workflow for html & CSS
     let g:user_emmet_mode='a'
     let g:user_emmet_install_global = 0
     autocmd FileType html,css,scss EmmetInstall
+
+Plug 'sbdchd/neoformat'             " Format code
+Plug 'junegunn/vim-easy-align'      " Easy alignement
+Plug 'Yggdroot/indentLine'          " Show a line to display indentation level
+    let g:indentLine_setColors = 0
+    let g:indentLine_char = '┆'
 
 Plug 'lambdalisue/gina.vim'         " Control GIT repos from nvim session
 Plug 'airblade/vim-gitgutter'       " Show GIT changes status in the gutter
@@ -56,11 +67,19 @@ Plug 'christoomey/vim-tmux-navigator'   " Navigate between Tmux and Vim splits
 
 """ COMPLETION
 
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }   "Completion
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }   " Completion
     let g:deoplete#enable_at_startup = 1
+Plug 'Shougo/neco-vim', {'for': 'vim'}                          " Vim script completion
+Plug 'awetzel/elixir.nvim', { 'do': 'yes \| ./install.sh' }     " Elixir completion
+Plug 'fishbullet/deoplete-ruby', {'for': 'ruby'}                " Ruby completion
+Plug 'ponko2/deoplete-fish', {'for': 'fish'}                    " Fish shell completion
 
+Plug 'Shougo/neosnippet.vim'        " Snippets support
+Plug 'Shougo/neosnippet-snippets'   " Snippets repository
+Plug 'Shougo/echodoc.vim'           " Show functions signatures in the command line
 
 """ THEMES & UI
+
 Plug 'mhartington/oceanic-next'     " Oceanic Next theme
 Plug 'vim-airline/vim-airline'      " Airline plugin
     let g:airline#extensions#tabline#enabled = 1
@@ -103,7 +122,8 @@ set smartcase                                   " Match capitals in search
 set confirm                                     " Ask for confirmation
 set showcmd                                     " Shows current command combo
 set completeopt=menu                            " Shows completions in popup
-set showmatch                                   " Show matching brackets"
+set showmatch                                   " Show matching brackets
+set so=5                                        " Allways show 5 lines below when scrolling
 
 "----------------------------------------------------------------------------------------------
 " MAPPINGS

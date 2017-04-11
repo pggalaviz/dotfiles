@@ -29,6 +29,7 @@ packages=(
 "neovim"
 "rbenv"
 "tmux"
+"yarn"
 )
 echo "Installing basic dependencies & packages... \n"
 for i in "${packages[@]}"
