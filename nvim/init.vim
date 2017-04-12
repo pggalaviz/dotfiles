@@ -21,8 +21,9 @@ Plug 'elzr/vim-json', {'for': 'json'}    " JSON highlighting
 
 Plug 'posva/vim-vue', {'for': 'vue'}  " Vue.js syntax highlighting
 
-Plug 'hail2u/vim-css3-syntax', {'for': ['css','scss', 'vue']}    " CSS and SCSS syntax & highlighting
-Plug 'ap/vim-css-color', {'for':['css','scss', 'vue']}          " Show colors on CSS files
+Plug 'hail2u/vim-css3-syntax', {'for': ['css','scss', 'vue']}       " CSS and SCSS syntax & highlighting
+Plug 'wavded/vim-stylus', { 'for': ['stylus', 'vue']}               " Stylus syntax & highlighting
+Plug 'ap/vim-css-color', {'for':['css', 'scss', 'stylus', 'vue']}   " Show colors on CSS files
 
 Plug 'elixir-lang/vim-elixir'   " Elixir language highlightning
 Plug 'slashmili/alchemist.vim'  " Elixir Integration
@@ -43,15 +44,20 @@ Plug 'mattn/emmet-vim', {'for': ['html', 'vue']}    " Easy workflow for html & C
 
 Plug 'sbdchd/neoformat'             " Format code
 Plug 'junegunn/vim-easy-align'      " Easy alignement
+    xmap ga <Plug>(EasyAlign)
+    nmap ga <Plug>(EasyAlign)
 Plug 'Yggdroot/indentLine'          " Show a line to display indentation level
     let g:indentLine_setColors = 0
     let g:indentLine_char = '┆'
+    let g:indentLine_color_gui = '#74818b'
+    let g:table_mode_corner="|"
 
 Plug 'lambdalisue/gina.vim'         " Control GIT repos from nvim session
 Plug 'airblade/vim-gitgutter'       " Show GIT changes status in the gutter
 Plug 'jreybert/vimagit'             " Easier GIT workflow
 
 Plug 'scrooloose/nerdtree'          " Directory & files tree
+    map <c-n> :NERDTreeToggle<cr>   " Open/Close NERDTree
 Plug 'Xuyuanp/nerdtree-git-plugin'  " Nerdtree plugin to show GIT flags
 
 Plug 'bogado/file-line'             " Open a file on arbitrary line: filename:line
@@ -65,10 +71,14 @@ Plug 'christoomey/vim-tmux-navigator'   " Navigate between Tmux and Vim splits
     nnoremap <silent> <C-l> :TmuxNavigateRight<cr>
     nnoremap <silent> <C-ñ> :TmuxNavigatePrevious<cr>    
 
+Plug 'Shougo/denite.nvim'   " Multiple helpful functions: open files, search, change folder, etc.
+
 """ COMPLETION
 
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }   " Completion
     let g:deoplete#enable_at_startup = 1
+Plug 'Shougo/context_filetype.vim'                              " Filetype context
+
 Plug 'Shougo/neco-vim', {'for': 'vim'}                          " Vim script completion
 Plug 'awetzel/elixir.nvim', { 'do': 'yes \| ./install.sh' }     " Elixir completion
 Plug 'fishbullet/deoplete-ruby', {'for': 'ruby'}                " Ruby completion
@@ -77,6 +87,7 @@ Plug 'ponko2/deoplete-fish', {'for': 'fish'}                    " Fish shell com
 Plug 'Shougo/neosnippet.vim'        " Snippets support
 Plug 'Shougo/neosnippet-snippets'   " Snippets repository
 Plug 'Shougo/echodoc.vim'           " Show functions signatures in the command line
+    let g:echodoc_enable_at_startup= 1
 
 """ THEMES & UI
 
@@ -102,6 +113,8 @@ syntax enable                                   " Syntax highlighting on
 set number                                      " Set line number
 set relativenumber                              " Set relative number 
 set ruler                                       " Set line/col of cursor
+set noshowmode                                  " Dont display current mode (Using vim-airline)
+set noswapfile                                  " No swapfile for buffer
 " Tabs
 set autoindent                                  " Auto indent
 set expandtab                                   " Expand tabs to spaces
@@ -123,11 +136,17 @@ set confirm                                     " Ask for confirmation
 set showcmd                                     " Shows current command combo
 set completeopt=menu                            " Shows completions in popup
 set showmatch                                   " Show matching brackets
-set so=5                                        " Allways show 5 lines below when scrolling
+set so=5                                        " Allways show 5 lines below/up when scrolling
 
 "----------------------------------------------------------------------------------------------
 " MAPPINGS
 "----------------------------------------------------------------------------------------------
+
+" Navigation
+noremap H ^
+noremap L g_
+noremap J 5j
+noremap K 5k
 
 " NO ARROW KEYS COME ON!!!
 map <Left>  :echo "no!"<cr>
@@ -135,9 +154,8 @@ map <Right> :echo "no!"<cr>
 map <Up>    :echo "no!"<cr>
 map <Down>  :echo "no!"<cr>
 
-map <C-n> :NERDTreeToggle<CR>               " Open/Close NERDTree
 
-nnoremap <silent> <cr> :nohlsearch<cr>      " Clear the search buffer when hitting return
+map <silent> <esc> :nohlsearch<cr>      " Clear the search buffer when hitting return
 
 "----------------------------------------------------------------------------------------------
 " THEMES / COLORS / UI
@@ -145,7 +163,9 @@ nnoremap <silent> <cr> :nohlsearch<cr>      " Clear the search buffer when hitti
 
 colorscheme OceanicNext
 
-
+"----------------------------------------------------------------------------------------------
+" File Types
+"----------------------------------------------------------------------------------------------
 
 
 
