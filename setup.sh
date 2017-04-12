@@ -91,6 +91,11 @@ echo "---------------------------------------------------------"
 echo "Symlinking Neovim configuration..."
 mkdir -p ~/.config/nvim
 ln -sf `pwd`/nvim/init.vim ~/.config/nvim/
+ln -sf `pwd`/nvim/plugins.vim ~/.config/nvim/
+ln -sf `pwd`/nvim/functions.vim ~/.config/nvim/
+ln -sf `pwd`/nvim/autocmds.vim ~/.config/nvim/
+ln -sf `pwd`/nvim/keybindings.vim ~/.config/nvim/
+ln -sf `pwd`/nvim/settings.vim ~/.config/nvim/
 echo "---------------------------------------------------------"
 
 #---------------------------------------------
