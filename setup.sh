@@ -13,7 +13,7 @@ then
   echo "---------------------------------------------------------"
 else
   echo "Homebrew is not installed, installing now... it may take some time..."
-  echo "Homebrew requires OSX command line tools, you'll need XCode!!"
+  echo "Homebrew requires OSX command line tools, you'll need XCode!"
   ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
   echo "---------------------------------------------------------"
 fi
