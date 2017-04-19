@@ -28,6 +28,7 @@ packages=(
 "hyper"
 "neovim"
 "rbenv"
+"ruby-build"
 "tmux"
 "yarn"
 )

@@ -2,7 +2,7 @@ scriptencoding utf-8
 
 " Use full Vim features
 if &compatible
-  set nocompatible      " Be iMproved
+    set nocompatible      " Be iMproved
 endif
 
 " Config file path
@@ -10,10 +10,16 @@ let g:config_path = "~/.config/nvim/"
 
 " Function for sourcing config modules
 function! ConfigInc(module)
-  execute 'source ' . fnameescape(g:config_path) . fnameescape(a:module)
+    execute 'source ' . fnameescape(g:config_path) . fnameescape(a:module)
 endfunction
 
 set termguicolors
+
+" -------------------------------------------------------------------------------------------
+"  SETTINGS
+" -------------------------------------------------------------------------------------------
+
+call ConfigInc('settings.vim')
 
 " -------------------------------------------------------------------------------------------
 "  PLUGINS
@@ -53,16 +59,16 @@ let g:indentLine_color_gui = '#74818b'
 let g:table_mode_corner="|"
 
 " scrooloose/nerdtree
-map <c-n> :NERDTreeToggle<cr>   " Open/Close NERDTree
+map <leader>n :NERDTreeToggle<cr>   " Open/Close NERDTree
 let NERDTreeShowHidden = 1
 
 " christoomey/vim-tmux-navigator
 let g:tmux_navigator_no_mappings = 1
-nnoremap <silent> <BS> :TmuxNavigateLeft<CR>
+nnoremap <silent> <BS> :TmuxNavigateLeft<cr>
 nnoremap <silent> <C-j> :TmuxNavigateDown<cr>
 nnoremap <silent> <C-k> :TmuxNavigateUp<cr>
 nnoremap <silent> <C-l> :TmuxNavigateRight<cr>
-nnoremap <silent> <C-ñ> :TmuxNavigatePrevious<cr>    
+nnoremap <silent> <C-p> :TmuxNavigatePrevious<cr>
 
 " Shougo/denite.nvim
 
@@ -70,8 +76,25 @@ nnoremap <silent> <C-ñ> :TmuxNavigatePrevious<cr>
 " Shougo/deoplete.nvim
 let g:deoplete#enable_at_startup = 1
 
+" Shougo/neosnippet
+imap <C-k> <Plug>(neosnippet_expand_or_jump)
+smap <C-k> <Plug>(neosnippet_expand_or_jump)
+xmap <C-k> <Plug>(neosnippet_expand_target)
+
 " Shougo/echodoc.vim
 let g:echodoc_enable_at_startup= 1
+
+" w0rp/ale
+let g:ale_lint_delay = 5000
+let g:ale_sign_error = '✖'
+let g:ale_sign_warning = '➤'
+let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
+let g:ale_echo_msg_error_str = 'E'
+let g:ale_echo_msg_warning_str = 'W'
+let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+" let g:ale_linters = {
+" \   'javascript': ['eslint'],
+" \}
 
 " vim-airline/vim-airline
 let g:airline#extensions#tabline#enabled = 1
@@ -81,6 +104,7 @@ let g:airline_enable_branch = 1
 let g:airline_branch_prefix = '⎇ '
 let g:airline_skip_empty_sections = 1
 let g:airline_theme='oceanicnext'
+let g:airline#extensions#ale#enabled = 1
 
 " -------------------------------------------------------------------------------------------
 "  FUNCTIONS
@@ -99,12 +123,6 @@ call ConfigInc('autocmds.vim')
 "----------------------------------------------------------------------------------------------
 
 call ConfigInc('keybindings.vim')
-
-" -------------------------------------------------------------------------------------------
-"  SETTINGS
-" -------------------------------------------------------------------------------------------
-
-call ConfigInc('settings.vim')
 
 "----------------------------------------------------------------------------------------------
 " THEMES / COLORS / UI
