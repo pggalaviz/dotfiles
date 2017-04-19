@@ -34,8 +34,8 @@ Plug 'elixir-lang/vim-elixir', {'for': 'elixir'}   " Elixir language highlightni
 Plug 'slashmili/alchemist.vim', {'for': 'elixir'}  " Elixir Integration
 
 " TOOLS
-Plug 'tmux-plugins/vim-tmux'            " Tmux file highlighting
-Plug 'dag/vim-fish', {'for': 'fish'}    " Fish shell highlighting
+Plug 'tmux-plugins/vim-tmux', {'for': 'tmux'}   " Tmux file highlighting
+Plug 'dag/vim-fish', {'for': 'fish'}            " Fish shell highlighting
 
 " -------------------------------------------------------------------------------------------
 " UTILITIES
