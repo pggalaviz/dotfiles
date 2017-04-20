@@ -14,9 +14,9 @@ Plug 'othree/html5.vim', {'for': ['html', 'vue']}           " HTML5 syntax & com
 Plug 'valloric/MatchTagAlways', {'for': ['html', 'vue']}    " Highlights matching tag
 
 " Javascript
-Plug 'othree/yajs.vim', {'for': 'javascript'}   " Javascript syntax 
-Plug 'othree/jspc.vim', {'for': 'javascript'}   " Javascript parameter completion
-Plug 'moll/vim-node', {'for': 'javascript'}     " Node tools
+Plug 'othree/yajs.vim', {'for': [ 'javascript', 'jsx', 'vue', 'javascript.jsx' ]}   " Javascript syntax 
+Plug 'othree/jspc.vim', {'for': [ 'javascript', 'jsx', 'vue', 'javascript.jsx' ]}   " Javascript parameter completion
+Plug 'moll/vim-node', {'for': [ 'javascript', 'jsx', 'vue', 'javascript.jsx' ]}     " Node tools
 
 " Json
 Plug 'elzr/vim-json', {'for': 'json'}    " JSON highlighting
@@ -25,9 +25,10 @@ Plug 'elzr/vim-json', {'for': 'json'}    " JSON highlighting
 Plug 'posva/vim-vue', {'for': 'vue'}  " Vue.js syntax highlighting
 
 " CSS & STYLING
-Plug 'hail2u/vim-css3-syntax', {'for': ['css','scss', 'vue']}       " CSS and SCSS syntax & highlighting
-Plug 'wavded/vim-stylus', { 'for': ['styl', 'vue']}               " Stylus syntax & highlighting
-Plug 'ap/vim-css-color', {'for':['css', 'scss', 'styl', 'vue']}   " Show colors on CSS files
+Plug 'hail2u/vim-css3-syntax', {'for': ['css', 'vue']}              " CSS and SCSS syntax & highlighting
+Plug 'cakebaker/scss-syntax.vim', {'for': ['scss', 'vue']}          " SCSS syntax
+Plug 'wavded/vim-stylus', { 'for': ['styl', 'vue']}                 " Stylus syntax & highlighting
+Plug 'ap/vim-css-color', {'for':['css', 'scss', 'styl', 'vue',]}    " Show colors on CSS files
 
 " ELIXIR
 Plug 'elixir-lang/vim-elixir', {'for': 'elixir'}   " Elixir language highlightning
@@ -48,7 +49,7 @@ Plug 'tpope/vim-surround'           " Easily change surroundings (parenthesis, b
 " Comments
 Plug 'tomtom/tcomment_vim'          " Easily comment/uncomment words, lines or group of lines
 
-Plug 'mattn/emmet-vim', {'for': ['html', 'vue', 'css', 'scss', 'markdown']}    " Easy workflow for html & CSS
+Plug 'mattn/emmet-vim', {'for': ['html', 'vue', 'css', 'scss', 'javascript', 'jsx']}    " Easy workflow for html & CSS
 
 " Format/Indentation
 Plug 'sbdchd/neoformat'             " Format code

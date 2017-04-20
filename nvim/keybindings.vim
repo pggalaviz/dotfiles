@@ -13,6 +13,7 @@ noremap K 5k
 nnoremap <leader>. :bn!<cr>
 nnoremap <leader>, :bp!<cr>
 nnoremap <leader>d :bd<cr>
+nnoremap <leader>- :enew<cr>
 
 " I have a Spanish lang keyboard, so no need of '<shift>.' for ':'
 noremap . :
@@ -29,7 +30,7 @@ noremap <Up>    :echo "no! use k"<cr>
 noremap <Down>  :echo "no! use j"<cr>
 
 " Change the Current working dir to where the current file is located
-nnoremap <silent> <Leader>cd :cd %:p:h<CR>
+nnoremap <silent> <Leader>cd :cd %:p:h<CR>:pwd<CR>
 
 " No Ex mode
 nnoremap Q <nop>
@@ -40,9 +41,17 @@ map <silent> <esc> :nohlsearch<cr>
 " Select pasted text to work with it or select all if not pasted text
 noremap <leader>v `[v`]
 
-" Vmap for maintain Visual Mode after shifting > and <
-vmap < <gv
-vmap > >gv
+" Keep block selected after indenting 
+xnoremap > >gv|
+xnoremap < <gv
+
+" Use <Tab> for indenting in visual mode
+vnoremap <Tab> >gv|
+vnoremap <S-Tab> <gv
+
+" Use '<' and '>' for indenting in normal mode
+nnoremap > >>_
+nnoremap < <<_
 
 " ESC from insert mode
 imap jk <Esc>

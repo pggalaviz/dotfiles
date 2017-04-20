@@ -33,7 +33,8 @@ let g:vim_json_syntax_conceal = 0
 " mattn/emmet-vim
 let g:user_emmet_mode='a'
 let g:user_emmet_install_global = 0
-autocmd FileType html,css,scss EmmetInstall
+autocmd FileType html,css,scss,vue EmmetInstall
+let g:user_emmet_leader_key='º' " Hack gor using 1 key as leader
 
 " sbdchd/neoformat
 noremap <leader>f :Neoformat<cr>
@@ -58,35 +59,39 @@ let g:indentLine_char = '┆'
 let g:indentLine_color_gui = '#74818b'
 let g:table_mode_corner="|"
 
+" airblade/git-gutter
+let g:gitgutter_map_keys = 0
+
 " scrooloose/nerdtree
 map <leader>n :NERDTreeToggle<cr>   " Open/Close NERDTree
-let NERDTreeShowHidden = 1
-let g:NERDTreeAutoDeleteBuffer=1
+let g:NERDTreeShowHidden = 1
+let g:NERDTreeCascadeOpenSingleChildDir = 1
+let g:NERDTreeQuitOnOpen = 1
 
 " christoomey/vim-tmux-navigator
 let g:tmux_navigator_no_mappings = 1
-nnoremap <silent> <BS> :TmuxNavigateLeft<cr>
-nnoremap <silent> <C-j> :TmuxNavigateDown<cr>
-nnoremap <silent> <C-k> :TmuxNavigateUp<cr>
-nnoremap <silent> <C-l> :TmuxNavigateRight<cr>
-nnoremap <silent> <C-p> :TmuxNavigatePrevious<cr>
+noremap <silent> <BS> :TmuxNavigateLeft<cr>
+noremap <silent> <C-j> :TmuxNavigateDown<cr>
+noremap <silent> <C-k> :TmuxNavigateUp<cr>
+noremap <silent> <C-l> :TmuxNavigateRight<cr>
+noremap <silent> <C-p> :TmuxNavigatePrevious<cr>
 
 " Shougo/denite.nvim
-nnoremap <leader>b :Denite buffer<cr>
-nnoremap <leader>p :Denite file_rec<cr>
+noremap <leader>b :Denite buffer<cr>
+noremap <leader>p :Denite file_rec<cr>
 call denite#custom#option('default', 'prompt', '❯')
 call denite#custom#map(
-\ 'insert',
-\ '<C-n>',
-\ '<denite:move_to_next_line>',
-\ 'noremap'
-\)
+    \ 'insert',
+    \ '<C-n>',
+    \ '<denite:move_to_next_line>',
+    \ 'noremap'
+    \)
 call denite#custom#map(
-\ 'insert',
-\ '<C-p>',
-\ '<denite:move_to_previous_line>',
-\ 'noremap'
-\)
+    \ 'insert',
+    \ '<C-p>',
+    \ '<denite:move_to_previous_line>',
+    \ 'noremap'
+    \)
 
 " Shougo/deoplete.nvim
 let g:deoplete#enable_at_startup = 1

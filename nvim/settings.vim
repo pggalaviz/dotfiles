@@ -4,13 +4,14 @@
 " -------------------------------------------------------------------------------------------
 
 " Remap leader (Use space as leader)
-let mapleader = ' '
+let g:mapleader = ' '
 noremap <Space> <Nop>
   
 " Global Settings
 filetype plugin indent on                       " Enable full filetype detection
 syntax on                                       " Syntax highlighting on
 syntax enable                                   " Syntax highlighting on
+set synmaxcol=1000                              " Don't syntax highlight long lines
 set encoding=utf-8                              " Use utf-8
 set title                                       " Let Vim set window title
 set hidden                                      " Put current buffer to background without saving
@@ -24,6 +25,7 @@ set ruler                                       " Set line/col of cursor
 " UI
 set noshowmode                                  " Dont display current mode (Using vim-airline)
 set scrolloff=5                                 " Allways show 5 lines below/up when scrolling
+set sidescrolloff=5                             " Keep at least 5 lines left/right
 set shortmess=aoOtTI                            " Short messages
 set showcmd                                     " Shows current command combo
 set showmatch                                   " Show matching brackets
@@ -43,6 +45,7 @@ set wildmenu                                    " Menu for command line completi
 
 " Tabs/Spaces
 set autoindent                                  " Auto indent
+set smartindent                                 " Smart autoindenting on new lines
 set expandtab                                   " Always use spaces
 set tabstop=4                                   " Tab size (Columns per tab)
 set shiftwidth=4                                " Amount to shift by
@@ -67,6 +70,6 @@ set completeopt=menu                            " Shows completions in popup
 set visualbell                                  " Don't beep
 set noerrorbells                                " Don't beep
 set iskeyword+=-,_                              " Consider - and _ part of a word
-set history=100                                 " Remember more commands and search history
+set history=500                                 " Remember more commands and search history
 set undolevels=100                              " Maximum levels of changes that can be undone
 
