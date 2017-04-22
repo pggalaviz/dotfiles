@@ -17,6 +17,16 @@ set -x fish_color_command normal
 ##### Personal Settings #####
 #############################
 
+# PATH
+set -x PATH /usr/local/bin  $PATH
+set -x PATH /usr/local/sbin $PATH
+
+# Set GO lang path 
+set -x GOPATH $HOME/go
+set -x GOROOT /usr/local/opt/go/libexec
+set PATH $GOPATH/bin $PATH
+set PATH $GOROOT/bin $PATH
+
 # add rbenv to $PATH
 status --is-interactive; and source (rbenv init -|psub)
 

@@ -27,12 +27,13 @@ packages=(
 "fish"
 "hyper"
 "neovim"
+"go"
 "rbenv"
 "ruby-build"
 "tmux"
 "yarn"
 )
-echo "Installing basic dependencies & packages... \n"
+echo "Installing basic dependencies & packages with Homebrew... \n"
 for i in "${packages[@]}"
 do
   brew install $i
@@ -86,6 +87,14 @@ ln -sf `pwd`/alacritty/alacritty.yml ~/.config/alacritty/
 ln -sf `pwd`/alacritty/alacritty_macos.yml ~/.config/alacritty/
 echo "---------------------------------------------------------"
 
+#-------------------------------------------
+# Create Golang path folders if not existent 
+#-------------------------------------------
+echo "Creating Golang path folders if not existent..."
+mkdir -p ~/go
+mkdir -p ~/go/bin
+echo "---------------------------------------------------------"
+
 #-----------------------------
 # Symlink Neovim configuration
 #-----------------------------
@@ -114,14 +123,25 @@ echo "Symlinking Tmux configuration..."
 ln -sf `pwd`/tmux/tmux.conf ~/.tmux.conf
 echo "---------------------------------------------------------"
 
-echo "Cloning Tmux Plugin Manager..."
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+#--------------------------------------------------------
+# Check if Tmux plugin manager already exists or clone it 
+#--------------------------------------------------------
+tmuxPlugin="$HOME/.tmux/plugins/tpm"
+if [ -d "$tmuxPlugin" ]
+then
+  echo "Tmux Plugin Manager already installed..."
+else
+  echo "Cloning Tmux Plugin Manager..."
+  git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+fi
 echo "---------------------------------------------------------"
 
 echo "All done here..."
 echo "Time for some manual stuff, sorry!\n"
-echo "=> nvim"
+echo "=> Neovim"
 echo "To install the nvim plugins, open up nvim and type ':PlugInstall'\n"
+echo "=> Tmux"
+echo "To install tmux plugins type 'prefix' + 'I', or 'prefix' + 'U' to update them.\n"
 echo "=> git"
 echo "Setup your git config:\ngit config --global user.email "pggalaviz@gmail.com"\ngit config --global user.name "PGGalaviz"\n"
 echo "That's it!"

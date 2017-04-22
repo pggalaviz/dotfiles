@@ -57,7 +57,6 @@ nmap ga <Plug>(EasyAlign)
 let g:indentLine_setColors = 0
 let g:indentLine_char = '┆'
 let g:indentLine_color_gui = '#74818b'
-let g:table_mode_corner="|"
 
 " airblade/git-gutter
 let g:gitgutter_map_keys = 0
