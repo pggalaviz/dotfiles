@@ -11,8 +11,6 @@ set -x EDITOR nvim
 # override command color
 set -x fish_color_command normal
 
-
-
 #############################
 ##### Personal Settings #####
 #############################
@@ -30,11 +28,14 @@ set PATH $GOROOT/bin $PATH
 # add rbenv to $PATH
 status --is-interactive; and source (rbenv init -|psub)
 
-
-
 #############################
 ##### Functions/Aliases #####
 #############################
+
+#--------------------
+#====> UTILITIES 
+#--------------------
+function cl ; clear ; end
 
 #----------------------------
 #====> DIRECTORY LISTING
@@ -100,7 +101,7 @@ function buse
 end
 # Clean past version(s) of formulae including cache
 function bcl
-	brew cleanup -s ;and brew cask cleanup -s
+	brew cleanup -s ;and brew cask cleanup -s ;and brew prune
 end
 
 #--------------
@@ -124,11 +125,18 @@ function text
 	open -a TextEdit
 end
 # Show/hide 'dotfiles' system wide
-function showall
+function showfiles
 	defaults write com.apple.finder AppleShowAllFiles YES ;and killall Finder
 end
-function hideall
+function hidefiles
 	defaults write com.apple.finder AppleShowAllFiles NO ;and killall Finder
+end
+# Show/hide desktop icons, useful for presentations
+function showicons
+    defaults write com.apple.finder CreateDesktop -bool true ;and killall Finder
+end
+function hideicons
+    defaults write com.apple.finder CreateDesktop -bool false ;and killall Finder
 end
 # Flush dns cache
 function flush
@@ -139,26 +147,36 @@ function dsclean
 	find . -type f -name .DS_Store -print0 | xargs -0 rm
 end
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+#-------------------
+#====> GIT
+#-------------------
+# Git status
+function gs ; git status ; end
+# Git add 
+function ga
+    git add $argv
+end
+# Git commit
+function commit
+    git commit -m $argv
+end
+# Git push
+function gp
+    git push $argv
+end
+# Git Diff
+function gd
+    git diff --color=always
+end
+# Git Branch 
+function gb
+    git branch
+end
+# Git check out 
+function gc
+    git checkout
+end
+# Git pull origin master
+function gpom
+    git pull origin master
+end

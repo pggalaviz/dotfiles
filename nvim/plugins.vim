@@ -87,6 +87,7 @@ Plug 'Shougo/neco-vim', {'for': 'vim'}                          " Vim script com
 Plug 'awetzel/elixir.nvim', { 'do': 'yes \| ./install.sh' }     " Elixir completion
 Plug 'fishbullet/deoplete-ruby', {'for': 'ruby'}                " Ruby completion
 Plug 'ponko2/deoplete-fish', {'for': 'fish'}                    " Fish shell completion
+Plug 'wellle/tmux-complete.vim'                                 " Adjacent tmux panes completion
 
 " Snippets
 Plug 'Shougo/neosnippet.vim'        " Snippets support

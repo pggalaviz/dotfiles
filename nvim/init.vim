@@ -95,6 +95,9 @@ call denite#custom#map(
 " Shougo/deoplete.nvim
 let g:deoplete#enable_at_startup = 1
 
+" wellle/tmux-complete.vim
+let g:tmuxcomplete#trigger = ''
+
 " Shougo/neosnippet
 imap <C-k> <Plug>(neosnippet_expand_or_jump)
 smap <C-k> <Plug>(neosnippet_expand_or_jump)
