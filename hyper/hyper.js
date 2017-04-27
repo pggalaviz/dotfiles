@@ -4,7 +4,7 @@ module.exports = {
     fontSize: 14,
 
     // font family with optional fallbacks
-    fontFamily: 'Source Code Pro Medium, Menlo, "DejaVu Sans Mono", "Lucida Console", monospace',
+    fontFamily: '"Source Code Pro for Powerline", Menlo, "DejaVu Sans Mono", "Lucida Console", monospace',
 
     // terminal cursor background color and opacity (hex, rgb, hsl, hsv, hwb or cmyk)
     cursorColor: '#7F7F7F',
@@ -28,7 +28,7 @@ module.exports = {
     termCSS: '',
 
     // custom padding (css format, i.e.: `top right bottom left`)
-    padding: '5px 5px',
+    padding: '0px 0px 0px 0px',
 
     // the full list. if you're going to provide the full color palette,
     // including the 6 x 6 color cubes and the grayscale map, just provide
@@ -75,6 +75,7 @@ module.exports = {
 
   // list of plugins to fetch and install from npm
   plugins: [
+    'hyper-blink', // Cursor blink
     'hyper-font-smoothing', // anti-aliased fonts
     'hypercwd', // open new tabs in the same cwd as current tab
     'hyperterm-summon', // summon hyperterm, system-wide, with a hotkey
