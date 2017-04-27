@@ -23,6 +23,14 @@ nnoremap <leader>w :w<cr>
 nnoremap <leader>q :q<cr>
 nnoremap <leader>x :wq<cr>
 
+" Make :Q and :W work like :q and :w
+command! W w
+command! Q q
+
+" Insert blank line in normal mode
+nnoremap <leader><cr> o<esc>
+nnoremap <leader><bs> O<esc>
+
 " NO ARROW KEYS COME ON!!!
 noremap <Left>  :echo "no! use h"<cr>
 noremap <Right> :echo "no! use l"<cr>

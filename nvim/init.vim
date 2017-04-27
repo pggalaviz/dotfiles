@@ -13,6 +13,9 @@ function! ConfigInc(module)
     execute 'source ' . fnameescape(g:config_path) . fnameescape(a:module)
 endfunction
 
+" Python 3 is needed for some plugins to work
+let g:python3_host_prog = '/usr/local/bin/python3'
+
 set termguicolors
 
 " -------------------------------------------------------------------------------------------
@@ -98,6 +101,13 @@ let g:deoplete#enable_at_startup = 1
 " wellle/tmux-complete.vim
 let g:tmuxcomplete#trigger = ''
 
+" carlitux/deoplete-ternjs
+let g:tern_request_timeout = 1
+let g:tern_show_signature_in_pum = 1
+
+" zchee/deoplete-go
+let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
+
 " Shougo/neosnippet
 imap <C-k> <Plug>(neosnippet_expand_or_jump)
 smap <C-k> <Plug>(neosnippet_expand_or_jump)
@@ -107,7 +117,7 @@ xmap <C-k> <Plug>(neosnippet_expand_target)
 let g:echodoc_enable_at_startup= 1
 
 " w0rp/ale
-let g:ale_lint_delay = 5000
+let g:ale_lint_delay = 3000
 let g:ale_sign_error = '✖'
 let g:ale_sign_warning = '➤'
 let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']

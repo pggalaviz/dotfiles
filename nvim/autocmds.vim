@@ -8,8 +8,9 @@ autocmd FileType html setlocal shiftwidth=2 softtabstop=2 tabstop=2
 autocmd FileType elixir setlocal shiftwidth=2 softtabstop=2 tabstop=2
 autocmd FileType ruby setlocal shiftwidth=2 softtabstop=2 tabstop=2
 
-" Autodetect tmux and nginx filetypes
-augroup filetypedetect
-  autocmd BufNewFile,BufRead .tmux.conf*,tmux.conf* setf tmux
-  autocmd BufNewFile,BufRead .nginx.conf*,nginx.conf* setf nginx
+" Autodetect some filetypes
+augroup filetype_detect
+    autocmd BufNewFile,BufRead .tmux.conf*,tmux.conf* setf tmux
+    autocmd BufNewFile,BufRead .nginx.conf*,nginx.conf* setf nginx
+    autocmd BufNewFile,BufRead config.ru,Rakefile,Gemfile setf ruby
 augroup END

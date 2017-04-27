@@ -1,0 +1,35 @@
+# editorconfig.org
+root = true
+
+[*]
+indent_style = space
+end_of_line = lf
+charset = utf-8
+trim_trailing_whitespace = true
+insert_final_newline = true
+
+[*.{
+  html,
+  txt,
+  md,
+  erb,
+  rb,
+  yml,
+  ex,
+  exs,
+  eex,
+  css,
+  scss,
+  styl
+}]
+indent_size = 2
+
+[*.{
+  js,
+  es6,
+  json,
+  jsx,
+  go,
+  vue
+}]
+indent_size = 4

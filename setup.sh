@@ -32,13 +32,15 @@ packages=(
 "ruby-build"
 "tmux"
 "yarn"
+"python3"
 )
-echo "Installing basic dependencies & packages with Homebrew... \n"
+echo "Installing basic dependencies & packages with Homebrew, this may take a while... \n"
 for i in "${packages[@]}"
 do
   brew install $i
   echo "---------------------------------------------------------"
 done
+brew upgrade
 brew cleanup -s
 
 #----------------------
@@ -95,6 +97,13 @@ mkdir -p ~/go
 mkdir -p ~/go/bin
 echo "---------------------------------------------------------"
 
+#---------------------------------------------------
+# Downloading Golang utilities, tools & dependencies 
+#---------------------------------------------------
+echo "Downloading Golang utilities, tools & dependencies..."
+go get -u github.com/nsf/gocode
+echo "---------------------------------------------------------"
+
 #-----------------------------
 # Symlink Neovim configuration
 #-----------------------------
@@ -106,6 +115,14 @@ ln -sf `pwd`/nvim/functions.vim ~/.config/nvim/
 ln -sf `pwd`/nvim/autocmds.vim ~/.config/nvim/
 ln -sf `pwd`/nvim/keybindings.vim ~/.config/nvim/
 ln -sf `pwd`/nvim/settings.vim ~/.config/nvim/
+ln -sf `pwd`/nvim/editorconfig ~/.editorconfig
+echo "---------------------------------------------------------"
+
+#-------------------------------------
+# Install/Upgrade Neovim python client 
+#-------------------------------------
+echo "Downloading Neovim python 3 client..."
+pip3 install --upgrade neovim
 echo "---------------------------------------------------------"
 
 #---------------------------------------------
@@ -120,7 +137,9 @@ echo "---------------------------------------------------------"
 # Symlink Tmux configuration
 #---------------------------
 echo "Symlinking Tmux configuration..."
+mkdir -p ~/.tmux
 ln -sf `pwd`/tmux/tmux.conf ~/.tmux.conf
+ln -sf `pwd`/tmux/tmux-status.conf ~/.tmux/
 echo "---------------------------------------------------------"
 
 #--------------------------------------------------------

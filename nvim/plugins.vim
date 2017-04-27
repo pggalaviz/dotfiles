@@ -14,7 +14,7 @@ Plug 'othree/html5.vim', {'for': ['html', 'vue']}           " HTML5 syntax & com
 Plug 'valloric/MatchTagAlways', {'for': ['html', 'vue']}    " Highlights matching tag
 
 " Javascript
-Plug 'othree/yajs.vim', {'for': [ 'javascript', 'jsx', 'vue', 'javascript.jsx' ]}   " Javascript syntax 
+Plug 'othree/yajs.vim', {'for': [ 'javascript', 'jsx', 'vue', 'javascript.jsx' ]}   " Javascript syntax
 Plug 'othree/jspc.vim', {'for': [ 'javascript', 'jsx', 'vue', 'javascript.jsx' ]}   " Javascript parameter completion
 Plug 'moll/vim-node', {'for': [ 'javascript', 'jsx', 'vue', 'javascript.jsx' ]}     " Node tools
 
@@ -72,6 +72,7 @@ Plug 'Shougo/denite.nvim'   " Multiple helpful functions: open files, search, ch
 Plug 'bogado/file-line'             " Open a file on arbitrary line: filename:line
 Plug 'AndrewRadev/switch.vim'       " Quickly switch between patterns
 Plug 'christoomey/vim-tmux-navigator'   " Navigate between Tmux and Vim splits
+Plug 'mtth/scratch.vim'                 " Create scratch buffer for quick notes and todo lists
 
 " -------------------------------------------------------------------------------------------
 " COMPLETION
@@ -88,6 +89,8 @@ Plug 'awetzel/elixir.nvim', { 'do': 'yes \| ./install.sh' }     " Elixir complet
 Plug 'fishbullet/deoplete-ruby', {'for': 'ruby'}                " Ruby completion
 Plug 'ponko2/deoplete-fish', {'for': 'fish'}                    " Fish shell completion
 Plug 'wellle/tmux-complete.vim'                                 " Adjacent tmux panes completion
+Plug 'carlitux/deoplete-ternjs', {'do': 'npm install -g tern', 'for': ['javascript', 'vue', 'jsx']}  " Javascript completion
+Plug 'zchee/deoplete-go', { 'do': 'make', 'for': 'go'}          " Golang completion
 
 " Snippets
 Plug 'Shougo/neosnippet.vim'        " Snippets support

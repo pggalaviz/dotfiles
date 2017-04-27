@@ -39,4 +39,11 @@ endfunction
 
 imap <silent><expr><CR> <SID>cr_deoplete()
 
+" -------------------------------------------------------------------------------------------
 
+" Add semicolon to at the end of a line
+function! AddSemicolon()
+    execute "normal! mqA;\<esc>`q"
+endfunction
+
+nnoremap <leader>as :call AddSemicolon()<cr>

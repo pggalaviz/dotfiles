@@ -1,30 +1,19 @@
 ##############################
 ##### Fish Configuration #####
 ##############################
-
+set fish_greeting
 # set locale
 set -x LANG en_US.UTF-8
-
 # set default editor
 set -x EDITOR nvim
-
 # override command color
 set -x fish_color_command normal
-
-#############################
-##### Personal Settings #####
-#############################
-
 # PATH
-set -x PATH /usr/local/bin  $PATH
-set -x PATH /usr/local/sbin $PATH
-
+test -d /usr/local/bin  ;and set PATH /usr/local/bin  $PATH
+test -d /usr/local/sbin ;and set PATH /usr/local/sbin $PATH
 # Set GO lang path 
-set -x GOPATH $HOME/go
-set -x GOROOT /usr/local/opt/go/libexec
-set PATH $GOPATH/bin $PATH
-set PATH $GOROOT/bin $PATH
-
+test -d $HOME/go ;and set -x GOPATH $HOME/go ;and set PATH $GOPATH/bin $PATH
+test -d /usr/local/opt/go/libexec ;and set -x GOROOT /usr/local/opt/go/libexec ;and set PATH $GOROOT/bin $PATH
 # add rbenv to $PATH
 status --is-interactive; and source (rbenv init -|psub)
 
@@ -35,7 +24,16 @@ status --is-interactive; and source (rbenv init -|psub)
 #--------------------
 #====> UTILITIES 
 #--------------------
+# clear command shortcut
 function cl ; clear ; end
+# Neovim quick configuration 
+function vconfig ; nvim ~/.config/nvim/init.vim ; end
+# Tmux quick configuration
+function tconfig ; nvim ~/.tmux.conf ; end
+# Fish shell quick configuration
+function fconfig ; nvim ~/.config/fish/config.fish ; end
+# Create a new directory and enter it
+function md ; mkdir -p $argv ;and cd $argv ; end
 
 #----------------------------
 #====> DIRECTORY LISTING
@@ -72,36 +70,22 @@ function f ; popd ; end
 #====> HOMEBREW
 #-------------------
 # update & upgrade formulae
-function bup
-    brew update ;and brew upgrade 
-end
+function bup ; brew update ;and brew upgrade ; end
 # install formula
-function bin
-    brew install $argv
-end
+function bin ; brew install $argv ; end
+# List installed formulae with version number(s)
+function bls ; brew list --versions ; end
+# List installed formulae & dependencies in a tree format
+function bdeps ; brew deps --installed --tree ; end
+# List outdated formulae
+function bout ; brew outdated ; end
+# Check if formula is a dependency of another
+function buse ; brew uses --installed $argv ; end
+# Clean past version(s) of formulae including cache
+function bcl ; brew cleanup -s ;and brew cask cleanup -s ;and brew prune ; end
 # uninstall formula including dependencies
 function brm 
 	brew deps $argv | xargs brew remove --ignore-dependencies | brew remove $argv | brew missing | cut -d: -f2 | sort | uniq | xargs brew install
-end
-# List installed formulae with version number(s)
-function bls 
-	brew list --versions
-end
-# List installed formulae & dependencies in a tree format
-function bdeps 
-	brew deps --installed --tree
-end
-# List outdated formulae
-function bout
-	brew outdated
-end
-# Check if formula is a dependency of another
-function buse 
-	brew uses --installed $argv
-end
-# Clean past version(s) of formulae including cache
-function bcl
-	brew cleanup -s ;and brew cask cleanup -s ;and brew prune
 end
 
 #--------------
@@ -109,27 +93,23 @@ end
 #--------------
 
 # Open Google Chrome
-function chrome
-	open -a google\ chrome
-end
+function chrome ; open -a google\ chrome ; end
 # Open Safari
-function safari
-	open -a safari
-end
+function safari ; open -a safari ; end
 # Open current folder in finder
-function fin 
-	open -a Finder .
-end
+function finder ; open -a Finder . ; end
 # Open text editor
-function text 
-	open -a TextEdit
-end
+function text ; open -a TextEdit ; end
+# Flush dns cache
+function flush ; dscacheutil -flushcache ; end
+# Remove .DS_Store files recursively
+function dsclean ; find . -type f -name .DS_Store -print0 | xargs -0 rm ; end
 # Show/hide 'dotfiles' system wide
 function showfiles
-	defaults write com.apple.finder AppleShowAllFiles YES ;and killall Finder
+	defaults write com.apple.finder AppleShowAllFiles -bool true ;and killall Finder
 end
 function hidefiles
-	defaults write com.apple.finder AppleShowAllFiles NO ;and killall Finder
+	defaults write com.apple.finder AppleShowAllFiles -bool false ;and killall Finder
 end
 # Show/hide desktop icons, useful for presentations
 function showicons
@@ -138,14 +118,6 @@ end
 function hideicons
     defaults write com.apple.finder CreateDesktop -bool false ;and killall Finder
 end
-# Flush dns cache
-function flush
-	dscacheutil -flushcache
-end
-# Remove .DS_Store files recursively
-function dsclean
-	find . -type f -name .DS_Store -print0 | xargs -0 rm
-end
 
 #-------------------
 #====> GIT
@@ -153,30 +125,23 @@ end
 # Git status
 function gs ; git status ; end
 # Git add 
-function ga
-    git add $argv
-end
+function ga ; git add $argv ; end
 # Git commit
-function commit
-    git commit -m $argv
-end
+function commit ; git commit -m $argv ; end
 # Git push
-function gp
-    git push $argv
-end
+function gp ; git push $argv ; end
 # Git Diff
-function gd
-    git diff --color=always
-end
+function gd ; git diff --color=always ; end
 # Git Branch 
-function gb
-    git branch
-end
+function gb ; git branch ; end
 # Git check out 
-function gc
-    git checkout
-end
+function gc ; git checkout ; end
 # Git pull origin master
-function gpom
-    git pull origin master
-end
+function gpom ; git pull origin master ; end
+
+#-------------------
+#====> GO LANG 
+#-------------------
+# Fast cd to $GOPATH
+function cdg ; cd $GOPATH ; end
+
