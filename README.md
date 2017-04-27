@@ -56,7 +56,19 @@ And then symlink configuration to the respective paths. Follow the instructions 
 For best UI use **iTerm2**, any 'True color' terminal emulator should work, including **Hyper.js**.
 Color theme is called **Oceanic Next**, and it's configured to work on terminal, tmux and Neovim, there's an **iTerm2** color scheme on the **colors** folder that you can import.
 
-You can install **Elixir** via **Homebrew** or any other method `brew install elixir`.
+In order to fully display UI symbols, you need a 'Powerline patched font', you can download them
+from [https://github.com/powerline/fonts](https://github.com/powerline/fonts), I recomend using
+**Source Code Pro Medium**
 
-You can install almost any version of **Ruby** via **rbenv** `rbenv install **Version**`.
+You can install **Elixir** via **Homebrew** or any other method: `brew install elixir`.
+
+You can install almost any version of **Ruby** via **rbenv**: `rbenv install **Version**`.
+
+### Other
+
+I want to thank [Mark Hartington](https://github.com/mhartington) for his contributions that
+helped as the base to this configuration. 
+
+If you have any questions or just want to chat you can find me on Twitter:
+[@pggalaviz](http://twitter.com/pggalaviz)
 
