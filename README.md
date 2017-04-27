@@ -2,7 +2,7 @@
 
 My personal configuration files for MacOS
 
-##### Contents:
+### Contents:
 
 Includes files for configuring:
 - Fish shell
@@ -12,7 +12,7 @@ Includes files for configuring:
 - Hyper.js Terminal
 - Alacritty Terminal
 
-##### Default config:
+### Default config:
 
 Contains plugins, dependencies and utilities to comfortably work with:
 - Javascript
@@ -23,7 +23,8 @@ Contains plugins, dependencies and utilities to comfortably work with:
 
 But you can always customize it to add or remove stuff as you like.
 
-##### Use it!
+### Use it!
+
 If you like this configuration just clone this repo:
 ```
 $ git clone https://github.com/pggalaviz/dotfiles ~/.dotfiles
@@ -48,7 +49,7 @@ Running `./setup.sh` will install (or update if already installed) several utili
 
 And then symlink configuration to the respective paths. Follow the instructions at the end and you'll be all set.
 
-##### After installing:
+### After installing:
 
 `$GOPATH` will be set to `~/go`
 
