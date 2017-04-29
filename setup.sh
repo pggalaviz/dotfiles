@@ -113,6 +113,13 @@ echo "Downloading Golang utilities, tools & dependencies..."
 go get -u github.com/nsf/gocode
 echo "---------------------------------------------------------"
 
+#---------------------------------------------------
+# Symlink custom ctags 
+#---------------------------------------------------
+echo "Symlinking custom ctags, currently for suporting Elixir..."
+ln -sf `pwd`/ctags ~/.ctags
+echo "---------------------------------------------------------"
+
 #-----------------------------
 # Symlink Neovim configuration
 #-----------------------------

@@ -46,6 +46,9 @@ Running `./setup.sh` will install (or update if already installed) several utili
 - Rbenv
 - Ruby-build
 - gocode
+- tree
+- The silver searcher (ag)
+- Universal ctags
 
 And then symlink configuration to the respective paths. Follow the instructions at the end and you'll be all set.
 
