@@ -18,7 +18,7 @@ function! s:tab_deoplete()
     return "\<Tab>"
 endfunction
 
-imap <silent><expr><TAB> <SID>tab_deoplete()
+inoremap <silent><expr><TAB> <SID>tab_deoplete()
 
 " -------------------------------------------------------------------------------------------
 
@@ -33,11 +33,11 @@ function! s:cr_deoplete()
         " If no snippet close popup with selection
         return deoplete#close_popup()
     endif
-    " Else, return normal <CR>
-    return "\<CR>"
+    " Else, map to doorboy for correct usage 
+    return doorboy#map_cr()
 endfunction
 
-imap <silent><expr><CR> <SID>cr_deoplete()
+inoremap <silent><expr><CR> <SID>cr_deoplete()
 
 " -------------------------------------------------------------------------------------------
 
@@ -47,3 +47,14 @@ function! AddSemicolon()
 endfunction
 
 nnoremap <leader>as :call AddSemicolon()<cr>
+
+" -------------------------------------------------------------------------------------------
+
+" Deactivate Deoplete when Multiple Cursors are enabled
+function! Multiple_cursors_before()
+    let b:deoplete_disable_auto_complete = 2 
+endfunction
+function! Multiple_cursors_after() abort
+    let b:deoplete_disable_auto_complete = 0
+endfunction
+

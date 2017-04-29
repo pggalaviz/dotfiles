@@ -8,6 +8,9 @@ noremap H ^
 noremap L g_
 noremap J 5j
 noremap K 5k
+" Make cursor move by visual lines instead of file lines (when wrapping)
+noremap k gk
+noremap j gj
 
 " Buffer Navigation
 nnoremap <leader>. :bn!<cr>
@@ -17,6 +20,14 @@ nnoremap <leader>- :enew<cr>
 
 " I have a Spanish lang keyboard, so no need of '<shift>.' for ':'
 noremap . :
+
+" upper/lower word
+nnoremap <leader>u mQviwU`Q
+nnoremap <leader>l mQviwu`Q
+
+" upper/lower first char of word
+nnoremap <leader>U mQgewvU`Q
+nnoremap <leader>L mQgewvu`Q
 
 " Easy save & quit
 nnoremap <leader>w :w<cr>
@@ -67,8 +78,9 @@ imap jk <Esc>
 " Switch between the last two files
 noremap <leader>m <c-^>
 
-" Reload configuration
-map <leader>r :source %<cr>
+" Reload & easy edit Neovim configuration
+nnoremap <leader>r :source ~/.config/nvim/init.vim<cr>
+nnoremap <leader>e :e ~/.config/nvim/init.vim<cr>
 
 " Open a terminal buffer
 nnoremap <leader>t :terminal<cr>

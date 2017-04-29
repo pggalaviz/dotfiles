@@ -5,6 +5,7 @@ set fish_greeting
 # set locale
 set -x LANG en_US.UTF-8
 set -x LC_ALL en_US.UTF-8
+set -x LC_CTYPE en_US.UTF-8
 # set default editor
 set -x EDITOR nvim
 # override command color
@@ -51,6 +52,8 @@ function ll ;  ls -al ; end
 #-----------------
 # open neovim
 function v ; nvim $argv ; end
+# open neovim
+function vi ; nvim $argv ; end
 # always open neovim & not vim
 function vim ; nvim $argv ; end
 
@@ -86,7 +89,7 @@ function buse ; brew uses --installed $argv ; end
 function bcl ; brew cleanup -s ;and brew cask cleanup -s ;and brew prune ; end
 # uninstall formula including dependencies
 function brm 
-	brew deps $argv | xargs brew remove --ignore-dependencies | brew remove $argv | brew missing | cut -d: -f2 | sort | uniq | xargs brew install
+    brew deps $argv | xargs brew remove --ignore-dependencies | brew remove $argv | brew missing | cut -d: -f2 | sort | uniq | xargs brew install
 end
 
 #--------------
@@ -125,24 +128,34 @@ end
 #-------------------
 # Git status
 function gs ; git status ; end
+# Git log 
+function gl ; git log ; end
 # Git add 
 function ga ; git add $argv ; end
-# Git commit
-function commit ; git commit -m $argv ; end
-# Git push
-function gp ; git push $argv ; end
 # Git Diff
 function gd ; git diff --color=always ; end
 # Git Branch 
 function gb ; git branch ; end
 # Git check out 
 function gc ; git checkout ; end
+# Git pull 
+function gp ; git pull ; end
 # Git pull origin master
 function gpom ; git pull origin master ; end
+# Git commit
+function commit ; git commit -m $argv ; end
+# Git push
+function push ; git push $argv ; end
 
-#-------------------
+#------------------
 #====> GO LANG 
-#-------------------
+#------------------
 # Fast cd to $GOPATH
 function cdg ; cd $GOPATH ; end
+    
+#----------------
+#====> OTHER 
+#----------------
+# Tree always with color
+function tc ; tree -C ; end
 

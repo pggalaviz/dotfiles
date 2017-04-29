@@ -1,9 +1,9 @@
 scriptencoding utf-8
+set encoding=utf-8
 
 " Use full Vim features
-if &compatible
-    set nocompatible      " Be iMproved
-endif
+set nocompatible    " Important
+filetype off        " Imporant
 
 " Config file path
 let g:config_path = "~/.config/nvim/"
@@ -30,8 +30,16 @@ call ConfigInc('settings.vim')
 
 call ConfigInc('plugins.vim')
 
+" Map vim-plug functions
+nnoremap <C-i> :PlugInstall<cr>
+nnoremap <C-u> :PlugUpdate<cr>
+nnoremap <C-c> :PlugClean<cr>
+
 " elzr/vim-json
 let g:vim_json_syntax_conceal = 0
+
+" slashmili/alchemist.vim
+let g:alchemist_tag_disable = 1 "Use Universal ctags instead
 
 " mattn/emmet-vim
 let g:user_emmet_mode='a'
@@ -70,14 +78,6 @@ let g:NERDTreeShowHidden = 1
 let g:NERDTreeCascadeOpenSingleChildDir = 1
 let g:NERDTreeQuitOnOpen = 1
 
-" christoomey/vim-tmux-navigator
-let g:tmux_navigator_no_mappings = 1
-noremap <silent> <BS> :TmuxNavigateLeft<cr>
-noremap <silent> <C-j> :TmuxNavigateDown<cr>
-noremap <silent> <C-k> :TmuxNavigateUp<cr>
-noremap <silent> <C-l> :TmuxNavigateRight<cr>
-noremap <silent> <C-p> :TmuxNavigatePrevious<cr>
-
 " Shougo/denite.nvim
 noremap <leader>b :Denite buffer<cr>
 noremap <leader>p :Denite file_rec<cr>
@@ -94,6 +94,21 @@ call denite#custom#map(
     \ '<denite:move_to_previous_line>',
     \ 'noremap'
     \)
+
+" AndrewRadev/switch.vim
+noremap <leader>s :Switch<cr> 
+
+" christoomey/vim-tmux-navigator
+let g:tmux_navigator_no_mappings = 1
+noremap <silent> <BS> :TmuxNavigateLeft<cr>
+noremap <silent> <C-j> :TmuxNavigateDown<cr>
+noremap <silent> <C-k> :TmuxNavigateUp<cr>
+noremap <silent> <C-l> :TmuxNavigateRight<cr>
+noremap <silent> <C-p> :TmuxNavigatePrevious<cr>
+
+" ludovicchabant/vim-gutentags
+let g:gutentags_cache_dir = '~/.ctags_cache'
+set statusline+=%{gutentags#statusline('[Generating\ ctags...]')}
 
 " Shougo/deoplete.nvim
 let g:deoplete#enable_at_startup = 1
@@ -119,7 +134,7 @@ let g:echodoc_enable_at_startup= 1
 " w0rp/ale
 let g:ale_lint_delay = 3000
 let g:ale_sign_error = '✖'
-let g:ale_sign_warning = '➤'
+let g:ale_sign_warning = '⚠'
 let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
 let g:ale_echo_msg_error_str = 'E'
 let g:ale_echo_msg_warning_str = 'W'
@@ -137,6 +152,11 @@ let g:airline_branch_prefix = '⎇ '
 let g:airline_skip_empty_sections = 1
 let g:airline_theme='oceanicnext'
 let g:airline#extensions#ale#enabled = 1
+
+" Load these after plugins, it's important
+filetype plugin indent on                       " Enable full filetype detection
+syntax on                                       " Syntax highlighting on
+syntax enable                                   " Syntax highlighting on
 
 " -------------------------------------------------------------------------------------------
 "  FUNCTIONS

@@ -11,7 +11,7 @@ function _git_status_symbol
       echo '#' # all staged
     end
   else
-    echo    '' # clean
+    echo   '' # clean
   end
 end
 

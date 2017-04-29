@@ -27,7 +27,7 @@ But you can always customize it to add or remove stuff as you like.
 
 If you like this configuration just clone this repo:
 ```
-$ git clone https://github.com/pggalaviz/dotfiles ~/.dotfiles
+$ git clone https://github.com/pggalaviz/dotfiles.git ~/.dotfiles
 ```
 then run:
 ```

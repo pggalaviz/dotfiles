@@ -26,13 +26,16 @@ packages=(
 "node"
 "fish"
 "hyper"
-"neovim"
+"neovim/neovim/neovim"
 "go"
 "rbenv"
 "ruby-build"
 "tmux"
 "yarn"
 "python3"
+"tree"
+"the_silver_searcher"
+"reattach-to-user-namespace"
 )
 echo "Installing basic dependencies & packages with Homebrew, this may take a while... \n"
 for i in "${packages[@]}"
@@ -40,6 +43,10 @@ do
   brew install $i
   echo "---------------------------------------------------------"
 done
+# Universal ctags is not currently on Homebrew repo, need to tap.
+brew tap universal-ctags/universal-ctags
+brew install --HEAD universal-ctags
+echo "---------------------------------------------------------"
 brew upgrade
 brew cleanup -s
 
@@ -51,14 +58,16 @@ if [ -f "$localGit" ]
 then
   echo "GIT is correclty installed..."
 else
-  echo "GIT is not installed..."
+  echo "UPS!"
+  echo "Can't find a GIT installation! Please install it then you can rerun this script."
+  exit 2
 fi
 echo "---------------------------------------------------------"
 
 # ------------------------------------------
 # Change to the fish shell (optional to zsh)
 # ------------------------------------------
-echo "Changing to fish shell... \n"
+echo "Changing to fish shell... Might require password.\n"
 chsh -s $(which fish)
 echo "\nRestart your terminal so any changes take effect."
 echo "---------------------------------------------------------"
@@ -121,7 +130,7 @@ echo "---------------------------------------------------------"
 #-------------------------------------
 # Install/Upgrade Neovim python client 
 #-------------------------------------
-echo "Downloading Neovim python 3 client..."
+echo "Downloading Neovim python 3 client... \n"
 pip3 install --upgrade neovim
 echo "---------------------------------------------------------"
 

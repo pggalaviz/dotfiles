@@ -6,13 +6,9 @@
 " Remap leader (Use space as leader)
 let g:mapleader = ' '
 noremap <Space> <Nop>
-  
+
 " Global Settings
-filetype plugin indent on                       " Enable full filetype detection
-syntax on                                       " Syntax highlighting on
-syntax enable                                   " Syntax highlighting on
 set synmaxcol=1000                              " Don't syntax highlight long lines
-set encoding=utf-8                              " Use utf-8
 set title                                       " Let Vim set window title
 set hidden                                      " Put current buffer to background without saving
 set autochdir                                   " Change dir to file on current window
@@ -40,8 +36,21 @@ set noswapfile                                  " No swapfile for buffer
 set nobackup                                    " Don't create annoying backup files
 set confirm                                     " Ask for confirmation if unsaved file
 
-" Command Line
+" Completion
 set wildmenu                                    " Menu for command line completion using <TAB>
+set wildignore+=*.zip,*.tar*,*.rar              " Ignore archive files
+set wildignore+=*.png,*.jpg,*.jpeg,*.gif        " Ignore images
+set wildignore+=*.pdf                           " Ignore several files and directories
+set wildignore+=*DS_Store*
+set wildignore+=*yarn.lock*
+set wildignore+=*/.git/*
+set wildignore+=*/.bundle/*
+set wildignore+=*/.sass-cache/*
+set wildignore+=*/node_modules/*
+set wildignore+=*/build/*
+set wildignore+=*/lib/* 
+set wildignore+=*/log/* 
+set wildignore+=*/tmp/* 
 
 " Tabs/Spaces
 set autoindent                                  " Auto indent
@@ -66,7 +75,7 @@ set ignorecase                                  " Ignore case in matching
 set smartcase                                   " Match capitals in search
 
 " Other
-set completeopt=menu                            " Shows completions in popup
+set completeopt+=noselect                       " Shows completions in popup
 set visualbell                                  " Don't beep
 set noerrorbells                                " Don't beep
 set iskeyword+=-,_                              " Consider - and _ part of a word

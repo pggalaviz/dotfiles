@@ -73,6 +73,8 @@ Plug 'bogado/file-line'             " Open a file on arbitrary line: filename:li
 Plug 'AndrewRadev/switch.vim'       " Quickly switch between patterns
 Plug 'christoomey/vim-tmux-navigator'   " Navigate between Tmux and Vim splits
 Plug 'mtth/scratch.vim'                 " Create scratch buffer for quick notes and todo lists
+Plug 'ludovicchabant/vim-gutentags'     " ctags all the way!!!
+Plug 'terryma/vim-multiple-cursors'     " Multiple cursors like Sublime Text's
 
 " -------------------------------------------------------------------------------------------
 " COMPLETION
