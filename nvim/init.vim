@@ -107,8 +107,36 @@ noremap <silent> <C-l> :TmuxNavigateRight<cr>
 noremap <silent> <C-p> :TmuxNavigatePrevious<cr>
 
 " ludovicchabant/vim-gutentags
-let g:gutentags_cache_dir = '~/.ctags_cache'
 set statusline+=%{gutentags#statusline('[Generating\ ctags...]')}
+let g:gutentags_cache_dir = '~/.ctags_cache'
+let g:gutentags_exclude = [
+        \".git","node_modules",
+        \"log","vendor",
+        \"build",".vim",
+        \"tmp","temp",
+        \".min.js","assets",
+        \".gbim"
+        \]
+
+" majutsushi/tagbar
+nnoremap <F6> :TagbarToggle<CR>
+let g:tagbar_type_elixir = {
+    \ 'ctagstype' : 'elixir',
+    \ 'kinds' : [
+        \ 'f:functions',
+        \ 'functions:functions',
+        \ 'c:callbacks',
+        \ 'd:delegates',
+        \ 'e:exceptions',
+        \ 'i:implementations',
+        \ 'a:macros',
+        \ 'o:operators',
+        \ 'm:modules',
+        \ 'p:protocols',
+        \ 'r:records',
+        \ 't:tests'
+    \ ]
+\ }
 
 " Shougo/deoplete.nvim
 let g:deoplete#enable_at_startup = 1

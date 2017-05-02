@@ -18,6 +18,8 @@ test -d $HOME/go ;and set -x GOPATH $HOME/go ;and set PATH $GOPATH/bin $PATH
 test -d /usr/local/opt/go/libexec ;and set -x GOROOT /usr/local/opt/go/libexec ;and set PATH $GOROOT/bin $PATH
 # add rbenv to $PATH
 status --is-interactive; and source (rbenv init -|psub)
+# Need this to expose global packages installed via yarn
+test -d $HOME/.config/yarn/global/node_modules/.bin ;and set PATH $HOME/.config/yarn/global/node_modules/.bin $PATH
 
 #############################
 ##### Functions/Aliases #####
