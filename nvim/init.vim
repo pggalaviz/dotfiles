@@ -17,6 +17,8 @@ endfunction
 let g:python3_host_prog = '/usr/local/bin/python3'
 
 set termguicolors
+" I like block cursor always blinking
+set guicursor=a:block-blinkwait100-blinkoff150-blinkon175
 
 " -------------------------------------------------------------------------------------------
 "  SETTINGS
@@ -31,7 +33,7 @@ call ConfigInc('settings.vim')
 call ConfigInc('plugins.vim')
 
 " Map vim-plug functions
-nnoremap <C-i> :PlugInstall<cr>
+" nnoremap <C-i> :PlugInstall<cr>
 nnoremap <C-u> :PlugUpdate<cr>
 nnoremap <C-c> :PlugClean<cr>
 
@@ -82,6 +84,8 @@ let g:NERDTreeQuitOnOpen = 1
 noremap <leader>b :Denite buffer<cr>
 noremap <leader>p :Denite file_rec<cr>
 call denite#custom#option('default', 'prompt', '❯')
+call denite#custom#option('default', 'vertical_preview', 1)
+call denite#custom#option('default', 'short_source_names', 1)
 call denite#custom#map(
     \ 'insert',
     \ '<C-n>',
@@ -94,9 +98,20 @@ call denite#custom#map(
     \ '<denite:move_to_previous_line>',
     \ 'noremap'
     \)
+if executable('ag')
+    " The silver searcher
+    call denite#custom#var('file_rec', 'command', ['ag', '--follow', '--nocolor', '--nogroup', '-g', ''])
+    " Grep
+    call denite#custom#var('grep', 'command', ['ag'])
+	call denite#custom#var('grep', 'recursive_opts', [])
+	call denite#custom#var('grep', 'pattern_opt', [])
+	call denite#custom#var('grep', 'separator', ['--'])
+	call denite#custom#var('grep', 'final_opts', [])
+	call denite#custom#var('grep', 'default_opts', ['--vimgrep', '--smart-case'])
+endif
 
 " AndrewRadev/switch.vim
-noremap <leader>s :Switch<cr> 
+noremap <leader>s :Switch<cr>
 
 " christoomey/vim-tmux-navigator
 let g:tmux_navigator_no_mappings = 1
@@ -109,17 +124,18 @@ noremap <silent> <C-p> :TmuxNavigatePrevious<cr>
 " ludovicchabant/vim-gutentags
 set statusline+=%{gutentags#statusline('[Generating\ ctags...]')}
 let g:gutentags_cache_dir = '~/.ctags_cache'
-let g:gutentags_exclude = [
-        \".git","node_modules",
-        \"log","vendor",
-        \"build",".vim",
-        \"tmp","temp",
-        \".min.js","assets",
-        \".gbim"
-        \]
+let g:gutentags_ctags_exclude = [
+    \".git","node_modules",
+    \"log","vendor",
+    \"build",".vim",
+    \"tmp","temp",
+    \".min.js","assets",
+    \".gbim"
+    \]
 
 " majutsushi/tagbar
 nnoremap <F6> :TagbarToggle<CR>
+let g:tagbar_ctags_bin='/usr/local/bin/ctags' 
 let g:tagbar_type_elixir = {
     \ 'ctagstype' : 'elixir',
     \ 'kinds' : [
@@ -181,7 +197,7 @@ let g:airline_skip_empty_sections = 1
 let g:airline_theme='oceanicnext'
 let g:airline#extensions#ale#enabled = 1
 
-" Load these after plugins, it's important
+" Call these after plugins
 filetype plugin indent on                       " Enable full filetype detection
 syntax on                                       " Syntax highlighting on
 syntax enable                                   " Syntax highlighting on

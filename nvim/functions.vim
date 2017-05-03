@@ -18,7 +18,7 @@ function! s:tab_deoplete()
     return "\<Tab>"
 endfunction
 
-inoremap <silent><expr><TAB> <SID>tab_deoplete()
+imap <silent><expr><TAB> <SID>tab_deoplete()
 
 " -------------------------------------------------------------------------------------------
 
@@ -37,7 +37,7 @@ function! s:cr_deoplete()
     return doorboy#map_cr()
 endfunction
 
-inoremap <silent><expr><CR> <SID>cr_deoplete()
+imap <silent><expr><CR> <SID>cr_deoplete()
 
 " -------------------------------------------------------------------------------------------
 
@@ -46,7 +46,7 @@ function! AddSemicolon()
     execute "normal! mqA;\<esc>`q"
 endfunction
 
-nnoremap <leader>as :call AddSemicolon()<cr>
+nmap <leader>as :call AddSemicolon()<cr>
 
 " -------------------------------------------------------------------------------------------
 
@@ -57,4 +57,5 @@ endfunction
 function! Multiple_cursors_after() abort
     let b:deoplete_disable_auto_complete = 0
 endfunction
+
 

@@ -8,10 +8,10 @@ let g:mapleader = ' '
 noremap <Space> <Nop>
 
 " Global Settings
-set synmaxcol=1000                              " Don't syntax highlight long lines
 set title                                       " Let Vim set window title
 set hidden                                      " Put current buffer to background without saving
 set autochdir                                   " Change dir to file on current window
+set synmaxcol=1000                              " Don't syntax highlight long lines
 
 " Positioning
 set number                                      " Set line number

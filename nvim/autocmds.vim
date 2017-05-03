@@ -16,3 +16,4 @@ augroup filetype_detect
     autocmd BufNewFile,BufRead .nginx.conf*,nginx.conf* setf nginx
     autocmd BufNewFile,BufRead Procfile,config.ru,Rakefile,Gemfile setf ruby
 augroup END
+

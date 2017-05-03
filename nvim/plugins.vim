@@ -87,11 +87,11 @@ Plug 'Shougo/context_filetype.vim'                              " Filetype conte
 Plug 'Shougo/neoinclude.vim'                                    " Include completion framework
 
 " Deoplete filetype sources
+Plug 'wellle/tmux-complete.vim'                                 " Adjacent tmux panes completion
 Plug 'Shougo/neco-vim', {'for': 'vim'}                          " Vim script completion
 Plug 'awetzel/elixir.nvim', { 'do': 'yes \| ./install.sh' }     " Elixir completion
 Plug 'fishbullet/deoplete-ruby', {'for': 'ruby'}                " Ruby completion
 Plug 'ponko2/deoplete-fish', {'for': 'fish'}                    " Fish shell completion
-Plug 'wellle/tmux-complete.vim'                                 " Adjacent tmux panes completion
 Plug 'carlitux/deoplete-ternjs', {'do': 'npm install -g tern', 'for': ['javascript', 'vue', 'jsx']}  " Javascript completion
 Plug 'zchee/deoplete-go', { 'do': 'make', 'for': 'go'}          " Golang completion
 
