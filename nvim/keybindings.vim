@@ -59,6 +59,9 @@ nnoremap <silent> <Leader>cd :cd %:p:h<CR>:pwd<CR>
 " No Ex mode
 nnoremap Q <nop>
 
+" Make 'dot' work as expected in visual mode
+vnoremap . :norm.<cr>
+
 " Clear the search buffer when hitting ESC
 map <silent> <esc> :nohlsearch<cr>
 

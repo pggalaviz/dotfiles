@@ -32,6 +32,9 @@ set mouse=n                                     " Use basic mouse for changing w
 set clipboard+=unnamedplus                      " Yank and paste with the system clipboard
 set pumheight=10                                " Completion window max height
 set numberwidth=2                               " Keep line number gutter cozy
+set list                                        " Set list
+set listchars=tab:→\ ,trail:·,nbsp:␣            " Display tabs and trailing spaces
+set conceallevel=2
 
 " Files
 set autowrite                                   " Autosave before :next, :make, etc.

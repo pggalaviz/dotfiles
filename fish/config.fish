@@ -13,7 +13,7 @@ set -x fish_color_command normal
 # PATH
 test -d /usr/local/bin  ;and set PATH /usr/local/bin  $PATH
 test -d /usr/local/sbin ;and set PATH /usr/local/sbin $PATH
-# Set GO lang path 
+# Set GO lang path
 test -d $HOME/go ;and set -x GOPATH $HOME/go ;and set PATH $GOPATH/bin $PATH
 test -d /usr/local/opt/go/libexec ;and set -x GOROOT /usr/local/opt/go/libexec ;and set PATH $GOROOT/bin $PATH
 # add rbenv to $PATH
@@ -26,11 +26,11 @@ test -d $HOME/.config/yarn/global/node_modules/.bin ;and set PATH $HOME/.config/
 #############################
 
 #--------------------
-#====> UTILITIES 
+#====> UTILITIES
 #--------------------
 # clear command shortcut
 function cl ; clear ; end
-# Neovim quick configuration 
+# Neovim quick configuration
 function vconfig ; nvim ~/.config/nvim/init.vim ; end
 # Tmux quick configuration
 function tconfig ; nvim ~/.tmux.conf ; end
@@ -90,7 +90,7 @@ function buse ; brew uses --installed $argv ; end
 # Clean past version(s) of formulae including cache
 function bcl ; brew cleanup -s ;and brew cask cleanup -s ;and brew prune ; end
 # uninstall formula including dependencies
-function brm 
+function brm
     brew deps $argv | xargs brew remove --ignore-dependencies | brew remove $argv | brew missing | cut -d: -f2 | sort | uniq | xargs brew install
 end
 
@@ -112,10 +112,10 @@ function flush ; dscacheutil -flushcache ; end
 function dsclean ; find . -type f -name .DS_Store -print0 | xargs -0 rm ; end
 # Show/hide 'dotfiles' system wide
 function showfiles
-	defaults write com.apple.finder AppleShowAllFiles -bool true ;and killall Finder
+    defaults write com.apple.finder AppleShowAllFiles -bool true ;and killall Finder
 end
 function hidefiles
-	defaults write com.apple.finder AppleShowAllFiles -bool false ;and killall Finder
+    defaults write com.apple.finder AppleShowAllFiles -bool false ;and killall Finder
 end
 # Show/hide desktop icons, useful for presentations
 function showicons
@@ -130,17 +130,17 @@ end
 #-------------------
 # Git status
 function gs ; git status ; end
-# Git log 
+# Git log
 function gl ; git log ; end
-# Git add 
+# Git add
 function ga ; git add $argv ; end
 # Git Diff
 function gd ; git diff --color=always ; end
-# Git Branch 
+# Git Branch
 function gb ; git branch ; end
-# Git check out 
+# Git check out
 function gc ; git checkout ; end
-# Git pull 
+# Git pull
 function gp ; git pull ; end
 # Git pull origin master
 function gpom ; git pull origin master ; end
@@ -150,13 +150,13 @@ function commit ; git commit -m $argv ; end
 function push ; git push $argv ; end
 
 #------------------
-#====> GO LANG 
+#====> GO LANG
 #------------------
 # Fast cd to $GOPATH
 function cdg ; cd $GOPATH ; end
-    
+
 #----------------
-#====> OTHER 
+#====> OTHER
 #----------------
 # Tree always with color
 function tc ; tree -C ; end

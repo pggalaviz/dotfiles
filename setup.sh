@@ -104,21 +104,14 @@ echo "Symlinking Hyper.js configuration..."
 ln -sf `pwd`/hyper/hyper.js ~/.hyper.js
 echo "---------------------------------------------------------"
 
-#--------------------------------
-# Symlink Alacritty configuration
-#--------------------------------
-echo "Symlinking Alacritty configuration..."
-mkdir -p ~/.config/alacritty
-ln -sf `pwd`/alacritty/alacritty.yml ~/.config/alacritty/
-ln -sf `pwd`/alacritty/alacritty_macos.yml ~/.config/alacritty/
-echo "---------------------------------------------------------"
-
 #-------------------------------------------
 # Create Golang path folders if not existent
 #-------------------------------------------
 echo "Creating Golang path folders if not existent..."
 mkdir -p ~/go
 mkdir -p ~/go/bin
+mkdir -p ~/go/src
+mkdir -p ~/go/pkg
 echo "---------------------------------------------------------"
 
 #---------------------------------------------------

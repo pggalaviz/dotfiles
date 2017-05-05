@@ -2,7 +2,7 @@ scriptencoding utf-8
 set encoding=utf-8
 
 " Use full Vim features
-set nocompatible    " Important
+set nocompatible
 
 " Config file path
 let g:config_path = "~/.config/nvim/"
@@ -85,13 +85,13 @@ let g:indentLine_color_gui = '#74818b'
 nnoremap <silent> gJ :<C-u>SplitjoinJoin<cr>
 nnoremap <silent> gS :<C-u>SplitjoinSplit<cr>
 
-" airblade/git-gutter
+" airblade/vim-gitgutter
 " ==================================
 let g:gitgutter_map_keys = 0
 
 " scrooloose/nerdtree
 " ==================================
-map <leader>n :NERDTreeToggle<cr>   " Open/Close NERDTree
+map <leader>n :NERDTreeToggle<cr>
 let g:NERDTreeShowHidden = 1
 let g:NERDTreeCascadeOpenSingleChildDir = 1
 let g:NERDTreeQuitOnOpen = 1
@@ -120,7 +120,7 @@ call denite#custom#map(
             \ 'noremap'
             \)
 if executable('rg')
-    " The silver searcher
+    " Use RipGrep
     call denite#custom#var('file_rec', 'command', ['rg', '--files', '--glob', '!.git', ''])
     " Grep
     call denite#custom#var('grep', 'command', ['rg'])
@@ -240,7 +240,7 @@ xmap <C-k> <Plug>(neosnippet_expand_target)
 
 " Shougo/echodoc.vim
 " ==================================
-let g:echodoc_enable_at_startup= 1
+let g:echodoc#enable_at_startup = 1
 
 " w0rp/ale
 " ==================================

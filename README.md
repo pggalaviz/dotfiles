@@ -8,9 +8,8 @@ Includes files for configuring:
 - Fish shell
 - iTerm2
 - Neovim
-- Tmux 
+- Tmux
 - Hyper.js Terminal
-- Alacritty Terminal
 
 ### Default config:
 
@@ -19,7 +18,7 @@ Contains plugins, dependencies and utilities to comfortably work with:
 - Elixir
 - Go
 - Ruby
-- HTML/CSS/SCSS/Stylus
+- HTML/css/scss/stylus
 
 But you can always customize it to add or remove stuff as you like.
 
@@ -33,7 +32,7 @@ then run:
 ```
 cd ~/.dotfiles && ./setup.sh
 ```
-Running `./setup.sh` will install (or update if already installed) several utilities and dependencies, via **Homebrew** (will install it if not found) and other methods, including: 
+Running `./setup.sh` will install (or update if already installed) several utilities and dependencies, via **Homebrew** (will install it if not found) and other methods, including:
 - Node.js
 - Git
 - Fish shell
@@ -47,7 +46,7 @@ Running `./setup.sh` will install (or update if already installed) several utili
 - Ruby-build
 - gocode
 - tree
-- The silver searcher (ag)
+- Ripgrep
 - Universal ctags
 
 And then symlink configuration to the respective paths. Follow the instructions at the end and you'll be all set.
@@ -70,7 +69,7 @@ You can install almost any version of **Ruby** via **rbenv**: `rbenv install **V
 ### Other
 
 I want to thank [Mark Hartington](https://github.com/mhartington) for his contributions that
-helped as the base to this configuration. 
+helped as the base to this configuration.
 
 If you have any questions or just want to chat you can find me on Twitter:
 [@pggalaviz](http://twitter.com/pggalaviz)
