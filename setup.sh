@@ -3,6 +3,7 @@
 echo "---------------------------------------------------------"
 echo "INITIALIZING..."
 echo "---------------------------------------------------------"
+
 #--------------------------------------
 # Install brew if not on current system
 #--------------------------------------
@@ -21,12 +22,23 @@ fi
 #-----------------------------------------
 # Install some basic packages/dependencies
 #-----------------------------------------
+taps=(
+"burntsushi/ripgrep https://github.com/BurntSushi/ripgrep.git"
+"neovim/neovim"
+"universal-ctags/universal-ctags"
+)
+echo "Brew tapping dependencies & packages... \n"
+for i in "${taps[@]}"
+do
+  brew tap $i
+done
+echo "---------------------------------------------------------"
+
 packages=(
 "git"
 "node"
 "fish"
 "hyper"
-"neovim/neovim/neovim"
 "go"
 "rbenv"
 "ruby-build"
@@ -34,8 +46,10 @@ packages=(
 "yarn"
 "python3"
 "tree"
-"the_silver_searcher"
 "reattach-to-user-namespace"
+"burntsushi/ripgrep/ripgrep-bin"
+"neovim/neovim/neovim"
+"--HEAD universal-ctags"
 )
 echo "Installing basic dependencies & packages with Homebrew, this may take a while... \n"
 for i in "${packages[@]}"
@@ -43,12 +57,13 @@ do
   brew install $i
   echo "---------------------------------------------------------"
 done
-# Universal ctags is not currently on Homebrew repo, need to tap.
-brew tap universal-ctags/universal-ctags
-brew install --HEAD universal-ctags
-echo "---------------------------------------------------------"
+
+echo "Upgrading packages versions..."
 brew upgrade
+echo "---------------------------------------------------------"
+echo "Deleting older packages versions and cache..."
 brew cleanup -s
+echo "---------------------------------------------------------"
 
 #----------------------
 # Check for a local GIT
@@ -99,7 +114,7 @@ ln -sf `pwd`/alacritty/alacritty_macos.yml ~/.config/alacritty/
 echo "---------------------------------------------------------"
 
 #-------------------------------------------
-# Create Golang path folders if not existent 
+# Create Golang path folders if not existent
 #-------------------------------------------
 echo "Creating Golang path folders if not existent..."
 mkdir -p ~/go
@@ -107,14 +122,14 @@ mkdir -p ~/go/bin
 echo "---------------------------------------------------------"
 
 #---------------------------------------------------
-# Downloading Golang utilities, tools & dependencies 
+# Downloading Golang utilities, tools & dependencies
 #---------------------------------------------------
 echo "Downloading Golang utilities, tools & dependencies..."
 go get -u github.com/nsf/gocode
 echo "---------------------------------------------------------"
 
 #---------------------------------------------------
-# Symlink custom ctags 
+# Symlink custom ctags
 #---------------------------------------------------
 echo "Symlinking custom ctags, currently for suporting Elixir..."
 ln -sf `pwd`/ctags ~/.ctags
@@ -135,7 +150,7 @@ ln -sf `pwd`/nvim/editorconfig ~/.editorconfig
 echo "---------------------------------------------------------"
 
 #-------------------------------------
-# Install/Upgrade Neovim python client 
+# Install/Upgrade Neovim python client
 #-------------------------------------
 echo "Downloading Neovim python 3 client... \n"
 pip3 install --upgrade neovim
@@ -159,7 +174,7 @@ ln -sf `pwd`/tmux/tmux-status.conf ~/.tmux/
 echo "---------------------------------------------------------"
 
 #--------------------------------------------------------
-# Check if Tmux plugin manager already exists or clone it 
+# Check if Tmux plugin manager already exists or clone it
 #--------------------------------------------------------
 tmuxPlugin="$HOME/.tmux/plugins/tpm"
 if [ -d "$tmuxPlugin" ]
@@ -171,12 +186,19 @@ else
 fi
 echo "---------------------------------------------------------"
 
+#--------------------------------------
+# Installing/Updating Neovim plugins...
+#--------------------------------------
+echo "Installing/Updating Neovim plugins..."
+nvim +PlugInstall +PlugUpdate +qa
+echo "---------------------------------------------------------"
+
 echo "All done here..."
 echo "Time for some manual stuff, sorry!\n"
-echo "=> Neovim"
-echo "To install the nvim plugins, open up nvim and type ':PlugInstall'\n"
+# echo "=> Neovim"
+# echo "To install the nvim plugins, open up nvim and type ':PlugInstall'\n"
 echo "=> Tmux"
-echo "To install tmux plugins type 'prefix' + 'I', or 'prefix' + 'U' to update them.\n"
+echo "To install tmux plugins, open tmux, type prefix (<Ctrl> + <space>) + 'I', or 'prefix' + 'U' to update them.\n"
 echo "=> git"
 echo "Setup your git config:\ngit config --global user.email "pggalaviz@gmail.com"\ngit config --global user.name "PGGalaviz"\n"
 echo "That's it!"

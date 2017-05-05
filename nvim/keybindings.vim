@@ -18,9 +18,6 @@ nnoremap <leader>, :bp!<cr>
 nnoremap <leader>d :bd<cr>
 nnoremap <leader>- :enew<cr>
 
-" I have a Spanish lang keyboard, so no need of '<shift>.' for ':'
-noremap . :
-
 " upper/lower word
 nnoremap <leader>u mQviwU`Q
 nnoremap <leader>l mQviwu`Q
@@ -38,7 +35,11 @@ nnoremap <leader>x :wq<cr>
 command! W w
 command! Q q
 
-" Insert blank line in normal mode
+" Remove line/selection without adding it to the default registry
+nmap X "_dd
+vmap X "_d
+
+" Insert blank line up/down cursor position in normal mode
 nnoremap <leader><cr> o<esc>
 nnoremap <leader><bs> O<esc>
 
@@ -47,6 +48,10 @@ noremap <Left>  :echo "no! use h"<cr>
 noremap <Right> :echo "no! use l"<cr>
 noremap <Up>    :echo "no! use k"<cr>
 noremap <Down>  :echo "no! use j"<cr>
+imap <Left> <nop>
+imap <Right> <nop>
+imap <Up> <nop>
+imap <Down> <nop>
 
 " Change the Current working dir to where the current file is located
 nnoremap <silent> <Leader>cd :cd %:p:h<CR>:pwd<CR>
@@ -60,7 +65,7 @@ map <silent> <esc> :nohlsearch<cr>
 " Select pasted text to work with it or select all if not pasted text
 noremap <leader>v `[v`]
 
-" Keep block selected after indenting 
+" Keep block selected after indenting
 xnoremap > >gv|
 xnoremap < <gv
 
@@ -85,7 +90,7 @@ nnoremap <leader>e :e ~/.config/nvim/init.vim<cr>
 " Open a terminal buffer
 nnoremap <leader>t :terminal<cr>
 
-" Enter normal mode in terminal buffer
+" Enter normal mode in terminal buffer and change buffers
 tnoremap <Esc> <C-\><C-n>
 tnoremap <leader>. <c-\><c-n>:bn<cr>
 tnoremap <leader>, <c-\><c-n>:bp<cr>

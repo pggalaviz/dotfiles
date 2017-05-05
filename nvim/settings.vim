@@ -8,6 +8,9 @@ let g:mapleader = ' '
 noremap <Space> <Nop>
 
 " Global Settings
+filetype plugin indent on                       " Enable full filetype detection
+syntax on                                       " Syntax highlighting on
+syntax enable                                   " Syntax highlighting on
 set title                                       " Let Vim set window title
 set hidden                                      " Put current buffer to background without saving
 set autochdir                                   " Change dir to file on current window
@@ -20,7 +23,7 @@ set ruler                                       " Set line/col of cursor
 
 " UI
 set noshowmode                                  " Dont display current mode (Using vim-airline)
-set scrolloff=5                                 " Allways show 5 lines below/up when scrolling
+set scrolloff=999                               " Cursor always on center of screen
 set sidescrolloff=5                             " Keep at least 5 lines left/right
 set shortmess=aoOtTI                            " Short messages
 set showcmd                                     " Shows current command combo
@@ -28,6 +31,7 @@ set showmatch                                   " Show matching brackets
 set mouse=n                                     " Use basic mouse for changing windows split sizes
 set clipboard+=unnamedplus                      " Yank and paste with the system clipboard
 set pumheight=10                                " Completion window max height
+set numberwidth=2                               " Keep line number gutter cozy
 
 " Files
 set autowrite                                   " Autosave before :next, :make, etc.
@@ -48,9 +52,9 @@ set wildignore+=*/.bundle/*
 set wildignore+=*/.sass-cache/*
 set wildignore+=*/node_modules/*
 set wildignore+=*/build/*
-set wildignore+=*/lib/* 
-set wildignore+=*/log/* 
-set wildignore+=*/tmp/* 
+set wildignore+=*/lib/*
+set wildignore+=*/log/*
+set wildignore+=*/tmp/*
 
 " Tabs/Spaces
 set autoindent                                  " Auto indent

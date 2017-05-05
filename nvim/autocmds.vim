@@ -17,3 +17,6 @@ augroup filetype_detect
     autocmd BufNewFile,BufRead Procfile,config.ru,Rakefile,Gemfile setf ruby
 augroup END
 
+" Wrap lines on these file types
+
+

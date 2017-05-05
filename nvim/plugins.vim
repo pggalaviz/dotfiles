@@ -47,7 +47,8 @@ Plug 'itmammoth/doorboy.vim'        " Auto close brackets, quotations, etc.
 Plug 'tpope/vim-surround'           " Easily change surroundings (parenthesis, brackets, etc)
 
 " Comments
-Plug 'tomtom/tcomment_vim'          " Easily comment/uncomment words, lines or group of lines
+" Plug 'tomtom/tcomment_vim'        " Easily comment/uncomment words, lines or group of lines
+Plug 'tpope/vim-commentary'         " Easily comment/uncomment words, lines or group of lines
 
 Plug 'mattn/emmet-vim', {'for': ['html', 'vue', 'css', 'scss', 'javascript', 'jsx']}    " Easy workflow for html & CSS
 
@@ -55,6 +56,7 @@ Plug 'mattn/emmet-vim', {'for': ['html', 'vue', 'css', 'scss', 'javascript', 'js
 Plug 'sbdchd/neoformat'             " Format code
 Plug 'junegunn/vim-easy-align'      " Easy alignement
 Plug 'Yggdroot/indentLine'          " Show a line to display indentation level
+Plug 'AndrewRadev/splitjoin.vim', {'on': ['SplitjoinJoin', 'SplitjoinSplit']}   "Transition between multiline and single-line code
 
 " Git
 Plug 'lambdalisue/gina.vim'         " Control GIT repos from nvim session
@@ -65,17 +67,24 @@ Plug 'jreybert/vimagit'             " Easier GIT workflow
 Plug 'scrooloose/nerdtree'          " Directory & files tree
 Plug 'Xuyuanp/nerdtree-git-plugin'  " Nerdtree plugin to show GIT flags
 
+" Skim fuzzy finder (fzf option in Rust lang)
+Plug 'lotabout/skim', {'dir': '~/.skim', 'do': './install --bin', 'on': ['SK']}
+
 " Denite
 Plug 'Shougo/denite.nvim'   " Multiple helpful functions: open files, search, change folder, etc.
 
 " Other tools
-Plug 'bogado/file-line'             " Open a file on arbitrary line: filename:line
-Plug 'AndrewRadev/switch.vim'       " Quickly switch between patterns
+Plug 'bogado/file-line'                 " Open a file on arbitrary line: filename:line
+Plug 'AndrewRadev/switch.vim'           " Quickly switch between patterns
 Plug 'christoomey/vim-tmux-navigator'   " Navigate between Tmux and Vim splits
 Plug 'mtth/scratch.vim'                 " Create scratch buffer for quick notes and todo lists
 Plug 'ludovicchabant/vim-gutentags'     " ctags all the way!!!
 Plug 'majutsushi/tagbar'                " Inmemory ctags window visualizer
 Plug 'terryma/vim-multiple-cursors'     " Multiple cursors like Sublime Text's
+Plug 'justinmk/vim-sneak'               " Jump to location specifies by 2 character
+Plug 'hauleth/sad.vim'                  " Quick change and replace!
+Plug 'matze/vim-move'                   " Easily move blocks of code, no cuting and pasting!!!
+Plug 'rizzatti/dash.vim', {'on': ['Dash', 'DashKeywords', '<Plug>DashSearch']}  " Easy documentation with Dash.app (OSX)
 
 " -------------------------------------------------------------------------------------------
 " COMPLETION
@@ -101,7 +110,7 @@ Plug 'Shougo/neosnippet-snippets'   " Snippets repository
 Plug 'Shougo/echodoc.vim'           " Show functions signatures in the command line
 
 " -------------------------------------------------------------------------------------------
-" LINTERNS
+" LINTERS
 " -------------------------------------------------------------------------------------------
 
 " Main lintting framework
@@ -116,5 +125,3 @@ Plug 'mhartington/oceanic-next'     " Oceanic Next theme
 Plug 'vim-airline/vim-airline'      " Airline plugin
 
 call plug#end()
-
-
