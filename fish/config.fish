@@ -1,7 +1,11 @@
 ##############################
 ##### Fish Configuration #####
 ##############################
-set fish_greeting
+function fish_greeting
+    echo "----------------------------------------------------------------------------"
+    echo "“Los únicos límites son, como siempre, aquellos de visión” - James Broughton"
+    echo "----------------------------------------------------------------------------"
+end
 # set locale
 set -x LANG en_US.UTF-8
 set -x LC_ALL en_US.UTF-8
@@ -38,6 +42,14 @@ function tconfig ; nvim ~/.tmux.conf ; end
 function fconfig ; nvim ~/.config/fish/config.fish ; end
 # Create a new directory and enter it
 function md ; mkdir -p $argv ;and cd $argv ; end
+# Remove all folder contents
+function rma
+    set_color blue; echo ">>> Delete everything on '$PWD'? (y/N)"; set_color normal;
+    read yn
+    if test $yn = "y"
+        cd .. ;and rm -rf dir ;and  mkdir dir ;and cd dir
+    end
+end
 
 #----------------------------
 #====> DIRECTORY LISTING
@@ -126,6 +138,28 @@ function hideicons
 end
 
 #-------------------
+#====> TMUX
+#-------------------
+#Tmux shortcut
+function t ; tmux $argv ; end
+#Tmux new session
+function tn ; tmux new -s $argv ; end
+# Tmux list
+function tl ; tmux ls ; end
+# Tmux kill session
+function tk ; tmux kill-session -t $argv ; end
+# Tmux kill all
+function tka ; tmux kill-server ; end
+# Tmux attach
+function ta
+    if $argv
+        tmux a -t $argv
+    else
+        tmux a
+    end
+end
+
+#-------------------
 #====> GIT
 #-------------------
 # Git status
@@ -134,20 +168,54 @@ function gs ; git status ; end
 function gl ; git log ; end
 # Git add
 function ga ; git add $argv ; end
+# Git add all
+function gaa ; git add -A . ; end
 # Git Diff
 function gd ; git diff --color=always ; end
 # Git Branch
 function gb ; git branch ; end
-# Git check out
-function gc ; git checkout ; end
+# Git checkout
+function gco ; git checkout ; end
+# Git merge
+function gm ; git merge ; end
+# Git tag
+function gt ; git tag ; end
 # Git pull
 function gp ; git pull ; end
 # Git pull origin master
 function gpom ; git pull origin master ; end
 # Git commit
-function commit ; git commit -m $argv ; end
+function gc ; git commit -m $argv ; end
 # Git push
 function push ; git push $argv ; end
+
+#------------------
+#====> Npm / Yarn
+#------------------
+# Npm install global packages
+function ngi ; npm install -g $argv ; end
+# Npm uninstall global packages
+function ngu ; npm uninstall -g $argv ; end
+# Npm list global packages
+function ngl ; npm -g ls --depth=0 ; end
+# Npm list local packages
+function nll ; npm ls --depth=0 ; end
+# Npm project shortcuts
+function nt ; npm test ; end
+function ns ; npm start ; end
+function nr ; npm run ; end
+function nd ; npm run dev ; end
+function nb ; npm run build ; end
+function ndt ; npm run dev:test ; end
+function nds ; npm run dev:ssr ; end
+# Yarn install global packages
+function ygi ; yarn global add $argv ; end
+# Yarn uninstall global packages
+function ygu ; yarn global remove $argv ; end
+# Yarn list global packages
+function ygi ; yarn global ls ; end
+# Yarn list local packages
+function ygi ; yarn list --depth=0 ; end
 
 #------------------
 #====> GO LANG

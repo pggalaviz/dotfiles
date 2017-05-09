@@ -26,6 +26,7 @@ taps=(
 "burntsushi/ripgrep https://github.com/BurntSushi/ripgrep.git"
 "neovim/neovim"
 "universal-ctags/universal-ctags"
+"caskroom/cask"
 )
 echo "Brew tapping dependencies & packages... \n"
 for i in "${taps[@]}"
@@ -51,13 +52,13 @@ packages=(
 "neovim/neovim/neovim"
 "--HEAD universal-ctags"
 )
-echo "Installing basic dependencies & packages with Homebrew, this may take a while... \n"
+echo "Installing basic dependencies & packages with Homebrew"
+echo "This may take a while... \n"
 for i in "${packages[@]}"
 do
   brew install $i
   echo "---------------------------------------------------------"
 done
-
 echo "Upgrading packages versions..."
 brew upgrade
 echo "---------------------------------------------------------"
@@ -124,7 +125,7 @@ echo "---------------------------------------------------------"
 #---------------------------------------------------
 # Symlink custom ctags
 #---------------------------------------------------
-echo "Symlinking custom ctags, currently for suporting Elixir..."
+echo "Symlinking custom ctags..."
 ln -sf `pwd`/ctags ~/.ctags
 echo "---------------------------------------------------------"
 
@@ -184,6 +185,28 @@ echo "---------------------------------------------------------"
 #--------------------------------------
 echo "Installing/Updating Neovim plugins..."
 nvim +PlugInstall +PlugUpdate +qa
+echo "---------------------------------------------------------"
+
+#-----------------------------------
+# Install/Update global npm packages
+#-----------------------------------
+# Centralize global npm packages for different node versions
+echo "prefix = /usr/local" > ~/.npmrc
+modules=(
+"vue-cli"
+"tern"
+)
+echo "Installing global npm packages...\n"
+for i in "${modules[@]}"
+do
+  npm install -g $i
+  echo "---------------------------------------------------------"
+done
+echo "Updating global npm packages...\n"
+for i in "${modules[@]}"
+do
+  npm update -g $i
+done
 echo "---------------------------------------------------------"
 
 echo "All done here..."

@@ -1,4 +1,3 @@
-
 "----------------------------------------------------------------------------------------------
 " KEYBINDINGS
 "----------------------------------------------------------------------------------------------
@@ -32,12 +31,27 @@ nnoremap <leader>q :q<cr>
 nnoremap <leader>x :wq<cr>
 
 " Make :Q and :W work like :q and :w
-command! W w
-command! Q q
+command! W :w
+command! Q :q
+command! Qa :qa
+
+" Start an external command with a single bang
+nnoremap ! :!
+
+" Make Y consistent with C and D
+nnoremap Y y$
+
+" Don't add single character removal to the default registry
+noremap x "_x
+vmap x "_d
 
 " Remove line/selection without adding it to the default registry
 nmap X "_dd
 vmap X "_d
+
+" When cahnging text, don't add it to default registry
+nnoremap c "_c
+vnoremap c "_c
 
 " Insert blank line up/down cursor position in normal mode
 nnoremap <leader><cr> o<esc>
@@ -53,6 +67,12 @@ imap <Right> <nop>
 imap <Up> <nop>
 imap <Down> <nop>
 
+" Navigation in command line
+cnoremap <C-j> <Left>
+cnoremap <C-k> <Right>
+cnoremap <C-h> <Home>
+cnoremap <C-l> <End>
+
 " Change the Current working dir to where the current file is located
 nnoremap <silent> <Leader>cd :cd %:p:h<CR>:pwd<CR>
 
@@ -66,7 +86,7 @@ vnoremap . :norm.<cr>
 map <silent> <esc> :nohlsearch<cr>
 
 " Select pasted text to work with it or select all if not pasted text
-noremap <leader>v `[v`]
+nnoremap <leader>v `[v`]
 
 " Keep block selected after indenting
 xnoremap > >gv|

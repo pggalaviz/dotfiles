@@ -13,28 +13,34 @@ call plug#begin()
 Plug 'othree/html5.vim', {'for': ['html', 'vue']}           " HTML5 syntax & completion
 Plug 'valloric/MatchTagAlways', {'for': ['html', 'vue']}    " Highlights matching tag
 
-" Javascript
-Plug 'othree/yajs.vim', {'for': [ 'javascript', 'jsx', 'vue', 'javascript.jsx' ]}   " Javascript syntax
-Plug 'othree/jspc.vim', {'for': [ 'javascript', 'jsx', 'vue', 'javascript.jsx' ]}   " Javascript parameter completion
-Plug 'moll/vim-node', {'for': [ 'javascript', 'jsx', 'vue', 'javascript.jsx' ]}     " Node tools
+" Javascript & Json
+Plug 'othree/yajs.vim', {'for': ['javascript', 'jsx', 'vue', 'javascript.jsx']} " Javascript syntax
+Plug 'othree/jspc.vim', {'for': ['javascript', 'jsx', 'vue', 'javascript.jsx']} " Javascript parameter completion
+Plug 'moll/vim-node', {'for': ['javascript', 'jsx', 'vue', 'javascript.jsx']}   " Node tools
+Plug 'elzr/vim-json', {'for': 'json'}                                           " JSON highlighting
+Plug 'posva/vim-vue', {'for': 'vue'}                                            " Vue.js syntax highlighting
 
-" Json
-Plug 'elzr/vim-json', {'for': 'json'}    " JSON highlighting
+" Yaml
+Plug 'stephpy/vim-yaml', {'for': 'yaml'}    " Yaml syntax highlighting
 
-" Vue
-Plug 'posva/vim-vue', {'for': 'vue'}  " Vue.js syntax highlighting
-
-" CSS & STYLING
+" CSS & Styling
 Plug 'hail2u/vim-css3-syntax', {'for': ['css', 'vue']}              " CSS and SCSS syntax & highlighting
 Plug 'cakebaker/scss-syntax.vim', {'for': ['scss', 'vue']}          " SCSS syntax
-Plug 'wavded/vim-stylus', { 'for': ['styl', 'vue']}                 " Stylus syntax & highlighting
+Plug 'wavded/vim-stylus', { 'for': ['stylus', 'vue']}               " Stylus syntax & highlighting
 Plug 'ap/vim-css-color', {'for':['css', 'scss', 'styl', 'vue',]}    " Show colors on CSS files
 
-" ELIXIR
+" Elixir
 Plug 'elixir-lang/vim-elixir', {'for': 'elixir'}   " Elixir language highlightning
 Plug 'slashmili/alchemist.vim', {'for': 'elixir'}  " Elixir Integration
 
-" TOOLS
+" Go
+Plug 'fatih/vim-go', {'do': ':GoInstallBinaries', 'for': 'go'}   " Golang syntax, highlighting and commands
+
+" Ruby
+Plug 'vim-ruby/vim-ruby', {'for': 'ruby'}   " Ruby language syntax & highlighting
+Plug 'tpope/vim-rails', {'for': 'ruby'}     " Rails syntax and helpers
+
+" Tools
 Plug 'tmux-plugins/vim-tmux', {'for': 'tmux'}   " Tmux file highlighting
 Plug 'dag/vim-fish', {'for': 'fish'}            " Fish shell highlighting
 
@@ -47,7 +53,6 @@ Plug 'itmammoth/doorboy.vim'        " Auto close brackets, quotations, etc.
 Plug 'tpope/vim-surround'           " Easily change surroundings (parenthesis, brackets, etc)
 
 " Comments
-" Plug 'tomtom/tcomment_vim'        " Easily comment/uncomment words, lines or group of lines
 Plug 'tpope/vim-commentary'         " Easily comment/uncomment words, lines or group of lines
 
 Plug 'mattn/emmet-vim', {'for': ['html', 'vue', 'css', 'scss', 'javascript', 'jsx']}    " Easy workflow for html & CSS
@@ -84,6 +89,8 @@ Plug 'terryma/vim-multiple-cursors'     " Multiple cursors like Sublime Text's
 Plug 'justinmk/vim-sneak'               " Jump to location specifies by 2 character
 Plug 'hauleth/sad.vim'                  " Quick change and replace!
 Plug 'matze/vim-move'                   " Easily move blocks of code, no cuting and pasting!!!
+Plug 'EinfachToll/DidYouMean'           " Ask for confirmation to open file if similar names exist
+Plug 'airblade/vim-rooter'              " Chage working directory to project root
 Plug 'rizzatti/dash.vim', {'on': ['Dash', 'DashKeywords', '<Plug>DashSearch']}  " Easy documentation with Dash.app (OSX)
 
 " -------------------------------------------------------------------------------------------

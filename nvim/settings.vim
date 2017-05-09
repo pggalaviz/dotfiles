@@ -5,7 +5,16 @@
 
 " Remap leader (Use space as leader)
 let g:mapleader = ' '
-noremap <Space> <Nop>
+" Map local leader
+let g:maplocalleader = ','
+
+" Release keymappings prefixes, evict entirely for use of plug-ins.
+nnoremap <Space> <Nop>
+xnoremap <Space> <Nop>
+nnoremap ,       <Nop>
+xnoremap ,       <Nop>
+nnoremap ;       <Nop>
+xnoremap ;       <Nop>
 
 " Global Settings
 filetype plugin indent on                       " Enable full filetype detection
@@ -32,9 +41,10 @@ set mouse=n                                     " Use basic mouse for changing w
 set clipboard+=unnamedplus                      " Yank and paste with the system clipboard
 set pumheight=10                                " Completion window max height
 set numberwidth=2                               " Keep line number gutter cozy
-set list                                        " Set list
-set listchars=tab:→\ ,trail:·,nbsp:␣            " Display tabs and trailing spaces
+set list                                        " Show hidden characters
+set listchars=tab:▸\ ,trail:·,nbsp:␣            " Display tabs and trailing spaces
 set conceallevel=2
+set colorcolumn=81                              " Color the colum 81
 
 " Files
 set autowrite                                   " Autosave before :next, :make, etc.
@@ -45,19 +55,23 @@ set confirm                                     " Ask for confirmation if unsave
 
 " Completion
 set wildmenu                                    " Menu for command line completion using <TAB>
-set wildignore+=*.zip,*.tar*,*.rar              " Ignore archive files
+set wildmode=list:longest,full
+set wildignorecase                              " Ignore case
+set wildignore+=*.zip,*.tar,*.tar*,*.rar        " Ignore archive files
 set wildignore+=*.png,*.jpg,*.jpeg,*.gif        " Ignore images
 set wildignore+=*.pdf                           " Ignore several files and directories
-set wildignore+=*DS_Store*
+set wildignore+=*.DS_Store
 set wildignore+=*yarn.lock*
-set wildignore+=*/.git/*
+set wildignore+=*.gem,*.obj,*.out,*.swp
+set wildignore+=.git,.hg,*/.git/*,**/.git/**
 set wildignore+=*/.bundle/*
 set wildignore+=*/.sass-cache/*
-set wildignore+=*/node_modules/*
-set wildignore+=*/build/*
-set wildignore+=*/lib/*
-set wildignore+=*/log/*
-set wildignore+=*/tmp/*
+set wildignore+=*/node_modules/*,**/node_modules/**
+set wildignore+=**/vendor/**
+set wildignore+=**/build/**
+set wildignore+=**/deps/**
+set wildignore+=**/log/**
+set wildignore+=*/tmp/*,**/tmp/**
 
 " Tabs/Spaces
 set autoindent                                  " Auto indent
@@ -72,6 +86,8 @@ set backspace=indent,eol,start                  " Intuitive backspacing in inser
 " Format
 set textwidth=100                               " Wrap text starting here
 set nowrap                                      " Disable softwrap
+set linebreak                                   " Break long lines at 'breakat'
+set breakat=\ \	;:,!?                           " Long lines break chars
 set splitbelow                                  " Open horizontal splits below
 set splitright                                  " Open vertical splits right
 
@@ -82,7 +98,7 @@ set ignorecase                                  " Ignore case in matching
 set smartcase                                   " Match capitals in search
 
 " Other
-set completeopt+=noselect                       " Shows completions in popup
+set completeopt+=noselect                       " Don't select a match in menu
 set visualbell                                  " Don't beep
 set noerrorbells                                " Don't beep
 set iskeyword+=-,_                              " Consider - and _ part of a word

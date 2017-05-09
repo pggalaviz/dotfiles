@@ -32,8 +32,9 @@ call ConfigInc('settings.vim')
 call ConfigInc('plugins.vim')
 
 " Map vim-plug most used functions, not upgrade or install here
-nnoremap <C-u> :PlugUpdate<cr>
-nnoremap <C-c> :PlugClean<cr>
+nnoremap <localleader>u :PlugUpdate<cr>
+nnoremap <localleader>c :PlugClean<cr>
+nnoremap <localleader>i :PlugInstall<cr>
 
 " elzr/vim-json
 " ==================================
@@ -43,17 +44,40 @@ let g:vim_json_syntax_conceal = 0
 " ==================================
 let g:alchemist_tag_disable = 1 "Use Universal ctags instead
 
+" fatih/vim-go
+" ==================================
+let g:go_def_mapping_enabled = 0
+let g:go_loaded_gosnippets = 1
+let g:go_snippet_engine = 'neosnippet'
+augroup vim-go
+    autocmd!
+    autocmd FileType go
+                \   nmap <leader>god <Plug>(go-describe)
+                \ | nmap <Leader>goc <Plug>(go-callees)
+                \ | nmap <Leader>goC <Plug>(go-callers)
+                \ | nmap <Leader>goi <Plug>(go-info)
+                \ | nmap <Leader>gom <Plug>(go-implements)
+                \ | nmap <Leader>gos <Plug>(go-callstack)
+                \ | nmap <Leader>goe <Plug>(go-referrers)
+                \ | nmap <Leader>gor <Plug>(go-run)
+                \ | nmap <Leader>gov <Plug>(go-vet)
+                \ | nmap <Leader>got <Plug>(go-test)
+                \ | nmap <Leader>gol <Plug>(go-lint)
+augroup END
+
 " ditmammoth/doorboy.vim
 " ==================================
 " Easy jump closings without leaving home row or insert mode
-inoremap ii <esc>$a
+inoremap ii <esc>la
 
 " mattn/emmet-vim
 " ==================================
 let g:user_emmet_mode='a'
 let g:user_emmet_install_global = 0
-autocmd FileType html,css,scss,vue EmmetInstall
 let g:user_emmet_leader_key='º' " Hack gor using 1 key as leader
+autocmd FileType html,css,scss,vue,jsx,javascript,javascript.jsx
+            \ EmmetInstall
+            \ | imap <buffer> <C-Return> <Plug>(emmet-expand-abbr)
 
 " sbdchd/neoformat
 " ==================================
@@ -78,16 +102,20 @@ nmap ga <Plug>(EasyAlign)
 " ==================================
 let g:indentLine_setColors = 0
 let g:indentLine_char = '┆'
-let g:indentLine_color_gui = '#74818b'
+let g:indentLine_color_gui = '#65737e'
 
 " AndrewRadev/splitjoin.vim
 " ==================================
-nnoremap <silent> gJ :<C-u>SplitjoinJoin<cr>
-nnoremap <silent> gS :<C-u>SplitjoinSplit<cr>
+let g:splitjoin_split_mapping = ''
+let g:splitjoin_join_mapping = ''
+nmap <localleader>j :SplitjoinSplit<CR>
+nmap <localleader>k :SplitjoinJoin<CR>
 
 " airblade/vim-gitgutter
 " ==================================
 let g:gitgutter_map_keys = 0
+nmap <leader>g <Plug>GitGutterNextHunk
+nmap <leader>G <Plug>GitGutterPrevHunk
 
 " scrooloose/nerdtree
 " ==================================
@@ -102,8 +130,14 @@ nnoremap <C-s> :<C-u>SK --color=selected:238,current_match:214<cr>
 
 " Shougo/denite.nvim
 " ==================================
-noremap <leader>b :Denite buffer<cr>
-noremap <leader>p :Denite file_rec<cr>
+nnoremap <localleader>b :Denite buffer<cr>
+nnoremap <localleader>f :Denite file_rec<cr>
+nnoremap <localleader>g :Denite grep<cr>
+nnoremap <localleader>l :Denite line<cr>
+nnoremap <localleader>o :Denite outline<cr>
+nnoremap <localleader>d :Denite directory_rec -default-action=cd<cr>
+nnoremap <localleader>* :DeniteCursorWord line<cr>
+nnoremap <localleader>w :DeniteCursorWord grep<cr>
 call denite#custom#option('default', 'prompt', '❯')
 call denite#custom#option('default', 'vertical_preview', 1)
 call denite#custom#option('default', 'short_source_names', 1)
@@ -115,12 +149,19 @@ call denite#custom#map(
             \)
 call denite#custom#map(
             \ 'insert',
-            \ '<C-p>',
+            \ '<c-p>',
             \ '<denite:move_to_previous_line>',
             \ 'noremap'
             \)
+call denite#custom#map(
+            \ 'insert',
+            \ 'jk',
+            \ '<denite:enter_mode:normal>',
+            \ 'noremap'
+            \)
+" Use RipGrep
 if executable('rg')
-    " Use RipGrep
+    " File
     call denite#custom#var('file_rec', 'command', ['rg', '--files', '--glob', '!.git', ''])
     " Grep
     call denite#custom#var('grep', 'command', ['rg'])
@@ -138,7 +179,7 @@ noremap <leader>s :Switch<cr>
 " christoomey/vim-tmux-navigator
 " ==================================
 let g:tmux_navigator_no_mappings = 1
-noremap <silent> <BS> :TmuxNavigateLeft<cr>
+noremap <silent> <C-h> :TmuxNavigateLeft<cr>
 noremap <silent> <C-j> :TmuxNavigateDown<cr>
 noremap <silent> <C-k> :TmuxNavigateUp<cr>
 noremap <silent> <C-l> :TmuxNavigateRight<cr>
@@ -209,7 +250,7 @@ vmap <leader>C <Plug>(sad-change-backward)
 " matze/vim-move
 " ==================================
 " Using a hack here, this rare signs are equal as pressing <ALT-j> and <ALT-k>
-" Don't know why it's not working without this mappings
+" Don't know why alt key is not working without this weird mappings
 nmap ¶ <Plug>MoveLineDown
 vmap ¶ <Plug>MoveBlockDown
 nmap § <Plug>MoveLineUp
@@ -218,10 +259,46 @@ vmap § <Plug>MoveBlockUp
 " rizzatti/dash.vim
 " ==================================
 nmap <silent> <C-d> <Plug>DashSearch
+"
+" airblade/vim-rooter
+" ==================================
+nnoremap <localleader>cd :Rooter<cr>
+let g:rooter_patterns = ['Makefile', 'mix.exs', 'package.json', '*.yml', '*.yaml', '.git', '.git/', 'node_modules/', '.hg/']
+let g:rooter_change_directory_for_non_project_files = 'current'
 
 " Shougo/deoplete-go
 " ==================================
 let g:deoplete#enable_at_startup = 1
+" Omni functions
+let g:deoplete#omni#functions = get(g:, 'deoplete#omni#functions', {})
+let g:deoplete#omni#functions.css = 'csscomplete#CompleteCSS'
+let g:deoplete#omni#functions.html = 'htmlcomplete#CompleteTags'
+let g:deoplete#omni#functions.javascript = [ 'tern#Complete', 'jspc#omni', 'javascriptcomplete#CompleteJS' ]
+" Custom Marks
+call deoplete#custom#set('buffer',        'mark', 'ℬ')
+call deoplete#custom#set('tag',           'mark', '⌦')
+call deoplete#custom#set('omni',          'mark', '⌾')
+call deoplete#custom#set('ternjs',        'mark', '⌁')
+call deoplete#custom#set('vim',           'mark', '⌁')
+call deoplete#custom#set('neosnippet',    'mark', '⌘')
+call deoplete#custom#set('around',        'mark', '~')
+call deoplete#custom#set('syntax',        'mark', '♯')
+call deoplete#custom#set('tmux-complete', 'mark', '⊶')
+" Default rank is 100, higher is better
+call deoplete#custom#set('vim',           'rank', 630)
+call deoplete#custom#set('ternjs',        'rank', 620)
+call deoplete#custom#set('jedi',          'rank', 610)
+call deoplete#custom#set('omni',          'rank', 600)
+call deoplete#custom#set('neosnippet',    'rank', 510)
+call deoplete#custom#set('member',        'rank', 500)
+call deoplete#custom#set('file_include',  'rank', 420)
+call deoplete#custom#set('file',          'rank', 410)
+call deoplete#custom#set('tag',           'rank', 400)
+call deoplete#custom#set('around',        'rank', 330)
+call deoplete#custom#set('buffer',        'rank', 320)
+call deoplete#custom#set('dictionary',    'rank', 310)
+call deoplete#custom#set('tmux-complete', 'rank', 300)
+call deoplete#custom#set('syntax',        'rank', 200)
 
 " carlitux/deoplete-ternjs
 " ==================================
@@ -253,14 +330,21 @@ let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
 let g:ale_echo_msg_error_str = 'E'
 let g:ale_echo_msg_warning_str = 'W'
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+let g:ale_warn_about_trailing_whitespace = 1
 " let g:ale_linters = {
 " \   'javascript': ['eslint'],
 " \}
 
 augroup ale_lint
-    au!
-    au InsertLeave * call ale#Queue(0)
+    autocmd!
+    autocmd InsertLeave * call ale#Queue(0)
+    autocmd ColorScheme * hi ALEErrorSign guibg=#ec5f67
+    autocmd ColorScheme * hi ALEWarningSign guifg=#fac863
 augroup END
+" If 'standard.js' linter is present autoformat with:
+if executable('standard')
+    autocmd BufWritePost *.js silent !standard --fix %
+endif
 
 " vim-airline/vim-airline
 " ==================================

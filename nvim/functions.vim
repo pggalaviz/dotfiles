@@ -11,7 +11,7 @@ function! s:tab_deoplete()
     endif
     " Is there a snippet that can be expanded?
     " Is there a placeholder inside snippet to jump to?
-    if neosnippet#expandable_or_jumpable() 
+    if neosnippet#expandable_or_jumpable()
         return "\<Plug>(neosnippet_expand_or_jump)"
     endif
     " If none, return regular <Tab>
@@ -33,7 +33,7 @@ function! s:cr_deoplete()
         " If no snippet close popup with selection
         return deoplete#close_popup()
     endif
-    " Else, map to doorboy for correct usage 
+    " Else, map to doorboy for correct usage
     return doorboy#map_cr()
 endfunction
 
@@ -47,15 +47,23 @@ function! AddSemicolon()
 endfunction
 
 nmap <leader>as :call AddSemicolon()<cr>
+"
+" -------------------------------------------------------------------------------------------
+
+" Select all file to clipboard
+function! CopyAll()
+    execute "normal! %y<cr>"
+endfunction
+
+nmap <leader>y :call CopyAll()<cr>
 
 " -------------------------------------------------------------------------------------------
 
 " Deactivate Deoplete when Multiple Cursors are enabled
 function! Multiple_cursors_before()
-    let b:deoplete_disable_auto_complete = 2 
+    let b:deoplete_disable_auto_complete = 2
 endfunction
 function! Multiple_cursors_after() abort
     let b:deoplete_disable_auto_complete = 0
 endfunction
-
 
