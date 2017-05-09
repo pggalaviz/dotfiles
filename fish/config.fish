@@ -181,13 +181,15 @@ function gm ; git merge ; end
 # Git tag
 function gt ; git tag ; end
 # Git pull
-function gp ; git pull ; end
+function gp ; git pull $argv ; end
 # Git pull origin master
 function gpom ; git pull origin master ; end
 # Git commit
 function gc ; git commit -m $argv ; end
 # Git push
 function push ; git push $argv ; end
+# Git push origin master
+function pushom ; git push origin master ; end
 
 #------------------
 #====> Npm / Yarn
