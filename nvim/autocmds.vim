@@ -16,16 +16,19 @@ augroup filetype_tabs
     autocmd FileType elixir setlocal shiftwidth=2 softtabstop=2 tabstop=2
     autocmd FileType ruby setlocal shiftwidth=2 softtabstop=2 tabstop=2
     autocmd FileType javascript setlocal shiftwidth=2 softtabstop=2 tabstop=2
+    autocmd FileType yaml setlocal shiftwidth=2 softtabstop=2 tabstop=2
 augroup END
 
 " Autodetect some filetypes
 augroup filetype_detect
     autocmd!
     autocmd BufNewFile,BufRead .tmux.conf*,tmux.conf* setf tmux
-    autocmd BufNewFile,BufRead .nginx.conf*,nginx.conf* setf nginx
-    autocmd BufNewFile,BufRead Procfile,config.ru,Rakefile,Gemfile setf ruby
+    autocmd BufNewFile,BufRead .nginx.conf*,nginx.conf*,*/nginx/* setf nginx
+    autocmd BufNewFile,BufRead Procfile,config.ru,Rakefile,Gemfile,rdoc setf ruby
     autocmd BufNewFile,BufRead *.es6 setf javascript
     autocmd BufNewFile,BufRead .tern-project setf json
+    autocmd BufNewFile,BufRead *.md,*markdown setf markdown
+    autocmd BufNewFile,BufRead *.yml setf yaml
 augroup END
 
 " Wrap lines on these file types

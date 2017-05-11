@@ -24,6 +24,7 @@ set title                                       " Let Vim set window title
 set hidden                                      " Put current buffer to background without saving
 set autochdir                                   " Change dir to file on current window
 set synmaxcol=1000                              " Don't syntax highlight long lines
+set omnifunc=syntaxcomplete#Complete
 
 " Positioning
 set number                                      " Set line number
@@ -43,8 +44,11 @@ set pumheight=10                                " Completion window max height
 set numberwidth=2                               " Keep line number gutter cozy
 set list                                        " Show hidden characters
 set listchars=tab:▸\ ,trail:·,nbsp:␣            " Display tabs and trailing spaces
+set listchars+=extends:»                        " show a » when a line goes off the right edge of the screen
+set listchars+=precedes:«                       " show a « when a line goes off the left edge of the screenk
 set conceallevel=2
 set colorcolumn=81                              " Color the colum 81
+set showbreak=+                                 " Show a '+' at the beggining of wrapped lines
 
 " Files
 set autowrite                                   " Autosave before :next, :make, etc.
@@ -82,6 +86,7 @@ set shiftwidth=4                                " Amount to shift by
 set softtabstop=4                               " Delete x spaces on backsp.
 set smarttab                                    " use 'shiftwidth' when inserting
 set backspace=indent,eol,start                  " Intuitive backspacing in insert mode
+set whichwrap+=<,>,h,l
 
 " Format
 set textwidth=100                               " Wrap text starting here

@@ -49,7 +49,7 @@ vmap x "_d
 nmap X "_dd
 vmap X "_d
 
-" When cahnging text, don't add it to default registry
+" When changing text, don't add it to default registry
 nnoremap c "_c
 vnoremap c "_c
 
@@ -100,8 +100,14 @@ vnoremap <S-Tab> <gv
 nnoremap > >>_
 nnoremap < <<_
 
+" easy switch
+nnoremap <tab> %
+
 " ESC from insert mode
 imap jk <Esc>
+
+" Join lines and restore cursor location
+nnoremap <Leader>j mjJ`j
 
 " Switch between the last two files
 noremap <leader>m <c-^>
@@ -120,3 +126,8 @@ tnoremap <leader>, <c-\><c-n>:bp<cr>
 
 " Easy exit terminal buffer
 tmap <leader>d <c-\><c-n>:bd!<cr>
+
+" Cope, super helpful, do ':help cope' if unsure
+nnoremap <localleader>cc :botright cope<cr>
+nnoremap <localleader>n :cn<cr>
+nnoremap <localleader>p :cp<cr>

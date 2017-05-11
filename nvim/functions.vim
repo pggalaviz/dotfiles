@@ -12,13 +12,14 @@ function! s:tab_deoplete()
     " Is there a snippet that can be expanded?
     " Is there a placeholder inside snippet to jump to?
     if neosnippet#expandable_or_jumpable()
-        return "\<Plug>(neosnippet_expand_or_jump)"
+        return neosnippet#mappings#expand_or_jump_impl()
     endif
     " If none, return regular <Tab>
     return "\<Tab>"
 endfunction
 
-imap <silent><expr><TAB> <SID>tab_deoplete()
+inoremap <silent><expr><TAB> <SID>tab_deoplete()
+
 
 " -------------------------------------------------------------------------------------------
 
@@ -28,7 +29,7 @@ function! s:cr_deoplete()
     if pumvisible()
         " Is there a snippet that can be expanded?
         if neosnippet#expandable()
-            return "\<Plug>(neosnippet_expand)"
+            return neosnippet#mappings#expand_impl()
         endif
         " If no snippet close popup with selection
         return deoplete#close_popup()
@@ -37,7 +38,19 @@ function! s:cr_deoplete()
     return doorboy#map_cr()
 endfunction
 
-imap <silent><expr><CR> <SID>cr_deoplete()
+inoremap <silent><expr><CR> <SID>cr_deoplete()
+
+" -------------------------------------------------------------------------------------------
+
+" Strip trailing whitespace
+function! StripWhitespace ()
+    let save_cursor = getpos(".")
+    let old_query = getreg('/')
+    :%s/\s\+$//e
+    call setpos('.', save_cursor)
+    call setreg('/', old_query)
+endfunction
+noremap <leader>ss :call StripWhitespace()<CR>
 
 " -------------------------------------------------------------------------------------------
 

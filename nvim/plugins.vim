@@ -10,8 +10,8 @@ call plug#begin()
 " -------------------------------------------------------------------------------------------
 
 "  HTML
-Plug 'othree/html5.vim', {'for': ['html', 'vue']}           " HTML5 syntax & completion
-Plug 'valloric/MatchTagAlways', {'for': ['html', 'vue']}    " Highlights matching tag
+Plug 'othree/html5.vim', {'for': ['html', 'vue', 'jsx', 'javascript.jsx']}          " HTML5 syntax & completion
+Plug 'valloric/MatchTagAlways', {'for': ['html', 'vue', 'jsx', 'javascript.jsx']}   " Highlights matching tag
 
 " Javascript & Json
 Plug 'othree/yajs.vim', {'for': ['javascript', 'jsx', 'vue', 'javascript.jsx']} " Javascript syntax
