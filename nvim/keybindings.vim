@@ -105,6 +105,7 @@ nnoremap <tab> %
 
 " ESC from insert mode
 imap jk <Esc>
+imap kj <Esc>
 
 " Join lines and restore cursor location
 nnoremap <Leader>j mjJ`j

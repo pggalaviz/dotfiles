@@ -142,25 +142,22 @@ nnoremap <localleader>w :DeniteCursorWord grep<cr>
 call denite#custom#option('default', 'prompt', '❯')
 call denite#custom#option('default', 'vertical_preview', 1)
 call denite#custom#option('default', 'short_source_names', 1)
-call denite#custom#map(
-            \ 'insert',
-            \ '<C-n>',
-            \ '<denite:move_to_next_line>',
-            \ 'noremap'
-            \)
-call denite#custom#map(
-            \ 'insert',
-            \ '<c-p>',
-            \ '<denite:move_to_previous_line>',
-            \ 'noremap'
-            \)
-call denite#custom#map(
-            \ 'insert',
-            \ 'jk',
-            \ '<denite:enter_mode:normal>',
-            \ 'noremap'
-            \)
-" Use RipGrep
+" Custom mappings insert mode
+call denite#custom#map('insert', '<C-n>',  '<denite:move_to_next_line>', 'noremap')
+call denite#custom#map('insert', '<c-p>',  '<denite:move_to_previous_line>', 'noremap')
+call denite#custom#map('insert', '<down>', '<denite:move_to_next_line>', 'noremap')
+call denite#custom#map('insert', '<up>',   '<denite:move_to_previous_line>', 'noremap')
+call denite#custom#map('insert', 'jk',     '<denite:enter_mode:normal>', 'noremap')
+call denite#custom#map('insert', '<esc>',  '<denite:enter_mode:normal>', 'noremap')
+" Custom mappings normal mode
+call denite#custom#map('normal', '<esc>', '<denite:quit>', 'noremap')
+call denite#custom#map('normal', 'q',     '<denite:quit>', 'noremap')
+call denite#custom#map('normal', 'gg',    '<denite:move_to_first_line>', 'noremap')
+call denite#custom#map('normal', 'st',    '<denite:do_action:tabopen>', 'noremap')
+call denite#custom#map('normal', 'ss',    '<denite:do_action:split>', 'noremap')
+call denite#custom#map('normal', 'sv',    '<denite:do_action:vsplit>', 'noremap')
+call denite#custom#map('normal', 'r',     '<denite:redraw>', 'noremap')
+" Use RipGrep or The Silver Searcher
 if executable('rg')
     " File
     call denite#custom#var('file_rec', 'command', ['rg', '--files', '--glob', '!.git', ''])
@@ -171,6 +168,16 @@ if executable('rg')
     call denite#custom#var('grep', 'separator', ['--'])
     call denite#custom#var('grep', 'final_opts', [])
     call denite#custom#var('grep', 'default_opts', ['--vimgrep', '--no-heading'])
+elseif executable(ag)
+    " File
+    call denite#custom#var('file_rec', 'command', ['ag', '--follow', '--color', '--nogroup', '-g', ''])
+    " Grep
+    call denite#custom#var('grep', 'command', ['ag'])
+    call denite#custom#var('grep', 'recursive_opts', [])
+    call denite#custom#var('grep', 'pattern_opt', [])
+    call denite#custom#var('grep', 'separator', ['--'])
+    call denite#custom#var('grep', 'final_opts', [])
+    call denite#custom#var('grep', 'default_opts', ['--vimgrep', '--smart-case'])
 endif
 
 " AndrewRadev/switch.vim
@@ -188,16 +195,20 @@ noremap <silent> <C-p> :TmuxNavigatePrevious<cr>
 
 " ludovicchabant/vim-gutentags
 " ==================================
-set statusline+=%{gutentags#statusline('[Generating\ ctags...]')}
-let g:gutentags_cache_dir = '~/.ctags_cache'
-let g:gutentags_ctags_exclude = [
+if executable('ctags')
+    set statusline+=%{gutentags#statusline('[Generating\ ctags...]')}
+    let g:gutentags_cache_dir = '~/.ctags_cache'
+    let g:gutentags_generate_on_missing = 1
+    let g:gutentags_generate_on_new = 1
+    let g:gutentags_ctags_exclude = [
             \".git","node_modules",
             \"log","vendor",
-            \"build",".vim",
+            \"build","dist",
             \"tmp","temp",
-            \".min.js","assets",
-            \".gbim"
+            \".min.js","assets"
             \]
+    nnoremap <localleader>t :GutentagsUpdate!<cr>
+endif
 
 " majutsushi/tagbar
 " ==================================
@@ -355,9 +366,9 @@ let g:ale_echo_msg_error_str = 'E'
 let g:ale_echo_msg_warning_str = 'W'
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 let g:ale_warn_about_trailing_whitespace = 1
-" let g:ale_linters = {
-" \   'javascript': ['eslint'],
-" \}
+let g:ale_linters = {
+\   'javascript': ['standard', 'eslint'],
+\}
 
 augroup ale_lint
     autocmd!
