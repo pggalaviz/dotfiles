@@ -52,6 +52,8 @@ vmap X "_d
 " When changing text, don't add it to default registry
 nnoremap c "_c
 vnoremap c "_c
+nnoremap C "_C
+vnoremap C "_C
 
 " Insert blank line up/down cursor position in normal mode
 nnoremap <leader><cr> o<esc>
@@ -116,9 +118,6 @@ noremap <leader>m <c-^>
 " Reload & easy edit Neovim configuration
 nnoremap <leader>r :source ~/.config/nvim/init.vim<cr>
 nnoremap <leader>e :e ~/.config/nvim/init.vim<cr>
-
-" Open a terminal buffer
-nnoremap <leader>t :terminal<cr>
 
 " Enter normal mode in terminal buffer and change buffers
 tnoremap <Esc> <C-\><C-n>

@@ -38,6 +38,7 @@ set sidescrolloff=5                             " Keep at least 5 lines left/rig
 set shortmess=aoOtTI                            " Short messages
 set showcmd                                     " Shows current command combo
 set showmatch                                   " Show matching brackets
+set mat=2                                       " How many tenths of a second to blink matching brackets
 set mouse=n                                     " Use basic mouse for changing windows split sizes
 set clipboard+=unnamedplus                      " Yank and paste with the system clipboard
 set pumheight=10                                " Completion window max height

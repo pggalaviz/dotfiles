@@ -220,6 +220,12 @@ function ygi ; yarn global ls ; end
 function ygi ; yarn list --depth=0 ; end
 
 #------------------
+#====> ELIXIR
+#------------------
+# Fast cd to $GOPATH
+function phv ; mix phoenix.new -v ; end
+
+#------------------
 #====> GO LANG
 #------------------
 # Fast cd to $GOPATH

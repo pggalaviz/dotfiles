@@ -77,6 +77,10 @@ Plug 'lotabout/skim', {'dir': '~/.skim', 'do': './install --bin', 'on': ['SK']}
 
 " Denite
 Plug 'Shougo/denite.nvim'   " Multiple helpful functions: open files, search, change folder, etc.
+Plug 'Shougo/neomru.vim'    " Most recent used files source for denite/unite
+
+" Testing
+Plug 'janko-m/vim-test'     " Run tests from inside Neovim
 
 " Other tools
 Plug 'bogado/file-line'                 " Open a file on arbitrary line: filename:line

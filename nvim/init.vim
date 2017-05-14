@@ -136,10 +136,11 @@ nnoremap <localleader>f :Denite file_rec<cr>
 nnoremap <localleader>g :Denite grep<cr>
 nnoremap <localleader>l :Denite line<cr>
 nnoremap <localleader>o :Denite outline<cr>
+nnoremap <localleader>m :Denite file_mru<cr>
 nnoremap <localleader>d :Denite directory_rec -default-action=cd<cr>
 nnoremap <localleader>* :DeniteCursorWord line<cr>
 nnoremap <localleader>w :DeniteCursorWord grep<cr>
-call denite#custom#option('default', 'prompt', '❯')
+call denite#custom#option('_', 'prompt', '❯')
 call denite#custom#option('default', 'vertical_preview', 1)
 call denite#custom#option('default', 'short_source_names', 1)
 " Custom mappings insert mode
@@ -148,11 +149,10 @@ call denite#custom#map('insert', '<c-p>',  '<denite:move_to_previous_line>', 'no
 call denite#custom#map('insert', '<down>', '<denite:move_to_next_line>', 'noremap')
 call denite#custom#map('insert', '<up>',   '<denite:move_to_previous_line>', 'noremap')
 call denite#custom#map('insert', 'jk',     '<denite:enter_mode:normal>', 'noremap')
+call denite#custom#map('insert', 'kj',     '<denite:enter_mode:normal>', 'noremap')
 call denite#custom#map('insert', '<esc>',  '<denite:enter_mode:normal>', 'noremap')
 " Custom mappings normal mode
 call denite#custom#map('normal', '<esc>', '<denite:quit>', 'noremap')
-call denite#custom#map('normal', 'q',     '<denite:quit>', 'noremap')
-call denite#custom#map('normal', 'gg',    '<denite:move_to_first_line>', 'noremap')
 call denite#custom#map('normal', 'st',    '<denite:do_action:tabopen>', 'noremap')
 call denite#custom#map('normal', 'ss',    '<denite:do_action:split>', 'noremap')
 call denite#custom#map('normal', 'sv',    '<denite:do_action:vsplit>', 'noremap')
@@ -168,7 +168,7 @@ if executable('rg')
     call denite#custom#var('grep', 'separator', ['--'])
     call denite#custom#var('grep', 'final_opts', [])
     call denite#custom#var('grep', 'default_opts', ['--vimgrep', '--no-heading'])
-elseif executable(ag)
+elseif executable('ag')
     " File
     call denite#custom#var('file_rec', 'command', ['ag', '--follow', '--color', '--nogroup', '-g', ''])
     " Grep
@@ -179,6 +179,16 @@ elseif executable(ag)
     call denite#custom#var('grep', 'final_opts', [])
     call denite#custom#var('grep', 'default_opts', ['--vimgrep', '--smart-case'])
 endif
+
+" janko-m/vim-test
+" ==================================
+let g:test#strategy = "neovim"
+nmap <silent> <leader>t :TestSuite<CR>
+nmap <silent> <leader>ta :TestSuite<CR>
+nmap <silent> <leader>tn :TestNearest<CR>
+nmap <silent> <leader>tf :TestFile<CR>
+nmap <silent> <leader>tl :TestLast<CR>
+nmap <silent> <leader>tv :TestVisit<CR>
 
 " AndrewRadev/switch.vim
 " ==================================
