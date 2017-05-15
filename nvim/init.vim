@@ -31,10 +31,10 @@ call ConfigInc('settings.vim')
 
 call ConfigInc('plugins.vim')
 
-" Map vim-plug most used functions, not upgrade or install here
-nnoremap <localleader>u :PlugUpdate<cr>
-nnoremap <localleader>c :PlugClean<cr>
-nnoremap <localleader>i :PlugInstall<cr>
+" Map vim-plug most used functions
+nnoremap <localleader>pu :PlugUpdate<cr>
+nnoremap <localleader>pc :PlugClean<cr>
+nnoremap <localleader>pi :PlugInstall<cr>
 
 " elzr/vim-json
 " ==================================
@@ -52,17 +52,19 @@ let g:go_snippet_engine = 'neosnippet'
 augroup vim-go
     autocmd!
     autocmd FileType go
-                \   nmap <leader>god <Plug>(go-describe)
-                \ | nmap <Leader>goc <Plug>(go-callees)
-                \ | nmap <Leader>goC <Plug>(go-callers)
-                \ | nmap <Leader>goi <Plug>(go-info)
-                \ | nmap <Leader>gom <Plug>(go-implements)
-                \ | nmap <Leader>gos <Plug>(go-callstack)
-                \ | nmap <Leader>goe <Plug>(go-referrers)
-                \ | nmap <Leader>gor <Plug>(go-run)
-                \ | nmap <Leader>gov <Plug>(go-vet)
-                \ | nmap <Leader>got <Plug>(go-test)
-                \ | nmap <Leader>gol <Plug>(go-lint)
+                \   nmap <leader>gd <Plug>(go-describe)
+                \ | nmap <Leader>gc <Plug>(go-callees)
+                \ | nmap <Leader>gC <Plug>(go-callers)
+                \ | nmap <Leader>gi <Plug>(go-info)
+                \ | nmap <Leader>gm <Plug>(go-implements)
+                \ | nmap <Leader>gs <Plug>(go-callstack)
+                \ | nmap <Leader>ge <Plug>(go-referrers)
+                \ | nmap <Leader>gr <Plug>(go-run)
+                \ | nmap <Leader>gb <Plug>(go-build)
+                \ | nmap <Leader>gv <Plug>(go-vet)
+                \ | nmap <Leader>gt <Plug>(go-test)
+                \ | nmap <Leader>gl <Plug>(go-lint)
+                \ | nmap <Leader>ga <Plug>(go-alternate-edit)
 augroup END
 
 " ditmammoth/doorboy.vim
@@ -86,9 +88,9 @@ let g:neoformat_basic_format_align = 1
 let g:neoformat_basic_format_retab = 1
 let g:neoformat_basic_format_trim = 1
 let g:neoformat_enabled_html = ['html-beautify']
-let g:neoformat_enabled_javascript = ['js-beautify']
+let g:neoformat_enabled_javascript = ['prettier']
 let g:neoformat_enabled_json = ['js-beautify']
-let g:neoformat_enabled_go = ['goimports']
+let g:neoformat_enabled_go = ['gofmt', 'goimports']
 let g:neoformat_enabled_css = ['css-beautify']
 let g:neoformat_enabled_ruby = ['ruby-beautify']
 let g:neoformat_enabled_scss = ['sass-convert']
@@ -137,9 +139,12 @@ nnoremap <localleader>g :Denite grep<cr>
 nnoremap <localleader>l :Denite line<cr>
 nnoremap <localleader>o :Denite outline<cr>
 nnoremap <localleader>m :Denite file_mru<cr>
+nnoremap <localleader>c :Denite command<cr>
+nnoremap <localleader>r :Denite register<cr>
 nnoremap <localleader>d :Denite directory_rec -default-action=cd<cr>
 nnoremap <localleader>* :DeniteCursorWord line<cr>
 nnoremap <localleader>w :DeniteCursorWord grep<cr>
+nnoremap <localleader>ch :Denite command_history<cr>
 call denite#custom#option('_', 'prompt', '❯')
 call denite#custom#option('default', 'vertical_preview', 1)
 call denite#custom#option('default', 'short_source_names', 1)
@@ -192,6 +197,7 @@ nmap <silent> <leader>tv :TestVisit<CR>
 
 " AndrewRadev/switch.vim
 " ==================================
+let g:switch_mapping = ""
 noremap <leader>s :Switch<cr>
 
 " christoomey/vim-tmux-navigator
