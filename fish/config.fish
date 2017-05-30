@@ -50,6 +50,9 @@ function rma
         cd .. ;and rm -rf dir ;and  mkdir dir ;and cd dir
     end
 end
+function killp
+    kill (lsof -i tcp:$argv | tail -n +2 | awk '{ print $2 }')
+end
 
 #----------------------------
 #====> DIRECTORY LISTING
