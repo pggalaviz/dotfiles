@@ -173,7 +173,7 @@ call denite#custom#map('normal', 'r',     '<denite:redraw>', 'noremap')
 " Use RipGrep or The Silver Searcher
 if executable('rg')
     " File
-    call denite#custom#var('file_rec', 'command', ['rg', '--files', '--glob', '!.git', ''])
+    call denite#custom#var('file_rec', 'command', ['rg', '--threads', '2', '--files', '--glob', '!.git'])
     " Grep
     call denite#custom#var('grep', 'command', ['rg'])
     call denite#custom#var('grep', 'recursive_opts', [])
