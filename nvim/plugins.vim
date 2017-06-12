@@ -132,7 +132,8 @@ Plug 'w0rp/ale'
 " -------------------------------------------------------------------------------------------
 
 " Status line
-Plug 'mhartington/oceanic-next'     " Oceanic Next theme
+" Plug 'mhartington/oceanic-next'     " Oceanic trevordmiller/nova-vimNext theme
+Plug 'trevordmiller/nova-vim'       " Nova theme
 Plug 'vim-airline/vim-airline'      " Airline plugin
 
 call plug#end()

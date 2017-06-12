@@ -33,6 +33,8 @@ module.exports = {
     // the full list. if you're going to provide the full color palette,
     // including the 6 x 6 color cubes and the grayscale map, just provide
     // an array here instead of a color map object
+
+    // Oceanic Next Colors
     colors: {
       black: '#1b2b34',
       red: '#ec5f67',
@@ -68,9 +70,8 @@ module.exports = {
     // if true, selected text will automatically be copied to the clipboard
     copyOnSelect: false,
 
-
     // shortcut to summon hyperterm
-    summonShortcut: 'Shift+Cmd+Space',
+    summonShortcut: 'Shift+Cmd+Space'
   },
 
   // list of plugins to fetch and install from npm
@@ -85,6 +86,5 @@ module.exports = {
   // in development, you can create a directory under
   // `~/.hyper_plugins/local/` and include it here
   // to load it and avoid it being `npm install`ed
-  localPlugins: [],
-};
-
+  localPlugins: []
+}

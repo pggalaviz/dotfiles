@@ -415,7 +415,7 @@ let g:airline_powerline_fonts = 1
 let g:airline_enable_branch = 1
 let g:airline_branch_prefix = '⎇ '
 let g:airline_skip_empty_sections = 1
-let g:airline_theme='oceanicnext'
+" let g:airline_theme='oceanicnext'
 let g:airline#extensions#ale#enabled = 1
 
 " -------------------------------------------------------------------------------------------
@@ -440,5 +440,5 @@ call ConfigInc('keybindings.vim')
 " THEMES / COLORS / UI
 "----------------------------------------------------------------------------------------------
 
-colorscheme OceanicNext
+colorscheme nova
 highlight CursorLineNr guifg=#fac863
