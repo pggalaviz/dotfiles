@@ -56,7 +56,7 @@ And then symlink configuration to the respective paths. Follow the instructions 
 `$GOPATH` will be set to `~/go`
 
 For best UI use **iTerm2**, any 'True color' terminal emulator should work, including **Hyper.js**.
-Color theme is called **Oceanic Next**, and it's configured to work on terminal, tmux and Neovim, there's an **iTerm2** color scheme on the **colors** folder that you can import.
+Main color theme is called **Oceanic Next** but configuration for **Nova** is also included, they are configured to work on terminal, tmux and Neovim, there are **iTerm2** color schemes on the **colors** folder that you can import.
 
 In order to fully display UI symbols, you need a 'Powerline patched font', you can download them
 from [https://github.com/powerline/fonts](https://github.com/powerline/fonts), I recomend using
