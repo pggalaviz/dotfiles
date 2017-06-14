@@ -10,15 +10,10 @@ augroup main_autocmds
     autocmd VimResized * wincmd =
 augroup END
 
-" Use a tab spacing of two spaces for these file types
+" Use a tab spacing of four spaces for these file types
 augroup filetype_tabs
     autocmd!
-    autocmd FileType html setlocal shiftwidth=2 softtabstop=2 tabstop=2
-    autocmd FileType elixir setlocal shiftwidth=2 softtabstop=2 tabstop=2
-    autocmd FileType ruby setlocal shiftwidth=2 softtabstop=2 tabstop=2
-    autocmd FileType javascript setlocal shiftwidth=2 softtabstop=2 tabstop=2
-    autocmd FileType yaml setlocal shiftwidth=2 softtabstop=2 tabstop=2
-    autocmd FileType vue setlocal shiftwidth=2 softtabstop=2 tabstop=2
+    autocmd FileType go setlocal shiftwidth=4 softtabstop=4 tabstop=4
 augroup END
 
 " Autodetect some filetypes

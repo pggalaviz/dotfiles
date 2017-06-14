@@ -81,9 +81,9 @@ set wildignore+=*/tmp/*,**/tmp/**
 set autoindent                                  " Auto indent
 set smartindent                                 " Smart autoindenting on new lines
 set expandtab                                   " Always use spaces
-set tabstop=4                                   " Tab size (Columns per tab)
-set shiftwidth=4                                " Amount to shift by
-set softtabstop=4                               " Delete x spaces on backsp.
+set tabstop=2                                   " Tab size (Columns per tab)
+set shiftwidth=2                                " Amount to shift by
+set softtabstop=2                               " Delete x spaces on backsp.
 set smarttab                                    " use 'shiftwidth' when inserting
 set backspace=indent,eol,start                  " Intuitive backspacing in insert mode
 set whichwrap+=<,>,h,l
