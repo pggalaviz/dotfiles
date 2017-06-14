@@ -441,4 +441,7 @@ call ConfigInc('keybindings.vim')
 "----------------------------------------------------------------------------------------------
 
 colorscheme nova
-highlight CursorLineNr guifg=#fac863
+" If colorscheme = OceanicNext
+" highlight CursorLineNr guifg=#fac863
+" If colorscheme = nova
+highlight CursorLineNr guifg=#f2c38f
