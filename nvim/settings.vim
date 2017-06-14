@@ -23,7 +23,7 @@ syntax enable                                   " Syntax highlighting on
 set title                                       " Let Vim set window title
 set hidden                                      " Put current buffer to background without saving
 set autochdir                                   " Change dir to file on current window
-set synmaxcol=1000                              " Don't syntax highlight long lines
+set synmaxcol=160                               " Don't syntax highlight long lines
 set omnifunc=syntaxcomplete#Complete
 
 " Positioning
@@ -49,7 +49,6 @@ set listchars+=extends:»                        " show a » when a line goes of
 set listchars+=precedes:«                       " show a « when a line goes off the left edge of the screenk
 set conceallevel=2
 set colorcolumn=81                              " Color the colum 81
-set showbreak=+                                 " Show a '+' at the beggining of wrapped lines
 
 " Files
 set autowrite                                   " Autosave before :next, :make, etc.
@@ -90,17 +89,19 @@ set backspace=indent,eol,start                  " Intuitive backspacing in inser
 set whichwrap+=<,>,h,l
 
 " Format
-set textwidth=100                               " Wrap text starting here
+set textwidth=80                                " Wrap text starting here
 set nowrap                                      " Disable softwrap
-set linebreak                                   " Break long lines at 'breakat'
+set breakindent                                 " Breack with an indentation
 set breakat=\ \	;:,!?                           " Long lines break chars
+set linebreak                                   " Break long lines at 'breakat'
+set showbreak=+                                 " Show a '+' at the beggining of wrapped lines
 set splitbelow                                  " Open horizontal splits below
 set splitright                                  " Open vertical splits right
 
 " Search
 set hlsearch                                    " Highligh search
 set incsearch                                   " Search as you type
-set ignorecase                                  " Ignore case in matching
+set infercase                                   " Ignore case in matching
 set smartcase                                   " Match capitals in search
 
 " Other

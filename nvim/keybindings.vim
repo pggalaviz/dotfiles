@@ -7,9 +7,10 @@ noremap H ^
 noremap L g_
 noremap J 5j
 noremap K 5k
-" Make cursor move by visual lines instead of file lines (when wrapping)
-noremap k gk
-noremap j gj
+
+" Make cursor move by visual lines instead of file lines (when wrapping) unless count is prepended
+noremap <expr> j v:count ? 'j' : 'gj'
+noremap <expr> k v:count ? 'k' : 'gk'
 
 " Buffer Navigation
 nnoremap <leader>. :bn!<cr>
@@ -83,6 +84,7 @@ nnoremap Q <nop>
 
 " Make 'dot' work as expected in visual mode
 vnoremap . :norm.<cr>
+xnoremap . :norm.<cr>
 
 " Clear the search buffer when hitting ESC
 map <silent> <esc> :nohlsearch<cr>

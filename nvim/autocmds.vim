@@ -7,6 +7,7 @@
 augroup main_autocmds
     autocmd!
     autocmd CompleteDone * pclose
+    autocmd VimResized * wincmd =
 augroup END
 
 " Use a tab spacing of two spaces for these file types
