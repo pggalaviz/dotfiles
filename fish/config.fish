@@ -225,7 +225,7 @@ function ygi ; yarn list --depth=0 ; end
 #------------------
 #====> ELIXIR
 #------------------
-# Fast cd to $GOPATH
+# Get Phoenix installed version
 function phv ; mix phoenix.new -v ; end
 
 #------------------
