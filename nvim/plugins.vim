@@ -51,6 +51,7 @@ Plug 'dag/vim-fish', {'for': 'fish'}            " Fish shell highlighting
 " Delimiters
 Plug 'itmammoth/doorboy.vim'        " Auto close brackets, quotations, etc.
 Plug 'tpope/vim-surround'           " Easily change surroundings (parenthesis, brackets, etc)
+Plug 'tpope/vim-endwise'            " Add 'end' automatically for ruby, elixir and others
 
 " Comments
 Plug 'tpope/vim-commentary'         " Easily comment/uncomment words, lines or group of lines
