@@ -56,6 +56,7 @@ Plug 'tpope/vim-endwise'            " Add 'end' automatically for ruby, elixir a
 " Comments
 Plug 'tpope/vim-commentary'         " Easily comment/uncomment words, lines or group of lines
 
+" File manipulation
 Plug 'mattn/emmet-vim', {'for': ['html', 'vue', 'css', 'scss', 'javascript', 'jsx']}    " Easy workflow for html & CSS
 
 " Format/Indentation
@@ -113,7 +114,7 @@ Plug 'Shougo/neco-vim', {'for': 'vim'}                          " Vim script com
 Plug 'awetzel/elixir.nvim', { 'do': 'yes \| ./install.sh' }     " Elixir completion
 Plug 'fishbullet/deoplete-ruby', {'for': 'ruby'}                " Ruby completion
 Plug 'ponko2/deoplete-fish', {'for': 'fish'}                    " Fish shell completion
-Plug 'carlitux/deoplete-ternjs', {'do': 'yarn global add tern', 'for': ['javascript', 'vue', 'jsx']}  " Javascript completion
+Plug 'carlitux/deoplete-ternjs', {'do': 'npm install -g tern', 'for': ['javascript', 'vue', 'jsx']}  " Javascript completion
 Plug 'zchee/deoplete-go', { 'do': 'make', 'for': 'go'}          " Golang completion
 
 " Snippets
