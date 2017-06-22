@@ -104,8 +104,7 @@ if get_boolean_response "Do you want to install and use Fish shell?"; then
   brew install fish
   echo_item "Changing to Fish shell... Might require password:" yellow
   chsh -s $(which fish)
-  echo_item "You're using Fish shell!" green
-  echo_item "Restart your terminal after so any changes take effect."
+  echo_item "Fish shell successfully installed!" green
   echo "--------------------------------------------------------------------------"
   echo_item "Symlinking Fish shell configuration..." yellow
   mkdir -p ~/.config/fish
@@ -113,9 +112,18 @@ if get_boolean_response "Do you want to install and use Fish shell?"; then
   ln -sf `pwd`/fish/config.fish ~/.config/fish/
   ln -sf `pwd`/fish/functions/fish_prompt.fish ~/.config/fish/functions/
   echo_item "Done!" green
+  echo "********************************************************************"
+  echo_item "Please restart your terminal and rerun this script to continue." blue
+  echo "********************************************************************"
+  echo_item "You can skip this step next time."
+  exit 0
 else
-  echo_item "Using default shell..." red
-  echo_item "These files work better with Fish, you'll need to manually customize any other shell."
+  if exists "fish"; then
+    echo_item "Fish is already installed!" green
+  else
+    echo_item "Using default shell..." red
+    echo_item "These files work better with Fish, you'll need to manually customize any other shell."
+  fi
 fi
 echo "--------------------------------------------------------------------------"
 
