@@ -214,6 +214,10 @@ if get_boolean_response "Do you want to install Neovim?"; then
   pip3 install --upgrade neovim
   echo_item "Done!" green
   echo "--------------------------------------------------------------------------"
+  echo_item "Downloading Neovim ruby client..." yellow
+  gem install neovim
+  echo_item "Done!" green
+  echo "--------------------------------------------------------------------------"
   echo_item "Downloading Neovim plugin manager (vim-plug)..." yellow
   curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim

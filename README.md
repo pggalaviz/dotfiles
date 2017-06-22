@@ -26,7 +26,7 @@ But you can always customize it to add or remove stuff as you like.
 
 If you like this configuration just clone this repo:
 ```
-$ git clone https://github.com/pggalaviz/dotfiles.git ~/.dotfiles
+git clone https://github.com/pggalaviz/dotfiles.git ~/.dotfiles
 ```
 then run:
 ```
@@ -36,8 +36,8 @@ Running `./install.sh` will run different instructions for OSX and Linux.
 On OSX, several utilities and dependencies will be installed via **Homebrew, Git & Node** (will ask to install them if not found).
 
 Once Homebrew, Git & Node are detected, these will install by default:
-- *tree* (Helps to visualize directory tree on terminal)
-- **ripgrep** (Incredibly fast fuzzy finder made with Rust Lang)
+- **tree** (Helps to visualize directory tree on terminal)
+- **ripgrep** (Incredibly fast fuzzy finder made with Rust lang)
 - **Python 3** (Programming language)
 - **reattach-to-user-namespace** (Hack to comfortably work with MacOS clipboard)
 
@@ -52,10 +52,10 @@ Then you'll be prompted to install the following programs/tools:
 - Universal ctags
 - Some Node global packages (vue-cli, tern, etc.)
 
-These are not required, however they are strongly recomended to have everything
-up and running easily. By accepting when asked by the prompt, they'll be installed and configured, symlinks to the respective paths will also be created. Follow the instructions at the end and you'll be mostly set.
+These are not strictly required, however they are strongly recomended to have everything
+up and running easily, everything is configured to work with each other by default. By accepting when asked by the prompt, they'll be installed and configured, symlinks to the respective paths will also be created. Follow the instructions at the end and you'll be mostly set.
 
-I'm working on Linux support.
+I'm working on Linux support. (Comming soon!)
 
 ## After installing:
 
@@ -79,7 +79,7 @@ Linux is not supported yet, working on it.
 ## Updates
 
 To update files, dependencies, tools and programs you can run the **update.sh**
-comand: `~/.dotfiles/update.sh`, you'll then be prompted what you want to
+comand: `~/.dotfiles/update.sh`, you'll then be prompted  to choose what you want to
 update.
 
 **Important:** Everytime you add a file to the `nvim/plugin` folder, you'll need
