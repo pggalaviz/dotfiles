@@ -37,7 +37,7 @@ On OSX, several utilities and dependencies will be installed via **Homebrew, Git
 
 Once Homebrew, Git & Node are detected, these will install by default:
 - **tree** (Helps to visualize directory tree on terminal)
-- **ripgrep** (Incredibly fast fuzzy finder made with Rust lang)
+- **ripgrep** (Line oriented search tool, better & faster than The Silver Searcher)
 - **Python 3** (Programming language)
 - **reattach-to-user-namespace** (Hack to comfortably work with MacOS clipboard)
 
@@ -80,7 +80,8 @@ Linux is not supported yet, working on it.
 
 To update files, dependencies, tools and programs you can run the **update.sh**
 comand: `~/.dotfiles/update.sh`, you'll then be prompted  to choose what you want to
-update.
+update. You should have run `install.sh` command at some point before attempting
+to run this command.
 
 **Important:** Everytime you add a file to the `nvim/plugin` folder, you'll need
 to run this command so a symlink to the new file can be created.
