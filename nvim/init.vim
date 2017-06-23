@@ -139,8 +139,8 @@ vmap § <Plug>MoveBlockUp
 " rizzatti/dash.vim
 " ==================================
 nmap <silent> <C-d> <Plug>DashSearch
-" airblade/vim-rooter
 
+" airblade/vim-rooter
 " ==================================
 nnoremap <localleader>cd :Rooter<cr>
 let g:rooter_patterns = ['Makefile', 'mix.exs', 'package.json', '*.yml', '*.yaml', '.git', '.git/', 'node_modules/', '.hg/']
