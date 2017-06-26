@@ -199,8 +199,6 @@ echo "--------------------------------------------------------------------------
 # ------------------------------------------------------------------------------
 echo_item "Neovim:" blue
 if get_boolean_response "Do you want to install Neovim?"; then
-  echo_item "Brew tapping Neovim..." yellow
-  brew tap neovim/neovim
   echo_item "Installing Neovim..." yellow
   brew install neovim
   echo_item "Neovim successfully installed!" green
