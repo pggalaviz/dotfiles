@@ -21,7 +21,7 @@ function! ConfigInc(module)
 endfunction
 
 " Python 3 is needed for some plugins to work
-" let g:python3_host_prog = '/usr/local/bin/python3'
+let g:python3_host_prog = '/usr/local/bin/python3'
 
 set termguicolors
 " I like block cursor always blinking
