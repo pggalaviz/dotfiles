@@ -154,13 +154,7 @@ function tk ; tmux kill-session -t $argv ; end
 # Tmux kill all
 function tka ; tmux kill-server ; end
 # Tmux attach
-function ta
-    if $argv
-        tmux a -t $argv
-    else
-        tmux a
-    end
-end
+function ta ; tmux a -t $argv ; end
 
 #-------------------
 #====> GIT
