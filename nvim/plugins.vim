@@ -108,6 +108,11 @@ Plug 'Shougo/deoplete.nvim',        { 'do': ':UpdateRemotePlugins' } " Completio
 Plug 'Shougo/context_filetype.vim'  " Filetype context
 Plug 'Shougo/neoinclude.vim'        " Include completion framework
 
+" Snippets
+Plug 'Shougo/neosnippet.vim'        " Snippets support
+Plug 'Shougo/neosnippet-snippets'   " Snippets repository
+Plug 'Shougo/echodoc.vim'           " Show functions signatures in the command line
+
 " Deoplete filetype sources
 Plug 'wellle/tmux-complete.vim'     " Adjacent tmux panes completion
 Plug 'Shougo/neco-vim',             {'for': 'vim'} " Vim script completion
@@ -116,11 +121,6 @@ Plug 'fishbullet/deoplete-ruby',    {'for': 'ruby'} " Ruby completion
 Plug 'ponko2/deoplete-fish',        {'for': 'fish'} " Fish shell completion
 Plug 'carlitux/deoplete-ternjs',    {'for': ['javascript', 'vue', 'jsx']} " Javascript completion
 Plug 'zchee/deoplete-go',           {'do': 'make', 'for': 'go'} " Golang completion
-
-" Snippets
-Plug 'Shougo/neosnippet.vim'        " Snippets support
-Plug 'Shougo/neosnippet-snippets'   " Snippets repository
-Plug 'Shougo/echodoc.vim'           " Show functions signatures in the command line
 
 " -------------------------------------------------------------------------------------------
 " LINTERS

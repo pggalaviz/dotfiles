@@ -35,8 +35,9 @@ if get_boolean_response "Running this command assumes you've previoulsy run the 
       echo_item "Done!" green
       echo "--------------------------------------------------------------------------"
 
+      echo_item "Updating Node Package Manager..." yellow
+      npm i -g npm
       echo_item "Updating Node global packages..." yellow
-      npm install npm@latest -g
       npm update -g
       yarn global upgrade
       echo_item "Done!" green
@@ -89,8 +90,9 @@ if get_boolean_response "Running this command assumes you've previoulsy run the 
     elif get_boolean_response "> Update only Node global packages?"; then
 
       echo "--------------------------------------------------------------------------"
+      echo_item "Updating Node Package Manager..." yellow
+      npm i -g npm
       echo_item "Updating Node global packages..." yellow
-      npm install npm@latest -g
       npm update -g
       yarn global upgrade
       echo_item "Done!" green
