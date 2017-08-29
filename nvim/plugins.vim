@@ -37,7 +37,7 @@ Plug 'slashmili/alchemist.vim',     {'for': 'elixir'} " Elixir Integration
 Plug 'fatih/vim-go',                {'do': ':GoInstallBinaries', 'for': 'go'} " Golang utilities
 
 " Crystal
-plug 'rhysd/vim-crystal'            {'for': 'crystal'} " Crystal language highlighting
+Plug 'rhysd/vim-crystal'            {'for': 'crystal'} " Crystal language highlighting
 
 " Ruby
 Plug 'vim-ruby/vim-ruby',           {'for': 'ruby'} " Ruby language syntax & highlighting
