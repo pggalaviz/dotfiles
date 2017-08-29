@@ -10,7 +10,7 @@ call plug#begin()
 " -------------------------------------------------------------------------------------------
 
 " HTML
-Plug 'othree/html5.vim',            {'for': ['html', 'vue', 'jsx', 'javascript.jsx']} " HTML5 syntax & completion
+Plug 'othree/html5.vim',            {'for': ['html', 'vue', 'jsx', 'javascript.jsx', 'eelixir']} " HTML5 syntax & completion
 Plug 'valloric/MatchTagAlways',     {'for': ['html', 'vue', 'jsx', 'javascript.jsx']} " Highlights matching tag
 
 " Javascript & Json
@@ -30,11 +30,14 @@ Plug 'wavded/vim-stylus',           { 'for': ['stylus', 'vue']} " Stylus syntax 
 Plug 'ap/vim-css-color',            {'for':['css', 'scss', 'styl', 'vue',]} " Show colors on CSS files
 
 " Elixir
-Plug 'elixir-lang/vim-elixir',      {'for': 'elixir'} " Elixir language highlightning
+Plug 'elixir-lang/vim-elixir',      {'for': 'elixir'} " Elixir language highlighting
 Plug 'slashmili/alchemist.vim',     {'for': 'elixir'} " Elixir Integration
 
 " Go
 Plug 'fatih/vim-go',                {'do': ':GoInstallBinaries', 'for': 'go'} " Golang utilities
+
+" Crystal
+plug 'rhysd/vim-crystal'            {'for': 'crystal'} " Crystal language highlighting
 
 " Ruby
 Plug 'vim-ruby/vim-ruby',           {'for': 'ruby'} " Ruby language syntax & highlighting
@@ -57,7 +60,7 @@ Plug 'tpope/vim-endwise'            " Add 'end' automatically for ruby, elixir a
 Plug 'tpope/vim-commentary'         " Easily comment/uncomment words, lines or group of lines
 
 " File manipulation
-Plug 'mattn/emmet-vim',             {'for': ['html', 'vue', 'css', 'scss', 'javascript', 'jsx']} " Easy workflow for html & CSS
+Plug 'mattn/emmet-vim',             {'for': ['html', 'vue', 'css', 'scss', 'javascript', 'jsx', 'eelixir']} " Easy workflow for html & CSS
 
 " Format/Indentation
 Plug 'sbdchd/neoformat'             " Format code
