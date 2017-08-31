@@ -323,6 +323,21 @@ echo "--------------------------------------------------------------------------
 
 
 
+# Install Crystal --------------------------------------------------------------
+# ------------------------------------------------------------------------------
+echo_item "Crystal:" blue
+if get_boolean_response "Do you want to install the Crystal programming language?"; then
+  echo_item "Installing Crystal..." yellow
+  brew install crystal-lang
+  echo_item "Crystal successfully installed!" green
+  echo "--------------------------------------------------------------------------"
+else
+  echo_item "Skipping Crystal installation..."
+fi
+echo "--------------------------------------------------------------------------"
+
+
+
 # Install Ctags ----------------------------------------------------------------
 # ------------------------------------------------------------------------------
 echo_item "Ctags:" blue
@@ -342,6 +357,19 @@ else
 fi
 echo "--------------------------------------------------------------------------"
 
+
+
+# Install m-cli ----------------------------------------------------------------
+# ------------------------------------------------------------------------------
+echo_item "m-cli (Amazing command line tools for MacOS):" blue
+if get_boolean_response "Do you want to install m-cli?"; then
+  echo_item "Installing m-cli..." yellow
+  brew install m-cli
+  echo_item "m-cli successfully installed!" green
+else
+  echo_item "Skipping m-cli installation..."
+fi
+echo "--------------------------------------------------------------------------"
 
 
 echo_item "All done here!" blue
