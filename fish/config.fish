@@ -103,7 +103,7 @@ function bout ; brew outdated ; end
 # Check if formula is a dependency of another
 function buse ; brew uses --installed $argv ; end
 # Clean past version(s) of formulae including cache
-function bcl ; brew cleanup -s ;and brew cask cleanup -s ;and brew prune ; end
+function bcl ; brew cleanup -s ;and brew cask cleanup ;and brew prune ; end
 # uninstall formula including dependencies
 function brm
     brew deps $argv | xargs brew remove --ignore-dependencies | brew remove $argv | brew missing | cut -d: -f2 | sort | uniq | xargs brew install
@@ -182,7 +182,7 @@ function gt ; git tag ; end
 # Git pull
 function gp ; git pull $argv ; end
 # Git pull origin master
-function gpom ; git pull origin master ; end
+function pullom ; git pull origin master ; end
 # Git commit
 function gc ; git commit -m $argv ; end
 # Git push
