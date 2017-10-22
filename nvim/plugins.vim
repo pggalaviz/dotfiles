@@ -100,6 +100,7 @@ Plug 'hauleth/sad.vim'                  " Quick change and replace!
 Plug 'matze/vim-move'                   " Easily move blocks of code, no cuting and pasting!!!
 Plug 'EinfachToll/DidYouMean'           " Ask for confirmation to open file if similar names exist
 Plug 'airblade/vim-rooter'              " Chage working directory to project root
+Plug 'tpope/vim-eunuch'                 " UNIX file shell command helpers
 Plug 'rizzatti/dash.vim',           {'on': ['Dash', 'DashKeywords', '<Plug>DashSearch']} " Easy documentation with Dash.app (OSX)
 
 " -------------------------------------------------------------------------------------------
