@@ -14,11 +14,12 @@ Plug 'othree/html5.vim',            {'for': ['html', 'vue', 'jsx', 'javascript.j
 Plug 'valloric/MatchTagAlways',     {'for': ['html', 'vue', 'jsx', 'javascript.jsx', 'eelixir']} " Highlights matching tag
 
 " Javascript & Json
-Plug 'othree/yajs.vim',             {'for': ['javascript', 'vue', 'jsx', 'javascript.jsx']} " Javascript syntax
-Plug 'othree/jspc.vim',             {'for': ['javascript', 'vue', 'jsx', 'javascript.jsx']} " Javascript parameter completion
-Plug 'moll/vim-node',               {'for': ['javascript', 'vue', 'jsx', 'javascript.jsx']} " Node tools
-Plug 'elzr/vim-json',               {'for': 'json'}                                         " JSON highlighting
-Plug 'posva/vim-vue',               {'for': 'vue'}                                          " Vue.js syntax highlighting
+Plug 'othree/yajs.vim',              {'for': ['javascript', 'vue', 'jsx', 'javascript.jsx']} " Javascript syntax
+Plug 'othree/jspc.vim',              {'for': ['javascript', 'vue', 'jsx', 'javascript.jsx']} " Javascript parameter completion
+Plug 'moll/vim-node',                {'for': ['javascript', 'vue', 'jsx', 'javascript.jsx']} " Node tools
+Plug 'elzr/vim-json',                {'for': 'json'}                                         " JSON highlighting
+Plug 'posva/vim-vue',                {'for': 'vue'}                                          " Vue.js syntax highlighting
+Plug 'HerringtonDarkholme/yats.vim', {'for': ['vue', 'typescript']}                          " Typescript highlighting
 
 " Yaml
 Plug 'stephpy/vim-yaml',            {'for': 'yaml'} " Yaml syntax highlighting
@@ -125,6 +126,7 @@ Plug 'fishbullet/deoplete-ruby',    {'for': 'ruby'} " Ruby completion
 Plug 'ponko2/deoplete-fish',        {'for': 'fish'} " Fish shell completion
 Plug 'carlitux/deoplete-ternjs',    {'for': ['javascript', 'vue', 'jsx']} " Javascript completion
 Plug 'zchee/deoplete-go',           {'do': 'make', 'for': 'go'} " Golang completion
+Plug 'mhartington/nvim-typescript', {'for': ['vue', 'typescript']} " Typescript tools
 
 " -------------------------------------------------------------------------------------------
 " LINTERS

@@ -159,6 +159,11 @@ let g:tern_show_signature_in_pum = 1
 " ==================================
 let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
 
+" mhartington/nvim-typescript
+" ==================================
+let g:nvim_typescript#javascript_support = 1
+let g:nvim_typescript#vue_support = 1
+
 " Shougo/neosnippet
 " ==================================
 imap <C-k> <Plug>(neosnippet_expand_or_jump)

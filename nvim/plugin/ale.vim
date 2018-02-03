@@ -13,6 +13,7 @@ let g:ale_warn_about_trailing_whitespace = 1
 
 let g:ale_linters = {
 \   'javascript': ['standard', 'eslint'],
+\   'typescript': ['tsserver', 'tslint'],
 \}
 
 augroup ale_lint
