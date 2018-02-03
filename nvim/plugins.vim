@@ -11,12 +11,12 @@ call plug#begin()
 
 " HTML
 Plug 'othree/html5.vim',            {'for': ['html', 'vue', 'jsx', 'javascript.jsx', 'eelixir']} " HTML5 syntax & completion
-Plug 'valloric/MatchTagAlways',     {'for': ['html', 'vue', 'jsx', 'javascript.jsx']} " Highlights matching tag
+Plug 'valloric/MatchTagAlways',     {'for': ['html', 'vue', 'jsx', 'javascript.jsx', 'eelixir']} " Highlights matching tag
 
 " Javascript & Json
-Plug 'othree/yajs.vim',             {'for': ['javascript', 'jsx', 'vue', 'javascript.jsx']} " Javascript syntax
-Plug 'othree/jspc.vim',             {'for': ['javascript', 'jsx', 'vue', 'javascript.jsx']} " Javascript parameter completion
-Plug 'moll/vim-node',               {'for': ['javascript', 'jsx', 'vue', 'javascript.jsx']} " Node tools
+Plug 'othree/yajs.vim',             {'for': ['javascript', 'vue', 'jsx', 'javascript.jsx']} " Javascript syntax
+Plug 'othree/jspc.vim',             {'for': ['javascript', 'vue', 'jsx', 'javascript.jsx']} " Javascript parameter completion
+Plug 'moll/vim-node',               {'for': ['javascript', 'vue', 'jsx', 'javascript.jsx']} " Node tools
 Plug 'elzr/vim-json',               {'for': 'json'}                                         " JSON highlighting
 Plug 'posva/vim-vue',               {'for': 'vue'}                                          " Vue.js syntax highlighting
 
@@ -26,8 +26,8 @@ Plug 'stephpy/vim-yaml',            {'for': 'yaml'} " Yaml syntax highlighting
 " CSS & Styling
 Plug 'hail2u/vim-css3-syntax',      {'for': ['css', 'vue']} " CSS and SCSS syntax & highlighting
 Plug 'cakebaker/scss-syntax.vim',   {'for': ['scss', 'vue']} " SCSS syntax
-Plug 'wavded/vim-stylus',           { 'for': ['stylus', 'vue']} " Stylus syntax & highlighting
-Plug 'ap/vim-css-color',            {'for':['css', 'scss', 'styl', 'vue',]} " Show colors on CSS files
+Plug 'wavded/vim-stylus',           {'for': ['stylus', 'vue']} " Stylus syntax & highlighting
+Plug 'ap/vim-css-color',            {'for': ['css', 'scss', 'styl', 'vue']} " Show colors on CSS files
 
 " Elixir
 Plug 'elixir-lang/vim-elixir',      {'for': 'elixir'} " Elixir language highlighting

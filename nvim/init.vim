@@ -52,6 +52,10 @@ nnoremap <localleader>pi :PlugInstall<cr>
 " ==================================
 let g:vim_json_syntax_conceal = 0
 
+" posva/vim-vue
+" ==================================
+let g:vue_disable_pre_processors = 1
+
 " slashmili/alchemist.vim
 " ==================================
 let g:alchemist_tag_disable = 1 "Use Universal ctags instead

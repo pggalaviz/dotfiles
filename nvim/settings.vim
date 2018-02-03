@@ -23,7 +23,7 @@ syntax enable                                   " Syntax highlighting on
 set title                                       " Let Vim set window title
 set hidden                                      " Put current buffer to background without saving
 set autochdir                                   " Change dir to file on current window
-set synmaxcol=160                               " Don't syntax highlight long lines
+set synmaxcol=240                               " Don't syntax highlight long lines
 set omnifunc=syntaxcomplete#Complete
 
 " Positioning

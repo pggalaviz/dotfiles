@@ -26,6 +26,10 @@ augroup filetype_detect
     autocmd BufNewFile,BufRead .tern-project setf json
     autocmd BufNewFile,BufRead *.md,*markdown setf markdown
     autocmd BufNewFile,BufRead *.yml setf yaml
+    autocmd BufNewFile,BufRead *.eex setf eelixir
+    autocmd BufNewFile,BufRead *.vue setf vue
+
+    autocmd FileType vue syntax sync fromstart
 augroup END
 
 " Wrap lines on these file types
