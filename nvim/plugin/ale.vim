@@ -13,7 +13,6 @@ let g:ale_warn_about_trailing_whitespace = 1
 
 let g:ale_linters = {
 \   'javascript': ['standard', 'eslint'],
-\   'typescript': ['tsserver', 'tslint'],
 \}
 
 augroup ale_lint
@@ -22,6 +21,7 @@ augroup ale_lint
   autocmd ColorScheme * hi ALEErrorSign guifg=#ec5f67
   autocmd ColorScheme * hi ALEWarningSign guifg=#fac863
 augroup END
+
 " If 'standard.js' linter is present autoformat with:
 if executable('standard')
   autocmd BufWritePost *.js silent !standard --fix %

@@ -22,17 +22,27 @@ let g:tagbar_type_elixir = {
   \ ]
 \ }
 
-" support for typescript
-let g:tagbar_type_typescript = {
-  \ 'ctagstype': 'typescript',
-  \ 'kinds': [
+" Support for css
+let g:tagbar_type_css = {
+\ 'ctagstype' : 'css',
+  \ 'kinds'     : [
     \ 'c:classes',
-    \ 'n:modules',
-    \ 'f:functions',
-    \ 'v:variables',
-    \ 'v:varlambdas',
-    \ 'm:members',
-    \ 'i:interfaces',
-    \ 'e:enums',
+    \ 's:selectors',
+    \ 'i:identities'
+  \ ]
+\ }
+
+" Support for rust
+let g:tagbar_type_rust = {
+  \ 'ctagstype' : 'rust',
+  \ 'kinds' : [
+    \'T:types,type definitions',
+    \'f:functions,function definitions',
+    \'g:enum,enumeration names',
+    \'s:structure names',
+    \'m:modules,module names',
+    \'c:consts,static constants',
+    \'t:traits',
+    \'i:impls,trait implementations',
   \ ]
 \ }

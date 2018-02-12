@@ -20,6 +20,8 @@ test -d /usr/local/sbin ;and set PATH /usr/local/sbin $PATH
 # Set GO lang path
 test -d $HOME/go ;and set -x GOPATH $HOME/go ;and set PATH $GOPATH/bin $PATH
 test -d /usr/local/opt/go/libexec ;and set -x GOROOT /usr/local/opt/go/libexec ;and set PATH $GOROOT/bin $PATH
+# set Rust lang path
+test -d $HOME/.cargo/bin ;and set PATH $HOME/.cargo/bin $PATH
 # add rbenv to $PATH
 status --is-interactive; and source (rbenv init -|psub)
 # Need this to expose global packages installed via yarn

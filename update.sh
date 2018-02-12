@@ -48,6 +48,11 @@ if get_boolean_response "Running this command assumes you've previoulsy run the 
       if exists "go"; then
         go get -u github.com/nsf/gocode
       fi
+      # Rust utilities
+      if exists "rustup"; then
+        rustup update
+        cargo install racer --force
+      fi
       # Neovim dependencies
       if exists "nvim"; then
         # Neovim python 3 client
@@ -106,6 +111,11 @@ if get_boolean_response "Running this command assumes you've previoulsy run the 
       # Golang utilities
       if exists "go"; then
         go get -u github.com/nsf/gocode
+      fi
+      # Rust utilities
+      if exists "rustup"; then
+        rustup update
+        cargo install racer --force
       fi
       # Neovim dependencies
       if exists "nvim"; then

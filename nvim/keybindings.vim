@@ -12,6 +12,9 @@ noremap K 5k
 noremap <expr> j v:count ? 'j' : 'gj'
 noremap <expr> k v:count ? 'k' : 'gk'
 
+" Go to definition (using ctags)
+nnoremap <leader>z <C-]>
+
 " Buffer Navigation
 nnoremap <leader>. :bn!<cr>
 nnoremap <leader>, :bp!<cr>

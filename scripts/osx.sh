@@ -251,10 +251,12 @@ echo "--------------------------------------------------------------------------
 modules=(
 "vue-cli"
 "tern"
+"standard"
 )
 echo_item "Node Global Packages:" blue
 echo_item "Packages:"
 echo "- vue-cli"
+echo "- standard (JS style, linting & formater)"
 echo "- tern (required for Neovim JS linting)\n"
 if get_boolean_response "Do you want to install these global packages?"; then
   if get_boolean_response "Do you want to use yarn?"; then
@@ -315,7 +317,6 @@ if get_boolean_response "Do you want to install the Elixir programming language?
   echo_item "Installing Elixir..." yellow
   brew install elixir
   echo_item "Elixir successfully installed!" green
-  echo "--------------------------------------------------------------------------"
 else
   echo_item "Skipping Elixir installation..."
 fi
@@ -330,12 +331,31 @@ if get_boolean_response "Do you want to install the Crystal programming language
   echo_item "Installing Crystal..." yellow
   brew install crystal-lang
   echo_item "Crystal successfully installed!" green
-  echo "--------------------------------------------------------------------------"
 else
   echo_item "Skipping Crystal installation..."
 fi
 echo "--------------------------------------------------------------------------"
 
+
+
+# Install Rust -----------------------------------------------------------------
+# ------------------------------------------------------------------------------
+echo_item "Rust:" blue
+if get_boolean_response "Do you want to install the Rust programming language?"; then
+  echo_item "Installing Rust... follow the instructions below:" yellow
+  curl https://sh.rustup.rs -sSf | sh
+  echo_item "Rust successfully installed!" green
+  echo "--------------------------------------------------------------------------"
+  echo_item "Downloading Rust utilities, tools & dependencies..." yellow
+  cargo install racer
+  rustup update nightly
+  rustup default nightly
+  rustup component add rust-src --toolchain nightly
+  echo_item "Done!" green
+else
+  echo_item "Skipping Rust installation..."
+fi
+echo "--------------------------------------------------------------------------"
 
 
 # Install Ctags ----------------------------------------------------------------

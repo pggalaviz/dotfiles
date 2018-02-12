@@ -34,7 +34,7 @@ function! s:cr_deoplete()
         " If no snippet close popup with selection
         return deoplete#close_popup()
     endif
-    " Else, map to doorboy pligin for correct usage
+    " Else, map to doorboy plugin for correct usage
     return doorboy#map_cr()
 endfunction
 

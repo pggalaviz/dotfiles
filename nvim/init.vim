@@ -44,9 +44,9 @@ nnoremap <localleader>pu :PlugUpdate<cr>
 nnoremap <localleader>pc :PlugClean<cr>
 nnoremap <localleader>pi :PlugInstall<cr>
 
-" ******************************************************************
-" Plugins with many lines of configuration are under 'plugin' folder
-" ******************************************************************
+" *******************************************************************
+" Plugins with many lines of configuration are under 'plugins' folder
+" *******************************************************************
 
 " elzr/vim-json
 " ==================================
@@ -147,22 +147,43 @@ nmap <silent> <C-d> <Plug>DashSearch
 " airblade/vim-rooter
 " ==================================
 nnoremap <localleader>cd :Rooter<cr>
-let g:rooter_patterns = ['Makefile', 'mix.exs', 'package.json', '*.yml', '*.yaml', '.git', '.git/', 'node_modules/', '.hg/']
+let g:rooter_patterns = ['Makefile', 'mix.exs', 'package.json', '*.yml', '*.yaml', '.git', '.git/', 'node_modules/', '.hg/', '.gitignore']
 let g:rooter_change_directory_for_non_project_files = 'current'
 
 " carlitux/deoplete-ternjs
 " ==================================
-let g:tern_request_timeout = 1
 let g:tern_show_signature_in_pum = 1
+let g:deoplete#sources#ternjs#timeout = 1
+let g:deoplete#sources#ternjs#types = 1
+let g:deoplete#sources#ternjs#docs = 1
+let g:deoplete#sources#ternjs#filetypes = [
+  \ 'js',
+  \ 'javascript',
+  \ 'vue',
+  \ 'jsx',
+  \ 'javascript.jsx'
+\ ]
 
 " zchee/deoplete-go
 " ==================================
-let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
+let g:deoplete#sources#go#gocode_binary = $GOPATH . '/bin/gocode'
 
-" mhartington/nvim-typescript
+" sebastianmarkow/deoplete-rust
 " ==================================
-let g:nvim_typescript#javascript_support = 1
-let g:nvim_typescript#vue_support = 1
+let g:deoplete#sources#rust#racer_binary = $HOME . '/.cargo/bin/racer'
+if executable('rustc')
+  " If via rustup, we can get it by running rustc --print sysroot then appending the rest of the path
+  let rustc_root = systemlist('rustc --print sysroot')[0]
+  let rustc_src_dir = rustc_root . '/lib/rustlib/src/rust/src'
+  if isdirectory(rustc_src_dir)
+    let g:deoplete#sources#rust#rust_source_path = rustc_src_dir
+  endif
+endif
+let g:deoplete#sources#rust#disable_keymap = 1
+
+" wellle/tmux-complete.vim
+" ==================================
+let g:tmuxcomplete#trigger = ''
 
 " Shougo/neosnippet
 " ==================================
