@@ -12,7 +12,9 @@ let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 let g:ale_warn_about_trailing_whitespace = 1
 
 let g:ale_linters = {
-\   'javascript': ['standard', 'eslint'],
+\ 'javascript': ['standard', 'eslint'],
+\ 'elixir': ['credo'],
+\ 'rust': ['rls', 'cargo']
 \}
 
 augroup ale_lint
@@ -25,4 +27,8 @@ augroup END
 " If 'standard.js' linter is present autoformat with:
 if executable('standard')
   autocmd BufWritePost *.js silent !standard --fix %
+endif
+
+if executable('rls')
+  let g:ale_rust_rls_toolchain = 'nightly'
 endif

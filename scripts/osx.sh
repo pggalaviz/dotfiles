@@ -252,11 +252,13 @@ modules=(
 "vue-cli"
 "tern"
 "standard"
+"prettier"
 )
 echo_item "Node Global Packages:" blue
 echo_item "Packages:"
 echo "- vue-cli"
 echo "- standard (JS style, linting & formater)"
+echo "- prettier (JS style, linting & formater)"
 echo "- tern (required for Neovim JS linting)\n"
 if get_boolean_response "Do you want to install these global packages?"; then
   if get_boolean_response "Do you want to use yarn?"; then
@@ -348,9 +350,9 @@ if get_boolean_response "Do you want to install the Rust programming language?";
   echo "--------------------------------------------------------------------------"
   echo_item "Downloading Rust utilities, tools & dependencies..." yellow
   cargo install racer
+  rustup component add rls-preview rust-analysis rust-src
   rustup update nightly
-  rustup default nightly
-  rustup component add rust-src --toolchain nightly
+  rustup component add rls-preview rust-analysis rust-src --toolchain nightly
   echo_item "Done!" green
 else
   echo_item "Skipping Rust installation..."

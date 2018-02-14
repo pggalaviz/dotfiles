@@ -24,7 +24,7 @@ endfunction
 let g:python3_host_prog = '/usr/local/bin/python3'
 
 set termguicolors
-" I like block cursor always blinking
+" I like block & always blinking cursor
 set guicursor=a:block-blinkwait100-blinkoff150-blinkon175
 
 " -------------------------------------------------------------------------------------------
@@ -32,6 +32,12 @@ set guicursor=a:block-blinkwait100-blinkoff150-blinkon175
 " -------------------------------------------------------------------------------------------
 
 call ConfigInc('settings.vim')
+
+" -------------------------------------------------------------------------------------------
+"  AUTOCOMMANDS
+" -------------------------------------------------------------------------------------------
+
+call ConfigInc('autocmds.vim')
 
 " -------------------------------------------------------------------------------------------
 "  PLUGINS
@@ -59,6 +65,7 @@ let g:vue_disable_pre_processors = 1
 " slashmili/alchemist.vim
 " ==================================
 let g:alchemist_tag_disable = 1 "Use Universal ctags instead
+let g:alchemist_mappings_disable = 1
 
 " ditmammoth/doorboy.vim
 " ==================================
@@ -168,18 +175,10 @@ let g:deoplete#sources#ternjs#filetypes = [
 " ==================================
 let g:deoplete#sources#go#gocode_binary = $GOPATH . '/bin/gocode'
 
-" sebastianmarkow/deoplete-rust
+" racer-rust/vim-racer
 " ==================================
-let g:deoplete#sources#rust#racer_binary = $HOME . '/.cargo/bin/racer'
-if executable('rustc')
-  " If via rustup, we can get it by running rustc --print sysroot then appending the rest of the path
-  let rustc_root = systemlist('rustc --print sysroot')[0]
-  let rustc_src_dir = rustc_root . '/lib/rustlib/src/rust/src'
-  if isdirectory(rustc_src_dir)
-    let g:deoplete#sources#rust#rust_source_path = rustc_src_dir
-  endif
-endif
-let g:deoplete#sources#rust#disable_keymap = 1
+let g:racer_cmd = '~/.cargo/bin/racer'
+let g:racer_experimental_completer = 1
 
 " wellle/tmux-complete.vim
 " ==================================
@@ -213,12 +212,6 @@ let g:airline#extensions#ale#enabled = 1
 " -------------------------------------------------------------------------------------------
 
 call ConfigInc('functions.vim')
-
-" -------------------------------------------------------------------------------------------
-"  AUTOCOMMANDS
-" -------------------------------------------------------------------------------------------
-
-call ConfigInc('autocmds.vim')
 
 "----------------------------------------------------------------------------------------------
 " KEYBINDINGS

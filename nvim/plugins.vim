@@ -32,7 +32,7 @@ Plug 'elzr/vim-json',               {'for': 'json'} " JSON highlighting
 Plug 'stephpy/vim-yaml',            {'for': 'yaml'} " Yaml syntax highlighting
 
 " Elixir
-Plug 'elixir-lang/vim-elixir',      {'for': 'elixir'} " Elixir language highlighting
+Plug 'elixir-editors/vim-elixir',   {'for': 'elixir'} " Elixir language highlighting
 Plug 'slashmili/alchemist.vim',     {'for': 'elixir'} " Elixir Integration
 
 " Go
@@ -51,6 +51,8 @@ Plug 'tpope/vim-rails',             {'for': 'ruby'} " Rails syntax and helpers
 " Tools
 Plug 'tmux-plugins/vim-tmux',       {'for': 'tmux'} " Tmux file highlighting
 Plug 'dag/vim-fish',                {'for': 'fish'} " Fish shell highlighting
+Plug 'cespare/vim-toml',            {'for': 'toml'} " Toml syntax highlighting
+Plug 'chr4/nginx.vim',              {'for': 'nginx'} " Nginx syntax highlighting
 
 " -------------------------------------------------------------------------------------------
 " UTILITIES
@@ -126,7 +128,7 @@ Plug 'Shougo/echodoc.vim'           " Show functions signatures in the command l
 " Deoplete filetype sources
 Plug 'carlitux/deoplete-ternjs',      {'for': ['javascript', 'vue', 'jsx']} " Javascript completion
 Plug 'zchee/deoplete-go',             {'do': 'make', 'for': 'go'} " Golang completion
-Plug 'sebastianmarkow/deoplete-rust', {'for': 'rust'} " Rust completion
+Plug 'racer-rust/vim-racer',          {'for': 'rust'} " Rust completion
 Plug 'fishbullet/deoplete-ruby',      {'for': 'ruby'} " Ruby completion
 Plug 'Shougo/neco-vim',               {'for': 'vim'}  " Vim script completion
 Plug 'ponko2/deoplete-fish',          {'for': 'fish'} " Fish shell completion
