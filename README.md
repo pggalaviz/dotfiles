@@ -16,6 +16,7 @@ Includes files for configuring:
 Contains plugins, dependencies and utilities to comfortably work with:
 - Javascript
 - Elixir
+- Rust
 - Go
 - Ruby
 - HTML/css/scss/stylus
@@ -44,13 +45,14 @@ Once Homebrew, Git & Node are detected, these will install by default:
 Then you'll be prompted to install the following programs/tools:
 - Fish shell
 - Neovim
+- Rust
 - Golang
 - Elixir
 - Tmux
 - Hyper.js terminal
 - Rbenv (Including ruby-build)
 - Universal ctags
-- Some Node global packages (vue-cli, tern, etc.)
+- Some Node global packages (vue-cli, tern, standard, prettier, etc.)
 
 These are not strictly required, however they are strongly recomended to have everything
 up and running easily, everything is configured to work with each other by default. By accepting when asked by the prompt, they'll be installed and configured, symlinks to the respective paths will also be created. Follow the instructions at the end and you'll be mostly set.

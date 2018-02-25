@@ -27,11 +27,11 @@ let g:deoplete#omni#functions.javascript = [ 'tern#Complete', 'jspc#omni', 'java
 let g:deoplete#omni#functions.ruby = 'rubycomplete#Complete'
 
 " Default rank is 100, higher is better
-call deoplete#custom#source('alchemist',     'rank', 600)
-call deoplete#custom#source('ternjs',        'rank', 600)
-call deoplete#custom#source('racer',         'rank', 600)
-call deoplete#custom#source('vim',           'rank', 600)
-call deoplete#custom#source('go',            'rank', 600)
+call deoplete#custom#source('alchemist',     'rank', 650)
+call deoplete#custom#source('tern',          'rank', 640)
+call deoplete#custom#source('racer',         'rank', 630)
+call deoplete#custom#source('vim',           'rank', 620)
+call deoplete#custom#source('go',            'rank', 610)
 call deoplete#custom#source('ruby',          'rank', 600)
 call deoplete#custom#source('omni',          'rank', 520)
 call deoplete#custom#source('neosnippet',    'rank', 510)
@@ -48,7 +48,7 @@ call deoplete#custom#source('syntax',        'rank', 200)
 
 " Custom Marks
 call deoplete#custom#source('alchemist',     'mark', '⌁')
-call deoplete#custom#source('ternjs',        'mark', '⌁')
+call deoplete#custom#source('tern',          'mark', '⌁')
 call deoplete#custom#source('racer',         'mark', '⌁')
 call deoplete#custom#source('vim',           'mark', '⌁')
 call deoplete#custom#source('go',            'mark', '⌁')

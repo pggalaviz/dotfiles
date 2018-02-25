@@ -154,17 +154,19 @@ nmap <silent> <C-d> <Plug>DashSearch
 " airblade/vim-rooter
 " ==================================
 nnoremap <localleader>cd :Rooter<cr>
-let g:rooter_patterns = ['Makefile', 'mix.exs', 'package.json', '*.yml', '*.yaml', '.git', '.git/', 'node_modules/', '.hg/', '.gitignore']
-let g:rooter_change_directory_for_non_project_files = 'current'
+let g:rooter_manual_only = 1
+let g:rooter_patterns = ['Gemfile', 'mix.exs', 'package.json', '*.yml', '*.yaml', '.git/', 'node_modules/', '.hg/', '.gitignore']
+let g:rooter_change_directory_for_non_project_files = ''
 
 " carlitux/deoplete-ternjs
 " ==================================
+let g:tern_request_timeout = 1
 let g:tern_show_signature_in_pum = 1
 let g:deoplete#sources#ternjs#timeout = 1
-let g:deoplete#sources#ternjs#types = 1
-let g:deoplete#sources#ternjs#docs = 1
+let g:deoplete#sources#ternjs#tern_bin = '/usr/local/bin/tern'
+" let g:deoplete#sources#ternjs#types = 1
+" let g:deoplete#sources#ternjs#docs = 1
 let g:deoplete#sources#ternjs#filetypes = [
-  \ 'js',
   \ 'javascript',
   \ 'vue',
   \ 'jsx',
