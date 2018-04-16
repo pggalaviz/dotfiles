@@ -249,14 +249,12 @@ echo "--------------------------------------------------------------------------
 # Install Node Global Packages -------------------------------------------------
 # ------------------------------------------------------------------------------
 modules=(
-"vue-cli"
 "tern"
 "standard"
 "prettier"
 )
 echo_item "Node Global Packages:" blue
 echo_item "Packages:"
-echo "- vue-cli"
 echo "- standard (JS style, linting & formater)"
 echo "- prettier (JS style, linting & formater)"
 echo "- tern (required for Neovim JS linting)\n"

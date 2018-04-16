@@ -137,6 +137,7 @@ if get_boolean_response "Running this command assumes you've previoulsy run the 
       echo_item "Updated selection successfully!" green
       if exists "tmux"; then
         echo_item "You'll still need to update Tmux's plugins manually."
+        echo "To update tmux plugins, open tmux, type prefix (<Ctrl> + <space>) + 'U'\n"
       fi
 
     fi
