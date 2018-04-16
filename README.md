@@ -18,6 +18,7 @@ Contains plugins, dependencies and utilities to comfortably work with:
 - Elixir
 - Rust
 - Go
+- Crystal
 - Ruby
 - HTML/css/scss/stylus
 
@@ -48,11 +49,12 @@ Then you'll be prompted to install the following programs/tools:
 - Rust
 - Golang
 - Elixir
+- Crystal
 - Tmux
 - Hyper.js terminal
 - Rbenv (Including ruby-build)
 - Universal ctags
-- Some Node global packages (vue-cli, tern, standard, prettier, etc.)
+- Some Node global packages (tern, standard, prettier, etc.)
 
 These are not strictly required, however they are strongly recomended to have everything
 up and running easily, everything is configured to work with each other by default. By accepting when asked by the prompt, they'll be installed and configured, symlinks to the respective paths will also be created. Follow the instructions at the end and you'll be mostly set.
