@@ -11,12 +11,6 @@ let g:ale_echo_msg_warning_str = 'W'
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 let g:ale_warn_about_trailing_whitespace = 1
 
-let g:ale_linters = {
-\ 'javascript': ['standard', 'eslint'],
-\ 'elixir': ['credo'],
-\ 'rust': ['rls', 'cargo']
-\}
-
 augroup ale_lint
   autocmd!
   autocmd InsertLeave * call ale#Queue(0)
@@ -24,11 +18,33 @@ augroup ale_lint
   autocmd ColorScheme * hi ALEWarningSign guifg=#fac863
 augroup END
 
-" If 'standard.js' linter is present autoformat with:
+let g:ale_linters = {
+\ 'javascript': ['standard'],
+\ 'elixir': ['credo'],
+\ 'rust': ['rls', 'cargo']
+\}
+
+
+" ===> Javascript
+" ---------------
+
+" Set standard.js as main linter if not .eslintc found, add flow as a linter.
+autocmd FileType javascript let g:ale_linters = {
+\  'javascript': findfile('.eslintrc', '.;') != '' ? [ 'eslint', 'flow' ] : [ 'standard', 'flow' ],
+\}
+
+
+" If 'standard.js' linter is present autoformat with it and add babel-eslint for
+" ES2016+ support. Must have enlint and babel-eslint globally installed too.
 if executable('standard')
   autocmd BufWritePost *.js silent !standard --fix %
+  call ale#Set('javascript_standard_options', '--parser=babel-eslint')
 endif
 
+
+" ===> Rust
+" ---------
+"
 if executable('rls')
   let g:ale_rust_rls_toolchain = 'nightly'
 endif

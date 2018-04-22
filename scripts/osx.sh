@@ -252,6 +252,8 @@ modules=(
 "tern"
 "standard"
 "prettier"
+"eslint"
+"babel-eslint"
 )
 echo_item "Node Global Packages:" blue
 echo_item "Packages:"
