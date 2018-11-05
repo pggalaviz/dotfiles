@@ -110,6 +110,7 @@ nmap <leader>G <Plug>GitGutterPrevHunk
 map <leader>n :NERDTreeToggle<cr>
 map <leader>b :NERDTreeFind<cr>
 let g:NERDTreeShowHidden = 1
+let g:NERDTreeAutoDeleteBuffer = 1
 let g:NERDTreeCascadeOpenSingleChildDir = 1
 let g:NERDTreeQuitOnOpen = 1
 

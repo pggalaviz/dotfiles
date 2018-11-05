@@ -29,6 +29,9 @@ augroup filetype_detect
   autocmd BufNewFile,BufRead *.eex setf eelixir
   autocmd BufNewFile,BufRead *.vue setf vue
   autocmd BufNewFile,BufRead *.toml setf toml
+  autocmd BufNewFile,BufRead *.styl setf stylus
+  autocmd BufRead,BufNewFile .babelrc setf json
+  autocmd BufRead,BufNewFile .eslintrc setf json
 
   autocmd FileType vue syntax sync fromstart
 augroup END
@@ -43,4 +46,3 @@ augroup CSS_syntax
   autocmd!
   autocmd FileType css,scss,sass,stylus,styl setlocal iskeyword+=-
 augroup END
-

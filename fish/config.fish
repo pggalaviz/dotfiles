@@ -46,6 +46,8 @@ function vconfig ; nvim ~/.config/nvim/init.vim ; end
 function tconfig ; nvim ~/.tmux.conf ; end
 # Fish shell quick configuration
 function fconfig ; nvim ~/.config/fish/config.fish ; end
+# Fish shell reload
+function freload ; source ~/.config/fish/config.fish ; end
 # Create a new directory and enter it
 function md ; mkdir -p $argv ;and cd $argv ; end
 # Remove all folder contents
@@ -170,7 +172,7 @@ function td ; tmux detach ; end
 # Git status
 function gs ; git status ; end
 # Git log
-function gl ; git log ; end
+function gl ; git log --oneline --graph --color --decorate --date=relative --all ; end
 # Git add
 function ga ; git add $argv ; end
 # Git add all
@@ -186,15 +188,15 @@ function gm ; git merge ; end
 # Git tag
 function gt ; git tag ; end
 # Git pull
-function gp ; git pull $argv ; end
+function pull ; git pull $argv ; end
 # Git pull origin master
 function pullom ; git pull origin master ; end
 # Git commit
 function gc ; git commit -m $argv ; end
 # Git push
-function push ; git push $argv ; end
+function gp ; git push $argv ; end
 # Git push origin master
-function pushom ; git push origin master ; end
+function gpom ; git push origin master ; end
 
 #------------------
 #====> Npm / Yarn
@@ -220,15 +222,50 @@ function ygi ; yarn global add $argv ; end
 # Yarn uninstall global packages
 function ygu ; yarn global remove $argv ; end
 # Yarn list global packages
-function ygi ; yarn global ls ; end
+function ygl ; yarn global ls ; end
 # Yarn list local packages
-function ygi ; yarn list --depth=0 ; end
+function yl ; yarn list --depth=0 ; end
 
 #------------------
 #====> ELIXIR
 #------------------
-# Get Phoenix installed version
-function phv ; mix phoenix.new -v ; end
+# --- Phoenix ---
+# Phoenix version
+function phv ; mix phx.new -v ; end
+# Phoenix server
+function phs ; mix phx.server ; end
+# Phoenix server iex
+function phi ; iex -S mix phx.server ; end
+# Phoenix gettext
+function phg ; mix gettext.extract ;and mix gettext.merge priv/gettext ; end
+# Phoenix server named a
+function phsa ; env PORT=4000 iex --name a@127.0.0.1 -S mix phx.server ; end
+# Phoenix server named b
+function phsb ; env PORT=4001 iex --name b@127.0.0.1 -S mix phx.server ; end
+# Phoenix server named c
+function phsc ; env PORT=4002 iex --name c@127.0.0.1 -S mix phx.server ; end
+# --- MIX ---
+# mix format
+function mf ; mix format ; end
+# mix format check
+function mfc ; mix format --check-formatted ; end
+# mix test
+function mt ; mix test ; end
+# mix test show slowest
+function mts ; mix test --slowest 5 ; end
+# mix unreachable
+function mu ; mix xref unreachable ; end
+# mix callers
+function mc ; mix xref callers $argv ; end
+# mix graph
+function mg ; mix xref graph ; end
+# mix deprecated
+function md ; mix xref deprecated ; end
+# mix outdated
+function mo ; mix hex.outdated ; end
+# --- IEX ---
+# iex
+function im ; iex -S mix ; end
 
 #------------------
 #====> GO LANG
@@ -241,4 +278,3 @@ function cdg ; cd $GOPATH ; end
 #----------------
 # Tree always with color
 function tc ; tree -C ; end
-

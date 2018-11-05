@@ -20,8 +20,9 @@ xnoremap ;       <Nop>
 filetype plugin indent on                       " Enable full filetype detection
 syntax on                                       " Syntax highlighting on
 syntax enable                                   " Syntax highlighting on
+set nopaste
 set title                                       " Let Vim set window title
-set hidden                                      " Put current buffer to background without saving
+set hidden                                      " Enable buffers on background without saving
 set autochdir                                   " Change dir to file on current window
 set synmaxcol=240                               " Don't syntax highlight long lines
 set omnifunc=syntaxcomplete#Complete
@@ -32,7 +33,7 @@ set relativenumber                              " Set relative number
 set ruler                                       " Set line/col of cursor
 
 " UI
-set noshowmode                                  " Dont display current mode (Using vim-airline)
+set noshowmode                                  " Dont display current mode (Using vim-airline for that)
 set scrolloff=999                               " Cursor always on center of screen
 set sidescrolloff=5                             " Keep at least 5 lines left/right
 set shortmess=aoOtTI                            " Short messages
@@ -59,7 +60,7 @@ set confirm                                     " Ask for confirmation if unsave
 
 " Completion
 set wildmenu                                    " Menu for command line completion using <TAB>
-set wildmode=list:longest,full
+set wildmode=list:longest,list:full
 set wildignorecase                              " Ignore case
 set wildignore+=*.zip,*.tar,*.tar*,*.rar        " Ignore archive files
 set wildignore+=*.png,*.jpg,*.jpeg,*.gif        " Ignore images
@@ -109,6 +110,6 @@ set completeopt+=noselect                       " Don't select a match in menu
 set visualbell                                  " Don't beep
 set noerrorbells                                " Don't beep
 set iskeyword+=-,_                              " Consider - and _ part of a word
-set history=500                                 " Remember more commands and search history
+set history=200                                 " Remember more commands and search history
 set undolevels=100                              " Maximum levels of changes that can be undone
 

@@ -10,19 +10,19 @@ call plug#begin()
 " -------------------------------------------------------------------------------------------
 
 " HTML
-Plug 'othree/html5.vim',            {'for': ['html', 'vue', 'jsx', 'javascript.jsx', 'eelixir']} " HTML5 syntax & completion
-Plug 'valloric/MatchTagAlways',     {'for': ['html', 'vue', 'jsx', 'javascript.jsx', 'eelixir']} " Highlights matching tag
+Plug 'othree/html5.vim',            {'for': ['html', 'vue', 'jsx', 'eelixir']} " HTML5 syntax & completion
+Plug 'valloric/MatchTagAlways',     {'for': ['html', 'vue', 'jsx', 'eelixir']} " Highlights matching tag
 
 " CSS & Styling
 Plug 'hail2u/vim-css3-syntax',      {'for': ['css', 'vue']} " CSS and SCSS syntax & highlighting
 Plug 'cakebaker/scss-syntax.vim',   {'for': ['scss', 'vue']} " SCSS syntax
 Plug 'wavded/vim-stylus',           {'for': ['stylus', 'vue']} " Stylus syntax & highlighting
-Plug 'ap/vim-css-color',            {'for': ['css', 'scss', 'styl', 'vue']} " Show colors on CSS files
+Plug 'ap/vim-css-color',            {'for': ['css', 'scss', 'stylus', 'vue']} " Show colors on CSS files
 
 " Javascript
-Plug 'othree/yajs.vim',             {'for': ['javascript', 'vue', 'jsx', 'javascript.jsx']} " Javascript syntax
-Plug 'othree/jspc.vim',             {'for': ['javascript', 'vue', 'jsx', 'javascript.jsx']} " Javascript parameter completion
-Plug 'moll/vim-node',               {'for': ['javascript', 'vue', 'jsx', 'javascript.jsx']} " Node tools
+Plug 'othree/yajs.vim',             {'for': ['javascript', 'vue', 'jsx']} " Javascript syntax
+Plug 'othree/jspc.vim',             {'for': ['javascript', 'vue', 'jsx']} " Javascript parameter completion
+Plug 'moll/vim-node',               {'for': ['javascript', 'vue', 'jsx']} " Node tools
 Plug 'posva/vim-vue',               {'for': 'vue'}                                          " Vue.js syntax highlighting
 
 " Json
@@ -119,6 +119,9 @@ Plug 'Shougo/deoplete.nvim',        { 'do': ':UpdateRemotePlugins' } " Completio
 Plug 'Shougo/context_filetype.vim'  " Find nested filetypes for example javascript on html files
 Plug 'Shougo/neoinclude.vim'        " Include completion framework
 Plug 'Shougo/neco-syntax'           " Syntax source
+
+" Language Server Protocol (LSP)
+Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh' }
 
 " Snippets
 Plug 'Shougo/neosnippet.vim'        " Snippets support
