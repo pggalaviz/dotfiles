@@ -217,11 +217,15 @@ if get_boolean_response "Do you want to install Neovim?"; then
   echo_item "Done!" green
   echo "--------------------------------------------------------------------------"
   echo_item "Downloading Neovim python 3 client..." yellow
-  pip3 install --upgrade neovim
+  pip3 install --upgrade pynvim
   echo_item "Done!" green
   echo "--------------------------------------------------------------------------"
   echo_item "Downloading Neovim ruby client..." yellow
   gem install neovim
+  echo_item "Done!" green
+  echo "--------------------------------------------------------------------------"
+  echo_item "Downloading Neovim node client..." yellow
+  npm install -g neovim
   echo_item "Done!" green
   echo "--------------------------------------------------------------------------"
   echo_item "Downloading Neovim plugin manager (vim-plug)..." yellow
@@ -358,6 +362,7 @@ fi
 echo "--------------------------------------------------------------------------"
 
 
+
 # Install Ctags ----------------------------------------------------------------
 # ------------------------------------------------------------------------------
 echo_item "Ctags:" blue
@@ -374,6 +379,27 @@ if get_boolean_response "Do you want to install Ctags?"; then
 else
   echo_item "Skipping Ctags installation..." red
   echo_item "Ctags are very helpful to navigate inside projects."
+fi
+echo "--------------------------------------------------------------------------"
+
+
+
+# Install Language Servers -----------------------------------------------------
+# ------------------------------------------------------------------------------
+echo_item "Language Servers:" blue
+if get_boolean_response "Do you want to install Language Servers (elixir)?"; then
+  mkdir -p ~/.lsp
+  # Elixir
+  if exists "mix"; then
+    git clone https://github.com/JakeBecker/elixir-ls.git ~/.lsp/elixir
+    mkdir -p ~/.lsp/elixir/rel
+    cd ~/.lsp/elixir
+    mix deps.get && mix compile
+    mix elixir_ls.release -o rel
+    cd
+  fi
+else
+  echo_item "Skipping Language Servers installation..." red
 fi
 echo "--------------------------------------------------------------------------"
 

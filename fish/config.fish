@@ -262,7 +262,7 @@ function mg ; mix xref graph ; end
 # mix deprecated
 function md ; mix xref deprecated ; end
 # mix outdated
-function mo ; mix hex.outdated ; end
+function mo ; mix hex.outdated $argv ; end
 # --- IEX ---
 # iex
 function im ; iex -S mix ; end

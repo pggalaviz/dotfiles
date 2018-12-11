@@ -33,7 +33,7 @@ Plug 'stephpy/vim-yaml',            {'for': 'yaml'} " Yaml syntax highlighting
 
 " Elixir
 Plug 'elixir-editors/vim-elixir',   {'for': 'elixir'} " Elixir language highlighting
-Plug 'slashmili/alchemist.vim',     {'for': 'elixir'} " Elixir Integration
+" Plug 'slashmili/alchemist.vim',     {'for': 'elixir'} " Elixir Integration
 
 " Go
 Plug 'fatih/vim-go',                {'do': ':GoInstallBinaries', 'for': 'go'} " Golang utilities

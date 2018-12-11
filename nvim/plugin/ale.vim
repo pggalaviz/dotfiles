@@ -22,13 +22,14 @@ augroup END
 
 let g:ale_linters = {
 \ 'javascript': ['standard', 'eslint'],
-\ 'elixir': ['credo', 'dialyxir', 'elixir-ls'],
+\ 'elixir': ['elixir-ls', 'credo', 'dialyxir'],
 \ 'rust': ['rls', 'cargo']
 \}
 
 let g:ale_fixers = {
 \ '*': ['remove_trailing_lines', 'trim_whitespace'],
 \ 'javascript': ['standard'],
+\ 'elixir': ['mix_format']
 \}
 
 
@@ -50,6 +51,7 @@ endif
 
 " ===> Elixir
 " -----------
+let g:ale_elixir_elixir_ls_release = '~/.lsp/elixir/rel'
 let g:ale_elixir_credo_use_global = 0
 
 " ===> Rust

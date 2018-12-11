@@ -57,16 +57,29 @@ if get_boolean_response "Running this command assumes you've previoulsy run the 
       if exists "nvim"; then
         # Neovim python 3 client
         if exists "pip3"; then
-          pip3 install --upgrade neovim
+          pip3 install --upgrade pynvim
         fi
         # neovim ruby gem
         gem update neovim
+        # neovim node
+        npm install -g neovim
         # vim-plug
         curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs \
           https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
         nvim +PlugUpgrade +PlugInstall +PlugUpdate +PlugClean! +qa
         # Check for new plugin config files
         ln -sf `pwd`/nvim/plugin/*.vim ~/.config/nvim/plugin/
+      fi
+      # Language Servers
+      mkdir -p ~/.lsp
+      # Elixir
+      if exists "mix"; then
+        git clone https://github.com/JakeBecker/elixir-ls.git ~/.lsp/elixir
+        mkdir -p ~/.lsp/elixir/rel
+        cd ~/.lsp/elixir
+        mix deps.get && mix compile
+        mix elixir_ls.release -o rel
+        cd
       fi
       echo_item "Done!" green
       echo "--------------------------------------------------------------------------"
@@ -104,6 +117,24 @@ if get_boolean_response "Running this command assumes you've previoulsy run the 
       echo "--------------------------------------------------------------------------"
       echo_item "Updated selection successfully!" green
 
+    elif get_boolean_response "> Update only Language Servers (elixir)?"; then
+
+      echo "--------------------------------------------------------------------------"
+      mkdir -p ~/.lsp
+      if exists "mix"; then
+        echo_item "Updating Elixir Language Server..." yellow
+        rm -rf ~/.lsp/elixir
+        git clone https://github.com/JakeBecker/elixir-ls.git ~/.lsp/elixir
+        mkdir -p ~/.lsp/elixir/rel
+        cd ~/.lsp/elixir
+        mix deps.get && mix compile
+        mix elixir_ls.release -o rel
+        cd
+      fi
+      echo_item "Done!" green
+      echo "--------------------------------------------------------------------------"
+      echo_item "Updated selection successfully!" green
+
     elif get_boolean_response "> Update only dependencies of installed programs & tools?"; then
 
       echo "--------------------------------------------------------------------------"
@@ -121,10 +152,12 @@ if get_boolean_response "Running this command assumes you've previoulsy run the 
       if exists "nvim"; then
         # Neovim python 3 client
         if exists "pip3"; then
-          pip3 install --upgrade neovim
+          pip3 install --upgrade pynvim
         fi
         # neovim ruby gem
         gem update neovim
+        # neovim node
+        npm install -g neovim
         # vim-plug
         curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs \
           https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
