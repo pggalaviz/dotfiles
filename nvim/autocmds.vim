@@ -30,6 +30,7 @@ augroup filetype_detect
   autocmd BufNewFile,BufRead *.vue setf vue
   autocmd BufNewFile,BufRead *.toml setf toml
   autocmd BufNewFile,BufRead *.styl setf stylus
+  autocmd BufNewFile,BufRead *.graphql,*.gql setf graphql
   autocmd BufRead,BufNewFile .babelrc setf json
   autocmd BufRead,BufNewFile .eslintrc setf json
 

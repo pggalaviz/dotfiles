@@ -1,6 +1,7 @@
 " w0rp/ale
 " ==================================
 let g:ale_enabled = 1
+let g:ale_completion_enabled = 1
 let g:ale_lint_on_text_changed = 0
 let g:ale_lint_on_save = 1
 let g:ale_sign_column_always = 1
@@ -22,14 +23,13 @@ augroup END
 
 let g:ale_linters = {
 \ 'javascript': ['standard', 'eslint'],
-\ 'elixir': ['elixir-ls', 'credo', 'dialyxir'],
+\ 'elixir': ['credo', 'dialyxir', 'elixir-ls'],
 \ 'rust': ['rls', 'cargo']
 \}
 
 let g:ale_fixers = {
 \ '*': ['remove_trailing_lines', 'trim_whitespace'],
-\ 'javascript': ['standard'],
-\ 'elixir': ['mix_format']
+\ 'javascript': ['standard']
 \}
 
 

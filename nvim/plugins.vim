@@ -33,7 +33,7 @@ Plug 'stephpy/vim-yaml',            {'for': 'yaml'} " Yaml syntax highlighting
 
 " Elixir
 Plug 'elixir-editors/vim-elixir',   {'for': 'elixir'} " Elixir language highlighting
-" Plug 'slashmili/alchemist.vim',     {'for': 'elixir'} " Elixir Integration
+Plug 'slashmili/alchemist.vim',     {'for': 'elixir'} " Elixir Integration
 
 " Go
 Plug 'fatih/vim-go',                {'do': ':GoInstallBinaries', 'for': 'go'} " Golang utilities
@@ -53,6 +53,7 @@ Plug 'tmux-plugins/vim-tmux',       {'for': 'tmux'} " Tmux file highlighting
 Plug 'dag/vim-fish',                {'for': 'fish'} " Fish shell highlighting
 Plug 'cespare/vim-toml',            {'for': 'toml'} " Toml syntax highlighting
 Plug 'chr4/nginx.vim',              {'for': 'nginx'} " Nginx syntax highlighting
+Plug 'jparise/vim-graphql',         {'for': ['graphql, gql']} "Graphql syntax highlighting
 
 " -------------------------------------------------------------------------------------------
 " UTILITIES
