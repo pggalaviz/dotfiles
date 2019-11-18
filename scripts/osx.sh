@@ -79,7 +79,9 @@ packages=(
 "python3"
 "tree"
 "reattach-to-user-namespace"
-"burntsushi/ripgrep/ripgrep-bin"
+"burntsushi/ripgrep/ripgrep-bin",
+"minikube",
+"kubernetes-cli"
 )
 echo_item "Brew tapping & installing some utilities..." yellow
 for i in "${taps[@]}"

@@ -23,7 +23,9 @@ Plug 'ap/vim-css-color',            {'for': ['css', 'scss', 'stylus', 'vue']} " 
 Plug 'othree/yajs.vim',             {'for': ['javascript', 'vue', 'jsx']} " Javascript syntax
 Plug 'othree/jspc.vim',             {'for': ['javascript', 'vue', 'jsx']} " Javascript parameter completion
 Plug 'moll/vim-node',               {'for': ['javascript', 'vue', 'jsx']} " Node tools
-Plug 'posva/vim-vue',               {'for': 'vue'}                                          " Vue.js syntax highlighting
+Plug 'posva/vim-vue',               {'for': 'vue'}                        " Vue.js syntax highlighting
+Plug 'HerringtonDarkholme/yats.vim', {'for': ['ts', 'tsx']}               " Typescript syntax highlighting
+Plug 'mhartington/nvim-typescript', {'for': ['ts', 'tsx'], 'do': './install.sh'}
 
 " Json
 Plug 'elzr/vim-json',               {'for': 'json'} " JSON highlighting

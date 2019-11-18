@@ -24,12 +24,17 @@ test -d /usr/local/opt/go/libexec ;and set -x GOROOT /usr/local/opt/go/libexec ;
 test -d $HOME/.cargo/bin ;and set PATH $HOME/.cargo/bin $PATH
 # set Java JDK to path
 test -x /usr/libexec/java_home ;and set -x JAVA_HOME (/usr/libexec/java_home)
-test -d /usr/local/share/android-sdk ;and set -x ANDROID_SDK_ROOT /usr/local/share/android-sdk
-test -d /usr/local/share/android-sdk ;and set -x ANDROID_HOME /usr/local/share/android-sdk
+# test -d /usr/local/share/android-sdk ;and set -x ANDROID_SDK_ROOT /usr/local/share/android-sdk
+# test -d /usr/local/share/android-sdk ;and set -x ANDROID_HOME /usr/local/share/android-sdk
 # add rbenv to $PATH
 status --is-interactive; and source (rbenv init -|psub)
 # Need this to expose global packages installed via yarn
 test -d $HOME/.config/yarn/global/node_modules/.bin ;and set PATH $HOME/.config/yarn/global/node_modules/.bin $PATH
+# set Android SDK
+test -d $HOME/Library/Android/ ;and set -x ANDROID_SDK_ROOT $HOME/Library/Android/sdk
+test -d $HOME/Library/Android/ ;and set -x ANDROID_HOME $HOME/Library/Android/sdk
+test -d $HOME/Library/Android/ ;and set PATH $ANDROID_HOME/tools $PATH
+test -d $HOME/Library/Android/ ;and set PATH $ANDROID_HOME/platform-tools $PATH
 
 #############################
 ##### Functions/Aliases #####
@@ -111,7 +116,7 @@ function bout ; brew outdated ; end
 # Check if formula is a dependency of another
 function buse ; brew uses --installed $argv ; end
 # Clean past version(s) of formulae including cache
-function bcl ; brew cleanup -s ;and brew cask cleanup ;and brew prune ; end
+function bcl ; brew cleanup -s ; end
 # uninstall formula including dependencies
 function brm
     brew deps $argv | xargs brew remove --ignore-dependencies | brew remove $argv | brew missing | cut -d: -f2 | sort | uniq | xargs brew install
@@ -147,6 +152,7 @@ end
 function hideicons
     defaults write com.apple.finder CreateDesktop -bool false ;and killall Finder
 end
+function redis ; redis-server /usr/local/etc/redis.conf ; end
 
 #-------------------
 #====> TMUX

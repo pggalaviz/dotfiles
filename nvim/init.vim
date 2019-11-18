@@ -102,8 +102,8 @@ nmap <localleader>k :SplitjoinJoin<CR>
 " airblade/vim-gitgutter
 " ==================================
 let g:gitgutter_map_keys = 0
-nmap <leader>g <Plug>GitGutterNextHunk
-nmap <leader>G <Plug>GitGutterPrevHunk
+nmap <leader>g <Plug>(GitGutterNextHunk)
+nmap <leader>G <Plug>(GitGutterPrevHunk)
 
 " scrooloose/nerdtree
 " ==================================
