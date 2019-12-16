@@ -10,8 +10,8 @@ call plug#begin()
 " -------------------------------------------------------------------------------------------
 
 " HTML
-Plug 'othree/html5.vim',            {'for': ['html', 'vue', 'jsx', 'eelixir']} " HTML5 syntax & completion
-Plug 'valloric/MatchTagAlways',     {'for': ['html', 'vue', 'jsx', 'eelixir']} " Highlights matching tag
+Plug 'othree/html5.vim',            {'for': ['html', 'vue', 'jsx', 'eelixir', 'erb']} " HTML5 syntax & completion
+Plug 'valloric/MatchTagAlways',     {'for': ['html', 'vue', 'jsx', 'eelixir', 'erb']} " Highlights matching tag
 
 " CSS & Styling
 Plug 'hail2u/vim-css3-syntax',      {'for': ['css', 'vue']} " CSS and SCSS syntax & highlighting
@@ -70,7 +70,7 @@ Plug 'tpope/vim-endwise'            " Add 'end' automatically for ruby, elixir a
 Plug 'tpope/vim-commentary'         " Easily comment/uncomment words, lines or group of lines
 
 " File manipulation
-Plug 'mattn/emmet-vim',             {'for': ['html', 'vue', 'css', 'scss', 'javascript', 'jsx', 'eelixir']} " Easy workflow for html & CSS
+Plug 'mattn/emmet-vim',             {'for': ['html', 'vue', 'css', 'scss', 'javascript', 'jsx', 'eelixir', 'erb']} " Easy workflow for html & CSS
 
 " Format/Indentation
 Plug 'sbdchd/neoformat'             " Format code: standard.js, prettier etc.
