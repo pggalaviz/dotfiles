@@ -73,14 +73,13 @@ echo "--------------------------------------------------------------------------
 # ------------------------------------------------------------------------------
 taps=(
 "burntsushi/ripgrep https://github.com/BurntSushi/ripgrep.git"
-"caskroom/cask"
 )
 packages=(
 "python3"
 "tree"
 "reattach-to-user-namespace"
-"burntsushi/ripgrep/ripgrep-bin",
-"minikube",
+"burntsushi/ripgrep/ripgrep-bin"
+"minikube"
 "kubernetes-cli"
 )
 echo_item "Brew tapping & installing some utilities..." yellow
@@ -105,6 +104,7 @@ if get_boolean_response "Do you want to install and use Fish shell?"; then
   echo_item "Installing Fish shell..." yellow
   brew install fish
   echo_item "Changing to Fish shell... Might require password:" yellow
+  echo /usr/local/bin/fish | sudo tee -a /etc/shells
   chsh -s $(which fish)
   echo_item "Fish shell successfully installed!" green
   echo "--------------------------------------------------------------------------"
