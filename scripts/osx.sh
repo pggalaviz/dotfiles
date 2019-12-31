@@ -81,6 +81,7 @@ packages=(
 "burntsushi/ripgrep/ripgrep-bin"
 "minikube"
 "kubernetes-cli"
+"redis"
 )
 echo_item "Brew tapping & installing some utilities..." yellow
 for i in "${taps[@]}"
@@ -92,6 +93,7 @@ do
   brew install $i
   echo "--------"
 done
+brew services start redis
 echo_item "Done!" green
 echo "--------------------------------------------------------------------------"
 
