@@ -29,7 +29,9 @@ let g:ale_linters = {
 
 let g:ale_fixers = {
 \ '*': ['remove_trailing_lines', 'trim_whitespace'],
-\ 'javascript': ['standard']
+\ 'javascript': ['standard'],
+\ 'css': ['prettier'],
+\ 'elixir': ['mix_format'],
 \}
 
 
@@ -56,7 +58,6 @@ let g:ale_elixir_credo_use_global = 0
 
 " ===> Rust
 " ---------
-"
 if executable('rls')
   let g:ale_rust_rls_toolchain = 'nightly'
 endif
