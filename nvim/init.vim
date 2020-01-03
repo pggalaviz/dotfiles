@@ -143,10 +143,34 @@ vmap <leader>C <Plug>(sad-change-backward)
 " ==================================
 " Using a hack here, this rare signs are equal as pressing <ALT-j> and <ALT-k>
 " Don't know why alt key is not working without this weird mappings
+
+" Move line down
 nmap ¶ <Plug>MoveLineDown
+nmap ∆ <Plug>MoveLineDown
+
+" Move block down
 vmap ¶ <Plug>MoveBlockDown
+vmap ∆ <Plug>MoveBlockDown
+
+" Move line up
 nmap § <Plug>MoveLineUp
+nmap ˚ <Plug>MoveLineUp
+
+" Move block up
 vmap § <Plug>MoveBlockUp
+vmap ˚ <Plug>MoveBlockUp
+
+" Move char left
+nmap ˙ <Plug>MoveCharLeft
+
+" Move block left
+vmap ˙ <Plug>MoveBlockLeft
+
+" Move char right
+nmap ¬ <Plug>MoveCharRight
+
+" Move block right
+vmap ¬ <Plug>MoveBlockRight
 
 " rizzatti/dash.vim
 " ==================================
