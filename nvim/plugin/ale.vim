@@ -24,7 +24,7 @@ augroup END
 let g:ale_linters = {
 \ 'javascript': ['standard', 'eslint'],
 \ 'elixir': ['credo', 'dialyxir', 'elixir-ls'],
-\ 'rust': ['rls', 'cargo']
+\ 'rust': ['rls', 'cargo'],
 \ 'go': ['gofmt']
 \}
 
