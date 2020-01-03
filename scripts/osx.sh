@@ -99,6 +99,52 @@ echo "--------------------------------------------------------------------------
 
 
 
+# Install iTerm2 ---------------------------------------------------------------
+# ------------------------------------------------------------------------------
+echo_item "iTerm2:" blue
+if get_boolean_response "Do you want to install iTerm2?"; then
+  echo_item "Installing iterm2..." yellow
+  brew cask install iterm2
+  echo_item "iTerm2 successfully installed!" green
+  echo "--------------------------------------------------------------------------"
+else
+  echo_item "Skipping iTerm2 installation..." red
+  echo_item "iTerm2 is the best termianl emulator for Mac."
+fi
+echo "--------------------------------------------------------------------------"
+
+
+
+# Install Apps -----------------------------------------------------------------
+# ------------------------------------------------------------------------------
+echo_item "Utility apps:" blue
+echo "Includes: flux, divvy, keka, macdown and others..."
+if get_boolean_response "Do you want to install this apps?"; then
+  echo_item "Installing apps..." yellow
+  apps=(
+  "divvy"
+  "flux"
+  "keka"
+  "macdown"
+  "the-unarchiver"
+  "appcleaner"
+  )
+  for i in "${apps[@]}"
+  do
+    brew cask install $i
+    echo "--------"
+  done
+  echo_item "Done!" green
+  echo_item "Apps were successfully installed!" green
+  echo "--------------------------------------------------------------------------"
+else
+  echo_item "Skipping apps installation..." red
+  echo_item "These apps are a selection of helpful utilities."
+fi
+echo "--------------------------------------------------------------------------"
+
+
+
 # Install Fish Shell -----------------------------------------------------------
 # ------------------------------------------------------------------------------
 echo_item "Fish shell:" blue
