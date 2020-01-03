@@ -25,24 +25,19 @@ let g:ale_linters = {
 \ 'javascript': ['standard', 'eslint'],
 \ 'elixir': ['credo', 'dialyxir', 'elixir-ls'],
 \ 'rust': ['rls', 'cargo']
+\ 'go': ['gofmt']
 \}
 
 let g:ale_fixers = {
 \ '*': ['remove_trailing_lines', 'trim_whitespace'],
 \ 'javascript': ['standard'],
 \ 'css': ['prettier'],
-\ 'elixir': ['mix_format'],
+\ 'elixir': [],
 \}
 
-
+" ---------------
 " ===> Javascript
 " ---------------
-
-" Set standard.js as main linter if not .eslintc found, add flow as a linter.
-" autocmd FileType javascript let g:ale_linters = {
-" \  'javascript': findfile('.eslintrc', '.;') != '' ? [ 'eslint', 'flow' ] : [ 'standard', 'flow' ],
-" \}
-
 
 " If 'standard.js' linter is present autoformat with it and add babel-eslint for
 " ES2016+ support. Must have enlint and babel-eslint globally installed too.
@@ -51,11 +46,33 @@ if executable('standard')
   " call ale#Set('javascript_standard_options', '--parser=babel-eslint')
 endif
 
+" -----------
 " ===> Elixir
 " -----------
 let g:ale_elixir_elixir_ls_release = '~/.lsp/elixir/rel'
 let g:ale_elixir_credo_use_global = 0
 
+" Find the nearest .formatter.exs file to load configuration
+function! LoadNearestFormatter()
+  let l:formatters = []
+  let l:directory = fnameescape(expand("%:p:h"))
+
+  for l:fmt in findfile(".formatter.exs", l:directory . ";", -1)
+    call insert(l:formatters, l:fmt)
+  endfor
+
+  call reverse(l:formatters)
+
+  let g:ale_fixers['elixir'] = g:ale_fixers['elixir'] + ['mix_format']
+
+  if len(l:formatters) > 0
+    let g:ale_elixir_mix_format_options = "--dot-formatter " . l:formatters[0]
+  endif
+endfunction
+
+call LoadNearestFormatter()
+
+" ---------
 " ===> Rust
 " ---------
 if executable('rls')
