@@ -33,6 +33,9 @@ Plug 'elzr/vim-json',               {'for': 'json'} " JSON highlighting
 " Yaml
 Plug 'stephpy/vim-yaml',            {'for': 'yaml'} " Yaml syntax highlighting
 
+" Erlang
+Plug 'vim-erlang/vim-erlang-runtime', {'for': 'erlang'} " Erlang language highlighting
+
 " Elixir
 Plug 'elixir-editors/vim-elixir',   {'for': 'elixir'} " Elixir language highlighting
 Plug 'slashmili/alchemist.vim',     {'for': 'elixir'} " Elixir Integration

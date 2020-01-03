@@ -23,7 +23,7 @@ test -d /usr/local/opt/go/libexec ;and set -x GOROOT /usr/local/opt/go/libexec ;
 # set Rust lang path
 test -d $HOME/.cargo/bin ;and set PATH $HOME/.cargo/bin $PATH
 # set Java JDK to path
-test -x /usr/libexec/java_home ;and set -x JAVA_HOME (/usr/libexec/java_home)
+test -d /usr/libexec/java_home ;and set -x JAVA_HOME (/usr/libexec/java_home)
 # test -d /usr/local/share/android-sdk ;and set -x ANDROID_SDK_ROOT /usr/local/share/android-sdk
 # test -d /usr/local/share/android-sdk ;and set -x ANDROID_HOME /usr/local/share/android-sdk
 # add rbenv to $PATH
