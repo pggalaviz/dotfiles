@@ -53,24 +53,24 @@ let g:ale_elixir_elixir_ls_release = '~/.lsp/elixir/rel'
 let g:ale_elixir_credo_use_global = 0
 
 " Find the nearest .formatter.exs file to load configuration
-function! LoadNearestFormatter()
-  let l:formatters = []
-  let l:directory = fnameescape(expand("%:p:h"))
+" function! LoadNearestFormatter()
+"   let l:formatters = []
+"   let l:directory = fnameescape(expand("%:p:h"))
 
-  for l:fmt in findfile(".formatter.exs", l:directory . ";", -1)
-    call insert(l:formatters, l:fmt)
-  endfor
+"   for l:fmt in findfile(".formatter.exs", l:directory . ";", -1)
+"     call insert(l:formatters, l:fmt)
+"   endfor
 
-  call reverse(l:formatters)
+"   call reverse(l:formatters)
 
-  let g:ale_fixers['elixir'] = g:ale_fixers['elixir'] + ['mix_format']
+"   let g:ale_fixers['elixir'] = g:ale_fixers['elixir'] + ['mix_format']
 
-  if len(l:formatters) > 0
-    let g:ale_elixir_mix_format_options = "--dot-formatter " . l:formatters[0]
-  endif
-endfunction
+"   if len(l:formatters) > 0
+"     let g:ale_elixir_mix_format_options = "--dot-formatter " . l:formatters[0]
+"   endif
+" endfunction
 
-call LoadNearestFormatter()
+" call LoadNearestFormatter()
 
 " ---------
 " ===> Rust
