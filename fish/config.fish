@@ -30,6 +30,8 @@ test -d /usr/libexec/java_home ;and set -x JAVA_HOME (/usr/libexec/java_home)
 # test -d /usr/local/share/android-sdk ;and set -x ANDROID_HOME /usr/local/share/android-sdk
 # add rbenv to $PATH
 # status --is-interactive; and source (rbenv init -|psub)
+# add asdf to $PATH
+status --is-interactive; and source /usr/local/opt/asdf/asdf.fish
 # Need this to expose global packages installed via yarn
 test -d $HOME/.config/yarn/global/node_modules/.bin ;and set PATH $HOME/.config/yarn/global/node_modules/.bin $PATH
 # set Android SDK
