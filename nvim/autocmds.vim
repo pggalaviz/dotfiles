@@ -47,3 +47,10 @@ augroup CSS_syntax
   autocmd!
   autocmd FileType css,scss,sass,stylus,styl setlocal iskeyword+=-
 augroup END
+
+" Language specific config
+augroup filetype_config
+  autocmd!
+  " Add a pipe operator with pp
+  autocmd FileType elixir iabbrev <buffer> pp \|>
+augroup END

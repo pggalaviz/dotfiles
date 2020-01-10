@@ -76,7 +76,7 @@ inoremap ii <esc>la
 " ==================================
 let g:user_emmet_mode='a'
 let g:user_emmet_install_global = 0
-let g:user_emmet_leader_key='º' " Hack gor using 1 key as leader
+let g:user_emmet_leader_key='`' " Hack gor using 1 key as leader
 autocmd FileType html,css,scss,vue,jsx,javascript,javascript.jsx
             \ EmmetInstall
             \ | imap <buffer> <C-Return> <Plug>(emmet-expand-abbr)

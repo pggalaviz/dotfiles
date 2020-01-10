@@ -12,8 +12,10 @@ set -x LC_ALL en_US.UTF-8
 set -x LC_CTYPE en_US.UTF-8
 # set default editor
 set -x EDITOR nvim
-# override command color
+# override colors
 set -x fish_color_command normal
+set -x fish_color_autosuggestion blue
+set -x fish_color_error red
 # PATH
 test -d /usr/local/bin  ;and set PATH /usr/local/bin  $PATH
 test -d /usr/local/sbin ;and set PATH /usr/local/sbin $PATH
@@ -27,7 +29,7 @@ test -d /usr/libexec/java_home ;and set -x JAVA_HOME (/usr/libexec/java_home)
 # test -d /usr/local/share/android-sdk ;and set -x ANDROID_SDK_ROOT /usr/local/share/android-sdk
 # test -d /usr/local/share/android-sdk ;and set -x ANDROID_HOME /usr/local/share/android-sdk
 # add rbenv to $PATH
-status --is-interactive; and source (rbenv init -|psub)
+# status --is-interactive; and source (rbenv init -|psub)
 # Need this to expose global packages installed via yarn
 test -d $HOME/.config/yarn/global/node_modules/.bin ;and set PATH $HOME/.config/yarn/global/node_modules/.bin $PATH
 # set Android SDK

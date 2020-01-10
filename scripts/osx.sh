@@ -128,6 +128,7 @@ if get_boolean_response "Do you want to install this apps?"; then
   "macdown"
   "the-unarchiver"
   "appcleaner"
+  "postgres"
   )
   for i in "${apps[@]}"
   do
@@ -198,17 +199,16 @@ echo "--------------------------------------------------------------------------
 
 
 
-# Install rbenv ----------------------------------------------------------------
+# Install asdf ----------------------------------------------------------------
 # ------------------------------------------------------------------------------
-echo_item "rbenv (Manage Ruby versions):" blue
-if get_boolean_response "Do you want to install rbenv?"; then
-  echo_item "Installing rbenv..." yellow
-  brew install rbenv
+echo_item "asdf (manage many languages versions):" blue
+if get_boolean_response "Do you want to install asdf?"; then
+  echo_item "Installing asdf..." yellow
+  brew install asdf
   brew install ruby-build
-  rbenv rehash
-  echo_item "rbenv successfully installed!" green
+  echo_item "asdf successfully installed!" green
 else
-  echo_item "Skipping rbenv installation..."
+  echo_item "Skipping asdf installation..."
 fi
 echo "--------------------------------------------------------------------------"
 
