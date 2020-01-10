@@ -39,6 +39,7 @@ Plug 'vim-erlang/vim-erlang-runtime', {'for': 'erlang'} " Erlang language highli
 " Elixir
 Plug 'elixir-editors/vim-elixir',   {'for': 'elixir'} " Elixir language highlighting
 Plug 'slashmili/alchemist.vim',     {'for': 'elixir'} " Elixir Integration
+Plug 'mhinz/vim-mix-format',        {'for': 'elixir'} " Elixir formatter
 
 " Go
 Plug 'fatih/vim-go',                {'do': ':GoInstallBinaries', 'for': 'go'} " Golang utilities

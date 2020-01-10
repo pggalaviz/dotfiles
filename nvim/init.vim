@@ -67,6 +67,10 @@ let g:vue_disable_pre_processors = 1
 let g:alchemist_tag_disable = 1 "Use Universal ctags instead
 let g:alchemist_mappings_disable = 1
 
+" mhinz/vim-mix-format
+" ==================================
+let g:mix_format_on_save = 1
+
 " ditmammoth/doorboy.vim
 " ==================================
 " Easy jump closings without leaving home row or insert mode
