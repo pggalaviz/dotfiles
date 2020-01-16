@@ -69,7 +69,7 @@ let g:alchemist_mappings_disable = 1
 
 " mhinz/vim-mix-format
 " ==================================
-let g:mix_format_on_save = 1
+let g:mix_format_on_save = 0
 
 " ditmammoth/doorboy.vim
 " ==================================

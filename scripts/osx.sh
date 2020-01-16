@@ -75,6 +75,8 @@ taps=(
 "burntsushi/ripgrep https://github.com/BurntSushi/ripgrep.git"
 )
 packages=(
+"coreutils"
+"gpg"
 "python3"
 "tree"
 "reattach-to-user-namespace"
@@ -201,11 +203,14 @@ echo "--------------------------------------------------------------------------
 
 # Install asdf ----------------------------------------------------------------
 # ------------------------------------------------------------------------------
-echo_item "asdf (manage many languages versions):" blue
+echo_item "asdf version manager (manage many languages versions):" blue
 if get_boolean_response "Do you want to install asdf?"; then
   echo_item "Installing asdf..." yellow
   brew install asdf
-  brew install ruby-build
+  asdf plugin-add ruby
+  asdf plugin-add erlang
+  asdf plugin-add elixir
+  asdf plugin-add nodejs
   echo_item "asdf successfully installed!" green
 else
   echo_item "Skipping asdf installation..."
