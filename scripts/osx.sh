@@ -311,6 +311,7 @@ modules=(
 "tern"
 "standard"
 "prettier"
+"javascript-typescript-langserver"
 )
 echo_item "Node Global Packages:" blue
 echo_item "Packages:"
@@ -446,11 +447,11 @@ if get_boolean_response "Do you want to install Language Servers (elixir)?"; the
   mkdir -p ~/.lsp
   # Elixir
   if exists "mix"; then
-    git clone https://github.com/JakeBecker/elixir-ls.git ~/.lsp/elixir
+    git clone https://github.com/elixir-lsp/elixir-ls.git ~/.lsp/elixir
     mkdir -p ~/.lsp/elixir/rel
     cd ~/.lsp/elixir
     mix deps.get && mix compile
-    mix elixir_ls.release -o rel
+    MIX_ENV=prod mix elixir_ls.release -o rel
     cd
   fi
 else
@@ -475,6 +476,7 @@ echo "--------------------------------------------------------------------------
 # Copy Dotfiles ----------------------------------------------------------------
 # ------------------------------------------------------------------------------
 ln -sf `pwd`/.gemrc ~/.gemrc
+ln -sf `pwd`/.default-gems ~/.default-gems
 
 echo_item "All done here!" blue
 echo_item "Time for some manual stuff, sorry!\n" yellow

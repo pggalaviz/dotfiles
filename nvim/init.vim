@@ -187,6 +187,18 @@ let g:rooter_manual_only = 1
 let g:rooter_patterns = ['Gemfile', 'mix.exs', 'package.json', '*.yml', '*.yaml', '.git/', 'node_modules/', '.hg/', '.gitignore']
 let g:rooter_change_directory_for_non_project_files = ''
 
+" autozimu/LanguageClient-neovim
+" ==================================
+let g:LanguageClient_serverCommands = {
+\ 'elixir': ['~/.lsp/elixir/rel/language_server.sh'],
+\ 'javascript': ['javascript-typescript-stdio'],
+\ 'jsx': ['javascript-typescript-stdio'],
+\ 'ruby': ['~/.asdf/shims/solargraph', 'stdio'],
+\ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
+\ }
+
+nnoremap <F5> :call LanguageClient_contextMenu()<CR>
+
 " carlitux/deoplete-ternjs
 " ==================================
 let g:tern_request_timeout = 1

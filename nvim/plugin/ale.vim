@@ -2,6 +2,7 @@
 " ==================================
 let g:ale_enabled = 1
 let g:ale_completion_enabled = 1
+let g:ale_linters_explicit = 1
 let g:ale_lint_on_text_changed = 0
 let g:ale_lint_on_save = 1
 let g:ale_sign_column_always = 1
@@ -23,7 +24,8 @@ augroup END
 
 let g:ale_linters = {
 \ 'javascript': ['standard', 'eslint'],
-\ 'elixir': ['credo', 'dialyxir', 'elixir-ls'],
+\ 'elixir': ['elixir-ls', 'credo', 'dialyxir'],
+\ 'ruby': ['rubocop'],
 \ 'rust': ['rls', 'cargo'],
 \ 'go': ['gofmt']
 \}
@@ -31,8 +33,7 @@ let g:ale_linters = {
 let g:ale_fixers = {
 \ '*': ['remove_trailing_lines', 'trim_whitespace'],
 \ 'javascript': ['standard'],
-\ 'css': ['prettier'],
-\ 'elixir': [],
+\ 'css': ['prettier']
 \}
 
 " ---------------
@@ -51,26 +52,6 @@ endif
 " -----------
 let g:ale_elixir_elixir_ls_release = '~/.lsp/elixir/rel'
 let g:ale_elixir_credo_use_global = 0
-
-" Find the nearest .formatter.exs file to load configuration
-" function! LoadNearestFormatter()
-"   let l:formatters = []
-"   let l:directory = fnameescape(expand("%:p:h"))
-
-"   for l:fmt in findfile(".formatter.exs", l:directory . ";", -1)
-"     call insert(l:formatters, l:fmt)
-"   endfor
-
-"   call reverse(l:formatters)
-
-"   let g:ale_fixers['elixir'] = g:ale_fixers['elixir'] + ['mix_format']
-
-"   if len(l:formatters) > 0
-"     let g:ale_elixir_mix_format_options = "--dot-formatter " . l:formatters[0]
-"   endif
-" endfunction
-
-" call LoadNearestFormatter()
 
 " ---------
 " ===> Rust

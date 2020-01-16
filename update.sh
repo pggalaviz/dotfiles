@@ -74,11 +74,11 @@ if get_boolean_response "Running this command assumes you've previoulsy run the 
       mkdir -p ~/.lsp
       # Elixir
       if exists "mix"; then
-        git clone https://github.com/JakeBecker/elixir-ls.git ~/.lsp/elixir
+        git clone https://github.com/elixir-lsp/elixir-ls.git ~/.lsp/elixir
         mkdir -p ~/.lsp/elixir/rel
         cd ~/.lsp/elixir
         mix deps.get && mix compile
-        mix elixir_ls.release -o rel
+        MIX_ENV=prod mix elixir_ls.release -o rel
         cd
       fi
       echo_item "Done!" green
@@ -124,11 +124,11 @@ if get_boolean_response "Running this command assumes you've previoulsy run the 
       if exists "mix"; then
         echo_item "Updating Elixir Language Server..." yellow
         rm -rf ~/.lsp/elixir
-        git clone https://github.com/JakeBecker/elixir-ls.git ~/.lsp/elixir
+        git clone https://github.com/elixir-lsp/elixir-ls.git ~/.lsp/elixir
         mkdir -p ~/.lsp/elixir/rel
         cd ~/.lsp/elixir
         mix deps.get && mix compile
-        mix elixir_ls.release -o rel
+        MIX_ENV=prod mix elixir_ls.release -o rel
         cd
       fi
       echo_item "Done!" green
@@ -161,7 +161,7 @@ if get_boolean_response "Running this command assumes you've previoulsy run the 
         # vim-plug
         curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs \
           https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-        nvim +PlugUpgrade +PlugInstall +PlugUpdate +PlugClean! +qa
+        nvim +PlugUpgrade +PlugInstall +PlugUpdate +UpdateRemotePlugins +PlugClean! +qa
         # Check for new plugin config files
         ln -sf `pwd`/nvim/plugin/*.vim ~/.config/nvim/plugin/
       fi
