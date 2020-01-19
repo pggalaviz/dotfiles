@@ -1,6 +1,17 @@
 --exclude=.git
 --exclude=.gem
+--exclude=log
+--exclude=tmp
 --exclude=node_modules
+--exclude=package-lock.json
+--exclude=yarn.lock
+--exclude=_build
+--exclude=deps
+--exclude=.elixir_ls
+--exclude=tests
+--exclude=test
+--exclude=coveralls.json
+--exclude=target
 
 # SCSS Config
 --langdef=scss

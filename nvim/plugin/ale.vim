@@ -1,7 +1,7 @@
 " w0rp/ale
 " ==================================
 let g:ale_enabled = 1
-let g:ale_completion_enabled = 1
+let g:ale_completion_enabled = 0
 let g:ale_linters_explicit = 1
 let g:ale_lint_on_text_changed = 0
 let g:ale_lint_on_save = 1
@@ -22,19 +22,22 @@ augroup ale_lint
   autocmd ColorScheme * hi ALEWarningSign guifg=#fac863
 augroup END
 
-let g:ale_linters = {
-\ 'javascript': ['standard', 'eslint'],
-\ 'elixir': ['elixir-ls', 'credo', 'dialyxir'],
-\ 'ruby': ['rubocop'],
-\ 'rust': ['rls', 'cargo'],
-\ 'go': ['gofmt']
-\}
+" Linters
+let g:ale_linters = {}
+let g:ale_linters.javascript = ['standard', 'eslint']
+let g:ale_linters.elixir = ['elixir-ls', 'credo', 'dialyxir']
+let g:ale_linters.ruby = ['rubocop']
+let g:ale_linters.rust = ['rls', 'cargo']
+let g:ale_linters.go = ['gofmt']
 
-let g:ale_fixers = {
-\ '*': ['remove_trailing_lines', 'trim_whitespace'],
-\ 'javascript': ['standard'],
-\ 'css': ['prettier']
-\}
+" Fixers
+let g:ale_fixers = {'*': ['remove_trailing_lines', 'trim_whitespace']}
+let g:ale_fixers.javascript = ['standard']
+let g:ale_fixers.css = ['prettier']
+
+nnoremap ]e :ALENextWrap<CR>
+nnoremap [e :ALEPreviousWrap<CR>
+nnoremap <leader>d :ALEGoToDefinition<cr>
 
 " ---------------
 " ===> Javascript
@@ -52,6 +55,11 @@ endif
 " -----------
 let g:ale_elixir_elixir_ls_release = '~/.lsp/elixir/rel'
 let g:ale_elixir_credo_use_global = 0
+
+" ---------
+" ===> Ruby
+" ---------
+" let g:ale_ruby_rubocop_executable = 'bundle'
 
 " ---------
 " ===> Rust

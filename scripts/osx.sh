@@ -475,8 +475,9 @@ echo "--------------------------------------------------------------------------
 
 # Copy Dotfiles ----------------------------------------------------------------
 # ------------------------------------------------------------------------------
-ln -sf `pwd`/.gemrc ~/.gemrc
-ln -sf `pwd`/.default-gems ~/.default-gems
+ln -sf `pwd`/gemrc ~/.gemrc
+ln -sf `pwd`/default-gems ~/.default-gems
+ln -sf `pwd`/gitignore_global ~/.gitignore_global
 
 echo_item "All done here!" blue
 echo_item "Time for some manual stuff, sorry!\n" yellow

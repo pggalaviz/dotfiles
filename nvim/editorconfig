@@ -20,16 +20,14 @@ insert_final_newline = true
   eex,
   css,
   scss,
-  styl
+  styl,
+  js,
+  vue,
+  jsx
 }]
 indent_size = 2
 
 [*.{
-  js,
-  es6,
-  json,
-  jsx,
-  go,
-  vue
+  go
 }]
 indent_size = 4

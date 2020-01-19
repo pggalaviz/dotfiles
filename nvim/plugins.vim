@@ -151,7 +151,7 @@ Plug 'wellle/tmux-complete.vim'       " Adjacent tmux panes completion
 " -------------------------------------------------------------------------------------------
 
 " Main lintting framework
-Plug 'w0rp/ale'
+Plug 'dense-analysis/ale'
 
 " -------------------------------------------------------------------------------------------
 " THEMES & UI

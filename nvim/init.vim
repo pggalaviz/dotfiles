@@ -189,15 +189,16 @@ let g:rooter_change_directory_for_non_project_files = ''
 
 " autozimu/LanguageClient-neovim
 " ==================================
-let g:LanguageClient_serverCommands = {
-\ 'elixir': ['~/.lsp/elixir/rel/language_server.sh'],
-\ 'javascript': ['javascript-typescript-stdio'],
-\ 'jsx': ['javascript-typescript-stdio'],
-\ 'ruby': ['~/.asdf/shims/solargraph', 'stdio'],
-\ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
-\ }
+let g:LanguageClient_serverCommands = {}
+let g:LanguageClient_serverCommands.elixir = ['~/.lsp/elixir/rel/language_server.sh']
+let g:LanguageClient_serverCommands.javascript = ['javascript-typescript-stdio']
+let g:LanguageClient_serverCommands.jsx = ['javascript-typescript-stdio']
+let g:LanguageClient_serverCommands.ruby = ['~/.asdf/shims/solargraph', 'stdio']
+let g:LanguageClient_serverCommands.rust = ['~/.cargo/bin/rustup', 'run', 'stable', 'rls']
 
 nnoremap <F5> :call LanguageClient_contextMenu()<CR>
+nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
+nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
 
 " carlitux/deoplete-ternjs
 " ==================================

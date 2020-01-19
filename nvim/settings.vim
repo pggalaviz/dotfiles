@@ -77,6 +77,8 @@ set wildignore+=**/build/**
 set wildignore+=**/deps/**
 set wildignore+=**/log/**
 set wildignore+=*/tmp/*,**/tmp/**
+set wildignore+=**/_build/**,**/deps/**
+set wildignore+=**/target/**
 
 " Tabs/Spaces
 set autoindent                                  " Auto indent
@@ -112,4 +114,3 @@ set noerrorbells                                " Don't beep
 set iskeyword+=-,_                              " Consider - and _ part of a word
 set history=200                                 " Remember more commands and search history
 set undolevels=100                              " Maximum levels of changes that can be undone
-

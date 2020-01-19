@@ -26,8 +26,22 @@ let g:deoplete#omni#functions.html = 'htmlcomplete#CompleteTags'
 let g:deoplete#omni#functions.javascript = [ 'tern#Complete', 'jspc#omni', 'javascriptcomplete#CompleteJS' ]
 let g:deoplete#omni#functions.ruby = 'rubycomplete#Complete'
 
+" Custom sources
+call deoplete#custom#option('sources', {
+\ '_': ['ale', 'omni', 'neosnippet', 'member', 'include', 'file/include', 'file', 'tag', 'around', 'buffer', 'dictionary', 'tmuxcomplete', 'syntax'],
+\ 'elixir': ['LanguageClient', 'alchemist'],
+\ 'javascript': ['LanguageClient', 'ternjs'],
+\ 'rust': ['LanguageClient', 'racer'],
+\ 'go': ['LanguageClient', 'go'],
+\ 'ruby': ['LanguageClient', 'ruby'],
+\ 'vim': ['vim'],
+\ 'fish': ['fish'],
+\})
+
+
 " Default rank is 100, higher is better
 call deoplete#custom#source('LanguageClient', 'rank', 610)
+call deoplete#custom#source('ale', 'rank', 610)
 " Elixir
 call deoplete#custom#source('alchemist', 'rank', 600)
 call deoplete#custom#source('alchemist', 'filetypes', ['elixir', 'eelixir'])
@@ -65,6 +79,7 @@ call deoplete#custom#source('syntax',         'rank', 200)
 
 " Custom Marks
 call deoplete#custom#source('LanguageClient', 'mark', '*')
+call deoplete#custom#source('ale',            'mark', 'A')
 call deoplete#custom#source('alchemist',      'mark', '⌁')
 call deoplete#custom#source('ternjs',         'mark', '⌁')
 call deoplete#custom#source('racer',          'mark', '⌁')
@@ -85,10 +100,10 @@ call deoplete#custom#source('tmuxcomplete',   'mark', '⊶')
 call deoplete#custom#source('syntax',         'mark', '♯')
 
 " Custom sorters, working well with neosnippet
-call deoplete#custom#source('_', 'converters', [
-    \ 'converter_auto_paren',
-    \ 'converter_remove_overlap',
-    \ 'converter_truncate_abbr',
-    \ 'converter_truncate_menu',
-    \ 'converter_auto_delimiter',
-    \ ])
+" call deoplete#custom#source('_', 'converters', [
+"     \ 'converter_auto_paren',
+"     \ 'converter_remove_overlap',
+"     \ 'converter_truncate_abbr',
+"     \ 'converter_truncate_menu',
+"     \ 'converter_auto_delimiter',
+"     \ ])

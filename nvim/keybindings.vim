@@ -18,7 +18,7 @@ nnoremap <leader>z <C-]>
 " Buffer Navigation
 nnoremap <leader>. :bn!<cr>
 nnoremap <leader>, :bp!<cr>
-nnoremap <leader>d :bd<cr>
+nnoremap <leader>q :bd<cr>
 nnoremap <leader>- :enew<cr>
 
 " upper/lower word
@@ -31,7 +31,6 @@ nnoremap <leader>L mQgewvu`Q
 
 " Easy save & quit
 nnoremap <leader>w :w<cr>
-nnoremap <leader>q :q<cr>
 nnoremap <leader>x :wq<cr>
 
 " Make :Q and :W work like :q and :w
@@ -130,7 +129,7 @@ tnoremap <leader>. <c-\><c-n>:bn<cr>
 tnoremap <leader>, <c-\><c-n>:bp<cr>
 
 " Easy exit terminal buffer
-tmap <leader>d <c-\><c-n>:bd!<cr>
+tmap <leader>q <c-\><c-n>:bd!<cr>
 
 " Cope, super helpful, do ':help cope' if unsure
 nnoremap <localleader>cc :botright cope<cr>
