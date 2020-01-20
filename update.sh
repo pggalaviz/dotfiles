@@ -30,8 +30,6 @@ if get_boolean_response "Running this command assumes you've previoulsy run the 
 
       echo_item "Cleaning old formulae versions and cache..." yellow
       brew cleanup -s
-      brew cask cleanup
-      brew prune
       echo_item "Done!" green
       echo "--------------------------------------------------------------------------"
 
@@ -49,10 +47,10 @@ if get_boolean_response "Running this command assumes you've previoulsy run the 
         go get -u github.com/nsf/gocode
       fi
       # Rust utilities
-      # if exists "rustup"; then
-      #   rustup update
-      #   cargo install racer --force
-      # fi
+      if exists "rustup"; then
+        rustup update
+        # cargo install racer --force
+      fi
       # Neovim dependencies
       if exists "nvim"; then
         # Neovim python 3 client
@@ -74,12 +72,16 @@ if get_boolean_response "Running this command assumes you've previoulsy run the 
       mkdir -p ~/.lsp
       # Elixir
       if exists "mix"; then
+        rm -rf ~/.lsp/elixir
         git clone https://github.com/elixir-lsp/elixir-ls.git ~/.lsp/elixir
         mkdir -p ~/.lsp/elixir/rel
         cd ~/.lsp/elixir
         mix deps.get && mix compile
         MIX_ENV=prod mix elixir_ls.release -o rel
         cd
+      fi
+      if exists "solargraph"; then
+        gem update solargraph
       fi
       echo_item "Done!" green
       echo "--------------------------------------------------------------------------"
@@ -99,8 +101,6 @@ if get_boolean_response "Running this command assumes you've previoulsy run the 
 
       echo_item "Cleaning old formulae versions and cache..." yellow
       brew cleanup -s
-      brew cask cleanup
-      brew prune
       echo_item "Done!" green
       echo "--------------------------------------------------------------------------"
       echo_item "Updated selection successfully!" green
@@ -117,7 +117,7 @@ if get_boolean_response "Running this command assumes you've previoulsy run the 
       echo "--------------------------------------------------------------------------"
       echo_item "Updated selection successfully!" green
 
-    elif get_boolean_response "> Update only Language Servers (elixir)?"; then
+    elif get_boolean_response "> Update only Language Servers (elixir, ruby)?"; then
 
       echo "--------------------------------------------------------------------------"
       mkdir -p ~/.lsp
@@ -130,6 +130,10 @@ if get_boolean_response "Running this command assumes you've previoulsy run the 
         mix deps.get && mix compile
         MIX_ENV=prod mix elixir_ls.release -o rel
         cd
+      fi
+      if exists "solargraph"; then
+        echo_item "Updating Ruby Language Server..." yellow
+        gem update solargraph
       fi
       echo_item "Done!" green
       echo "--------------------------------------------------------------------------"
@@ -144,10 +148,10 @@ if get_boolean_response "Running this command assumes you've previoulsy run the 
         go get -u github.com/nsf/gocode
       fi
       # Rust utilities
-      # if exists "rustup"; then
-      #   rustup update
-      #   cargo install racer --force
-      # fi
+      if exists "rustup"; then
+        rustup update
+        # cargo install racer --force
+      fi
       # Neovim dependencies
       if exists "nvim"; then
         # Neovim python 3 client

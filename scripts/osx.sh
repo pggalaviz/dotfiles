@@ -71,25 +71,17 @@ echo "--------------------------------------------------------------------------
 
 # Install Utilities ------------------------------------------------------------
 # ------------------------------------------------------------------------------
-taps=(
-"burntsushi/ripgrep https://github.com/BurntSushi/ripgrep.git"
-)
 packages=(
+"ripgrep"
 "coreutils"
 "gpg"
 "python3"
 "tree"
 "reattach-to-user-namespace"
-"burntsushi/ripgrep/ripgrep-bin"
 "minikube"
 "kubernetes-cli"
 "redis"
 )
-echo_item "Brew tapping & installing some utilities..." yellow
-for i in "${taps[@]}"
-do
-  brew tap $i
-done
 for i in "${packages[@]}"
 do
   brew install $i
@@ -317,7 +309,8 @@ echo_item "Node Global Packages:" blue
 echo_item "Packages:"
 echo "- standard (JS style, linting & formater)"
 echo "- prettier (Style formater for css, json and scss)"
-echo "- tern (required for Neovim JS linting)\n"
+echo "- tern (required for Neovim JS linting)"
+echo "- javascript-typescript-langserver (Language Server for linting)\n"
 if get_boolean_response "Do you want to install these global packages?"; then
   if get_boolean_response "Do you want to use yarn?"; then
     echo_item "Installing packages with yarn..." yellow

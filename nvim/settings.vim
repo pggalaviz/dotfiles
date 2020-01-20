@@ -114,3 +114,8 @@ set noerrorbells                                " Don't beep
 set iskeyword+=-,_                              " Consider - and _ part of a word
 set history=200                                 " Remember more commands and search history
 set undolevels=100                              " Maximum levels of changes that can be undone
+
+if executable('rg')
+  set grepprg=rg\ --vimgrep\ --no-heading\ -S
+  set grepformat=%f:%l:%c:%m,%f:%l:%m
+endif

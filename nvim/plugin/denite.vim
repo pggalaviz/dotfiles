@@ -1,58 +1,78 @@
 " Shougo/denite.nvim
 " ==================================
-nnoremap <localleader>b :Denite buffer file_old -default-action=switch<cr>
-nnoremap <localleader>f :Denite file_rec<cr>
-nnoremap <localleader>g :Denite grep<cr>
-nnoremap <localleader>l :Denite line<cr>
+
+" Custom Mappings
+autocmd FileType denite call s:denite_settings()
+
+function! s:denite_settings() abort
+  nnoremap <silent><buffer><expr> <CR>
+        \ denite#do_map('do_action')
+  nnoremap <silent><buffer><expr> p
+        \ denite#do_map('do_action', 'preview')
+  nnoremap <silent><buffer><expr> y
+        \ denite#do_map('do_action', 'yank')
+  nnoremap <silent><buffer><expr> <Esc>
+        \ denite#do_map('quit')
+  nnoremap <silent><buffer><expr> q
+        \ denite#do_map('quit')
+  nnoremap <silent><buffer><expr> i
+        \ denite#do_map('open_filter_buffer')
+endfunction
+
+autocmd FileType denite-filter call s:denite_filter_settings()
+
+function! s:denite_filter_settings() abort
+  nmap <silent><buffer> <Esc> <Plug>(denite_filter_quit)
+  inoremap <silent><buffer><expr> <CR>
+        \ denite#do_map('do_action')
+  inoremap <silent><buffer><expr> <C-c>
+        \ denite#do_map('quit')
+  nnoremap <silent><buffer><expr> <C-c>
+        \ denite#do_map('quit')
+endfunction
+
+nnoremap <localleader>b :Denite buffer file/old -default-action=switch<cr>
+nnoremap <localleader>f :Denite file/rec -start-filter<cr>
+nnoremap <localleader>s :Denite -start-filter grep:::!<CR>
+nnoremap <localleader>g :DeniteBufferDir -start-filter grep:::!<CR>
+nnoremap <localleader>l :Denite line -start-filter<cr>
 nnoremap <localleader>o :Denite outline<cr>
 nnoremap <localleader>m :Denite file_mru<cr>
-nnoremap <localleader>c :Denite command<cr>
-nnoremap <localleader>r :Denite register -buffer-name=register<cr>
+nnoremap <localleader>r :Denite register:. -buffer-name=register<cr>
 xnoremap <localleader>r :Denite register -buffer-name=register -default-action=replace<cr>
 nnoremap <localleader>d :Denite directory_rec -default-action=cd<cr>
+nnoremap <localleader>c :Denite command_history<cr>
 nnoremap <localleader>* :DeniteCursorWord line<cr>
-nnoremap <localleader>w :DeniteCursorWord grep<cr>
-nnoremap <localleader>ch :Denite command_history<cr>
+nnoremap <localleader>w :DeniteCursorWord grep:.<cr>
 
-call denite#custom#option('_', 'prompt', '❯')
+call denite#custom#option('_', 'statusline', v:false)
+call denite#custom#option('_', 'max_dynamic_update_candidates', 100000)
+call denite#custom#option('default', 'prompt', '❯')
 call denite#custom#option('default', 'vertical_preview', 1)
 call denite#custom#option('default', 'short_source_names', 1)
 
-" Custom mappings insert mode
-call denite#custom#map('insert', '<C-n>',  '<denite:move_to_next_line>', 'noremap')
-call denite#custom#map('insert', '<c-p>',  '<denite:move_to_previous_line>', 'noremap')
-call denite#custom#map('insert', '<down>', '<denite:move_to_next_line>', 'noremap')
-call denite#custom#map('insert', '<up>',   '<denite:move_to_previous_line>', 'noremap')
-call denite#custom#map('insert', 'jk',     '<denite:enter_mode:normal>', 'noremap')
-call denite#custom#map('insert', 'kj',     '<denite:enter_mode:normal>', 'noremap')
-call denite#custom#map('insert', '<esc>',  '<denite:enter_mode:normal>', 'noremap')
-
-" Custom mappings normal mode
-call denite#custom#map('normal', '<esc>', '<denite:quit>', 'noremap')
-call denite#custom#map('normal', 'st',    '<denite:do_action:tabopen>', 'noremap')
-call denite#custom#map('normal', 'ss',    '<denite:do_action:split>', 'noremap')
-call denite#custom#map('normal', 'sv',    '<denite:do_action:vsplit>', 'noremap')
-call denite#custom#map('normal', 'r',     '<denite:redraw>', 'noremap')
+" Grep interactive mode by default
+call denite#custom#source('grep', 'args', ['', '', '!'])
 
 " Use RipGrep or The Silver Searcher
 if executable('rg')
     " File
-    call denite#custom#var('file_rec', 'command', ['rg', '--threads', '2', '--files', '--glob', '!.git'])
+    call denite#custom#var('file/rec', 'command', ['rg', '--threads', '2', '--files', '--glob', '!.git'])
     " Grep
     call denite#custom#var('grep', 'command', ['rg'])
+    call denite#custom#var('grep', 'default_opts', ['--hidden', '--vimgrep', '--smart-case'])
     call denite#custom#var('grep', 'recursive_opts', [])
     call denite#custom#var('grep', 'pattern_opt', ['--regexp'])
     call denite#custom#var('grep', 'separator', ['--'])
     call denite#custom#var('grep', 'final_opts', [])
-    call denite#custom#var('grep', 'default_opts', ['--vimgrep', '--no-heading'])
 elseif executable('ag')
     " File
-    call denite#custom#var('file_rec', 'command', ['ag', '--follow', '--color', '--nogroup', '-g', ''])
+    call denite#custom#var('file/rec', 'command', ['ag', '--follow', '--color', '--nogroup', '-g', ''])
     " Grep
     call denite#custom#var('grep', 'command', ['ag'])
+    call denite#custom#var('grep', 'default_opts', ['--vimgrep', '--smart-case'])
     call denite#custom#var('grep', 'recursive_opts', [])
     call denite#custom#var('grep', 'pattern_opt', [])
     call denite#custom#var('grep', 'separator', ['--'])
     call denite#custom#var('grep', 'final_opts', [])
-    call denite#custom#var('grep', 'default_opts', ['--vimgrep', '--smart-case'])
 endif
