@@ -29,6 +29,7 @@ let g:ale_linters.elixir = ['elixir-ls', 'credo', 'dialyxir']
 let g:ale_linters.ruby = ['rubocop']
 let g:ale_linters.rust = ['rls', 'cargo']
 let g:ale_linters.go = ['gofmt']
+let g:ale_linters.vue = ['vls', 'standard']
 
 " Fixers
 let g:ale_fixers = {'*': ['remove_trailing_lines', 'trim_whitespace']}
@@ -37,7 +38,7 @@ let g:ale_fixers.css = ['prettier']
 
 nnoremap ]e :ALENextWrap<CR>
 nnoremap [e :ALEPreviousWrap<CR>
-nnoremap <leader>d :ALEGoToDefinition<cr>
+nnoremap <leader>d :ALEGoToDefinition<CR>
 
 " ---------------
 " ===> Javascript
@@ -66,4 +67,11 @@ let g:ale_elixir_credo_use_global = 0
 " ---------
 if executable('rls')
   let g:ale_rust_rls_toolchain = 'nightly'
+endif
+
+" --------
+" ===> Vue
+" --------
+if executable('vls')
+  let g:ale_vue_vls_use_global = 1
 endif

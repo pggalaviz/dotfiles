@@ -195,6 +195,7 @@ let g:LanguageClient_serverCommands.javascript = ['javascript-typescript-stdio']
 let g:LanguageClient_serverCommands.jsx = ['javascript-typescript-stdio']
 let g:LanguageClient_serverCommands.ruby = ['~/.asdf/shims/solargraph', 'stdio']
 let g:LanguageClient_serverCommands.rust = ['~/.cargo/bin/rustup', 'run', 'stable', 'rls']
+let g:LanguageClient_serverCommands.vue = ['vls']
 
 nnoremap <F5> :call LanguageClient_contextMenu()<CR>
 nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
