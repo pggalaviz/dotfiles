@@ -22,19 +22,22 @@ endfunction
 autocmd FileType denite-filter call s:denite_filter_settings()
 
 function! s:denite_filter_settings() abort
-  nmap <silent><buffer> <Esc> <Plug>(denite_filter_quit)
+  imap <silent><buffer> kj
+        \ <Plug>(denite_filter_quit)
+  imap <silent><buffer> jk
+        \ <Plug>(denite_filter_quit)
+  inoremap <silent><buffer><expr> <Esc>
+        \ denite#do_map('quit')
+  nnoremap <silent><buffer><expr> <Esc>
+        \ denite#do_map('quit')
   inoremap <silent><buffer><expr> <CR>
         \ denite#do_map('do_action')
-  inoremap <silent><buffer><expr> <C-c>
-        \ denite#do_map('quit')
-  nnoremap <silent><buffer><expr> <C-c>
-        \ denite#do_map('quit')
 endfunction
 
 nnoremap <localleader>b :Denite buffer file/old -default-action=switch<cr>
-nnoremap <localleader>f :Denite file/rec -start-filter<cr>
-nnoremap <localleader>s :Denite -start-filter grep:::!<CR>
-nnoremap <localleader>g :DeniteBufferDir -start-filter grep:::!<CR>
+nnoremap <localleader>f :<C-u>DeniteProjectDir file/rec -start-filter<cr>
+nnoremap <localleader>s :<C-u>DeniteProjectDir -start-filter grep:::!<CR>
+nnoremap <localleader>g :<C-u>DeniteProjectDir -start-filter grep:::!<CR>
 nnoremap <localleader>l :Denite line -start-filter<cr>
 nnoremap <localleader>o :Denite outline<cr>
 nnoremap <localleader>m :Denite file_mru<cr>
@@ -43,7 +46,7 @@ xnoremap <localleader>r :Denite register -buffer-name=register -default-action=r
 nnoremap <localleader>d :Denite directory_rec -default-action=cd<cr>
 nnoremap <localleader>c :Denite command_history<cr>
 nnoremap <localleader>* :DeniteCursorWord line<cr>
-nnoremap <localleader>w :DeniteCursorWord grep:.<cr>
+nnoremap <localleader>w :<C-u>DeniteCursorWord grep:.<cr>
 
 call denite#custom#option('_', 'statusline', v:false)
 call denite#custom#option('_', 'max_dynamic_update_candidates', 100000)
