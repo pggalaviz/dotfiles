@@ -27,16 +27,16 @@ let g:deoplete#omni#functions.javascript = [ 'tern#Complete', 'jspc#omni', 'java
 let g:deoplete#omni#functions.ruby = 'rubycomplete#Complete'
 
 " Custom sources
-call deoplete#custom#option('sources', {
-\ '_': ['ale', 'omni', 'neosnippet', 'member', 'include', 'file/include', 'file', 'tag', 'around', 'buffer', 'dictionary', 'tmuxcomplete', 'syntax'],
-\ 'elixir': ['LanguageClient', 'alchemist'],
-\ 'javascript': ['LanguageClient', 'ternjs'],
-\ 'rust': ['LanguageClient', 'racer'],
-\ 'go': ['LanguageClient', 'go'],
-\ 'ruby': ['LanguageClient', 'ruby'],
-\ 'vim': ['vim'],
-\ 'fish': ['fish'],
-\})
+" call deoplete#custom#option('sources', {
+" \ '_': ['ale', 'omni', 'neosnippet', 'member', 'include', 'file/include', 'file', 'tag', 'around', 'buffer', 'dictionary', 'tmuxcomplete', 'syntax'],
+" \ 'elixir': ['LanguageClient', 'alchemist'],
+" \ 'javascript': ['LanguageClient', 'ternjs'],
+" \ 'rust': ['LanguageClient', 'racer'],
+" \ 'go': ['LanguageClient', 'go'],
+" \ 'ruby': ['LanguageClient', 'ruby'],
+" \ 'vim': ['vim'],
+" \ 'fish': ['fish'],
+" \})
 
 
 " Default rank is 100, higher is better
