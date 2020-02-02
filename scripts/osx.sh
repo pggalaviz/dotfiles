@@ -470,10 +470,23 @@ echo "--------------------------------------------------------------------------
 
 # Copy Dotfiles ----------------------------------------------------------------
 # ------------------------------------------------------------------------------
+echo_item "Creating main symlinks..." yellow
 ln -sf `pwd`/gemrc ~/.gemrc
 ln -sf `pwd`/default-gems ~/.default-gems
 ln -sf `pwd`/gitignore_global ~/.gitignore_global
-ln -sf `pwd`/phoenix.js ~/.phoenix.js
+
+echo_item "Creating phoenix symlinks..." yellow
+mkdir -p ~/.config/phoenix
+mkdir -p ~/.config/phoenix/config
+mkdir -p ~/.config/phoenix/helpers
+mkdir -p ~/.config/phoenix/shortcuts
+mkdir -p ~/.config/phoenix/spaces
+ln -sf `pwd`/phoenix/phoenix.js ~/.config/phoenix/
+ln -sf `pwd`/phoenix/config/*.js ~/.config/phoenix/config/
+ln -sf `pwd`/phoenix/helpers/*.js ~/.config/phoenix/helpers/
+ln -sf `pwd`/phoenix/shortcuts/*.js ~/.config/phoenix/shortcuts/
+ln -sf `pwd`/phoenix/spaces/*.js ~/.config/phoenix/spaces/
+
 
 echo_item "All done here!" blue
 echo_item "Time for some manual stuff, sorry!\n" yellow

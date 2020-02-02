@@ -10,6 +10,7 @@ Includes files for configuring:
 - Neovim
 - Tmux
 - Hyper.js Terminal
+- Phoenix (window and app manager)
 
 ## Default config:
 
@@ -97,4 +98,3 @@ helped as the base to this configuration.
 
 If you have any questions or just want to chat you can find me on Twitter:
 [@pggalaviz](http://twitter.com/pggalaviz)
-
