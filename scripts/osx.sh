@@ -116,7 +116,7 @@ echo "Includes: flux, divvy, keka, macdown and others..."
 if get_boolean_response "Do you want to install this apps?"; then
   echo_item "Installing apps..." yellow
   apps=(
-  "divvy"
+  "phoenix"
   "flux"
   "keka"
   "macdown"
@@ -473,6 +473,7 @@ echo "--------------------------------------------------------------------------
 ln -sf `pwd`/gemrc ~/.gemrc
 ln -sf `pwd`/default-gems ~/.default-gems
 ln -sf `pwd`/gitignore_global ~/.gitignore_global
+ln -sf `pwd`/phoenix.js ~/.phoenix.js
 
 echo_item "All done here!" blue
 echo_item "Time for some manual stuff, sorry!\n" yellow
