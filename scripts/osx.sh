@@ -123,6 +123,7 @@ if get_boolean_response "Do you want to install this apps?"; then
   "the-unarchiver"
   "appcleaner"
   "postgres"
+  "kitematic"
   )
   for i in "${apps[@]}"
   do
