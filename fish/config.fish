@@ -31,7 +31,8 @@ test -d /usr/libexec/java_home ;and set -x JAVA_HOME (/usr/libexec/java_home)
 # add rbenv to $PATH
 # status --is-interactive; and source (rbenv init -|psub)
 # add asdf to $PATH
-status --is-interactive; and source /usr/local/opt/asdf/asdf.fish
+# status --is-interactive; and source /usr/local/opt/asdf/asdf.fish
+test -d /usr/local/opt/asdf/ ;and source /usr/local/opt/asdf/asdf.fish
 # Need this to expose global packages installed via yarn
 test -d $HOME/.config/yarn/global/node_modules/.bin ;and set PATH $HOME/.config/yarn/global/node_modules/.bin $PATH
 # set Android SDK
@@ -39,6 +40,8 @@ test -d $HOME/Library/Android/ ;and set -x ANDROID_SDK_ROOT $HOME/Library/Androi
 test -d $HOME/Library/Android/ ;and set -x ANDROID_HOME $HOME/Library/Android/sdk
 test -d $HOME/Library/Android/ ;and set PATH $ANDROID_HOME/tools $PATH
 test -d $HOME/Library/Android/ ;and set PATH $ANDROID_HOME/platform-tools $PATH
+# Postgres App
+test -d /Applications/Postgres.app/Contents/Versions/latest/bin ;and set PATH /Applications/Postgres.app/Contents/Versions/latest/bin $PATH
 
 #############################
 ##### Functions/Aliases #####

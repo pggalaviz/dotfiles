@@ -24,7 +24,7 @@ let g:deoplete#omni#functions = {}
 let g:deoplete#omni#functions.css = 'csscomplete#CompleteCSS'
 let g:deoplete#omni#functions.html = 'htmlcomplete#CompleteTags'
 let g:deoplete#omni#functions.javascript = [ 'tern#Complete', 'jspc#omni', 'javascriptcomplete#CompleteJS' ]
-let g:deoplete#omni#functions.ruby = 'rubycomplete#Complete'
+" let g:deoplete#omni#functions.ruby = 'rubycomplete#Complete'
 
 " Custom sources
 " call deoplete#custom#option('sources', {
