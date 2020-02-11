@@ -286,6 +286,26 @@ function im ; iex -S mix ; end
 # Fast cd to $GOPATH
 function cdg ; cd $GOPATH ; end
 
+#------------------
+#====> DOCKER
+#------------------
+# Remove Image
+function dri ; docker rmi $argv ; end
+# Remove Dangling Images
+function drid ; docker images -qf dangling=true | xargs docker rmi ; end
+# List Containers
+function dls ; docker container ls ; end
+# List all containers
+function dll ; docker container ls -a ; end
+# Run a command
+function dex ; docker exec $argv ; end
+# Remove a container
+function drc ; docker rm $argv ; end
+# Docker Compose
+function dcu ; docker-compose up $argv -d ; end
+function dcd ; docker-compose down ; end
+function dcr ; docker-compose run $argv ; end
+
 #----------------
 #====> OTHER
 #----------------
