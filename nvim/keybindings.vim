@@ -13,7 +13,10 @@ noremap <expr> j v:count ? 'j' : 'gj'
 noremap <expr> k v:count ? 'k' : 'gk'
 
 " Go to definition (using ctags)
-nnoremap <leader>z <C-]>
+nnoremap <leader>d <C-]>
+
+" Toggle fold
+nnoremap <leader>z za
 
 " Buffer Navigation
 nnoremap <leader>. :bn!<cr>
@@ -133,5 +136,12 @@ tmap <leader>q <c-\><c-n>:bd!<cr>
 
 " Cope, super helpful, do ':help cope' if unsure
 nnoremap <localleader>cc :botright cope<cr>
-nnoremap <localleader>n :cn<cr>
 nnoremap <localleader>p :cp<cr>
+nnoremap <localleader>n :cn<cr>
+
+" Highlight merge conflict markers - https://vimrcfu.com/snippet/177
+match Todo '\v^(\<|\=|\>){7}([^=].+)?$'
+
+" Jump to next/previous merge conflict marker
+nnoremap <silent> ]c /\v^(\<\|\=\|\>){7}([^=].+)?$<CR>
+nnoremap <silent> [c ?\v^(\<\|\=\|\>){7}([^=].+)\?$<CR>

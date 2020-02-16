@@ -298,10 +298,11 @@ function dls ; docker container ls ; end
 # List all containers
 function dll ; docker container ls -a ; end
 # Run a command
-function dex ; docker exec $argv ; end
+function dex ; docker exec --interactive --tty $argv ; end
 # Remove a container
 function drc ; docker rm $argv ; end
 # Docker Compose
+function dc ; docker-compose $argv ; end
 function dcu ; docker-compose up $argv -d ; end
 function dcd ; docker-compose down ; end
 function dcr ; docker-compose run $argv ; end

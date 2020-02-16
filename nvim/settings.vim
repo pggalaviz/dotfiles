@@ -21,6 +21,7 @@ filetype plugin indent on                       " Enable full filetype detection
 syntax on                                       " Syntax highlighting on
 syntax enable                                   " Syntax highlighting on
 set nopaste
+set noautochdir
 set title                                       " Let Vim set window title
 set hidden                                      " Enable buffers on background without saving
 set autochdir                                   " Change dir to file on current window
@@ -106,6 +107,14 @@ set hlsearch                                    " Highligh search
 set incsearch                                   " Search as you type
 set infercase                                   " Ignore case in matching
 set smartcase                                   " Match capitals in search
+
+" Folds
+set foldmethod=syntax                           " Set folding method to syntax
+set fillchars="fold:"
+set foldlevelstart=99
+set foldnestmax=10
+set nofoldenable
+set foldlevel=2
 
 " Other
 set completeopt+=noselect                       " Don't select a match in menu

@@ -184,7 +184,7 @@ nmap <silent> <C-d> <Plug>DashSearch
 " ==================================
 nnoremap <localleader>cd :Rooter<cr>
 let g:rooter_manual_only = 1
-let g:rooter_patterns = ['Gemfile', 'mix.exs', 'package.json', '*.yml', '*.yaml', '.git/', 'node_modules/', '.hg/', '.gitignore']
+let g:rooter_patterns = ['Gemfile', 'package.json', '.git', '.git/', 'node_modules/', '.hg/', '.gitignore']
 let g:rooter_change_directory_for_non_project_files = ''
 
 " autozimu/LanguageClient-neovim

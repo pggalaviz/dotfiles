@@ -36,9 +36,15 @@ let g:ale_fixers = {'*': ['remove_trailing_lines', 'trim_whitespace']}
 let g:ale_fixers.javascript = ['standard']
 let g:ale_fixers.css = ['prettier']
 
+" Do not lint or fix minified files.
+let g:ale_pattern_options = {
+\ '\.min\.js$': {'ale_linters': [], 'ale_fixers': []},
+\ '\.min\.css$': {'ale_linters': [], 'ale_fixers': []},
+\}
+
 nnoremap ]e :ALENextWrap<CR>
 nnoremap [e :ALEPreviousWrap<CR>
-nnoremap <leader>d :ALEGoToDefinition<CR>
+" nnoremap <leader>d :ALEGoToDefinition<CR>
 
 " ---------------
 " ===> Javascript

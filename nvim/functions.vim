@@ -60,7 +60,7 @@ function! AddSemicolon()
 endfunction
 
 nmap <leader>as :call AddSemicolon()<cr>
-"
+
 " -------------------------------------------------------------------------------------------
 
 " Select all file to clipboard
@@ -80,3 +80,19 @@ function! Multiple_cursors_after() abort
     let b:deoplete_disable_auto_complete = 0
 endfunction
 
+" -------------------------------------------------------------------------------------------
+
+" gj, gk: vertical movement through whitespace
+function FloatUp()
+  while line(".") > 1 && (strlen(getline(".")) < col(".") || getline(".")[col(".") - 1] =~ '\s')
+    norm k
+  endwhile
+endfunction
+function FloatDown()
+  while line(".") > 1 && (strlen(getline(".")) < col(".") || getline(".")[col(".") - 1] =~ '\s')
+    norm j
+  endwhile
+endfunction
+
+nnoremap gk :call FloatUp()<CR>
+nnoremap gj :call FloatDown()<CR>
