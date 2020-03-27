@@ -109,7 +109,7 @@ set infercase                                   " Ignore case in matching
 set smartcase                                   " Match capitals in search
 
 " Folds
-set foldmethod=syntax                           " Set folding method to syntax
+" set foldmethod=syntax                           " Set folding method to syntax
 set fillchars="fold:"
 set foldlevelstart=99
 set foldnestmax=10
