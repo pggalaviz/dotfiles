@@ -80,10 +80,10 @@ inoremap ii <esc>la
 " ==================================
 let g:user_emmet_mode='a'
 let g:user_emmet_install_global = 0
-let g:user_emmet_leader_key='`' " Hack gor using 1 key as leader
-autocmd FileType html,css,scss,vue,jsx,javascript,javascript.jsx
-            \ EmmetInstall
-            \ | imap <buffer> <C-Return> <Plug>(emmet-expand-abbr)
+let g:user_emmet_leader_key='º' " Hack gor using 1 key as leader
+autocmd FileType html,css,scss,vue,jsx,javascript,eelixir
+      \ EmmetInstall
+      \ | imap <buffer> <C-Return> <Plug>(emmet-expand-abbr)
 
 " junegunn/vim-easy-align
 " ==================================
@@ -274,4 +274,6 @@ call ConfigInc('keybindings.vim')
 
 " If colorscheme = nova
 colorscheme nova
+
 highlight CursorLineNr guifg=#f2c38f
+highlight! link SignColumn LineNr

@@ -51,6 +51,7 @@ set listchars+=extends:»                        " show a » when a line goes of
 set listchars+=precedes:«                       " show a « when a line goes off the left edge of the screenk
 set conceallevel=2
 set colorcolumn=81                              " Color the colum 81
+set signcolumn=yes                              " Always show sign column
 
 " Files
 set autowrite                                   " Autosave before :next, :make, etc.
@@ -122,7 +123,7 @@ set visualbell                                  " Don't beep
 set noerrorbells                                " Don't beep
 set iskeyword+=-,_                              " Consider - and _ part of a word
 set history=200                                 " Remember more commands and search history
-set undolevels=100                              " Maximum levels of changes that can be undone
+set undolevels=300                              " Maximum levels of changes that can be undone
 
 if executable('rg')
   set grepprg=rg\ --vimgrep\ --no-heading\ -S

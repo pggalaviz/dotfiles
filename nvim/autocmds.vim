@@ -26,7 +26,7 @@ augroup filetype_detect
   autocmd BufNewFile,BufRead .tern-project setf json
   autocmd BufNewFile,BufRead *.md,*markdown setf markdown
   autocmd BufNewFile,BufRead *.yml setf yaml
-  autocmd BufNewFile,BufRead *.eex setf eelixir
+  autocmd BufNewFile,BufRead *.eex,*.leex setf eelixir
   autocmd BufNewFile,BufRead *.vue setf vue
   autocmd BufNewFile,BufRead *.toml setf toml
   autocmd BufNewFile,BufRead *.styl setf stylus
