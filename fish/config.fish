@@ -16,6 +16,8 @@ set -x EDITOR nvim
 set -x fish_color_command normal
 set -x fish_color_autosuggestion blue
 set -x fish_color_error red
+# set gpg tty
+set -x GPG_TTY (eval tty)
 # PATH
 test -d /usr/local/bin  ;and set PATH /usr/local/bin  $PATH
 test -d /usr/local/sbin ;and set PATH /usr/local/sbin $PATH

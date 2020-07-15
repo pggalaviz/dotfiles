@@ -3,7 +3,7 @@
 let g:ale_enabled = 1
 let g:ale_completion_enabled = 0
 let g:ale_linters_explicit = 1
-let g:ale_lint_on_text_changed = 0
+let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_save = 1
 let g:ale_sign_column_always = 1
 let g:ale_sign_error = '✖'
@@ -60,8 +60,10 @@ endif
 " -----------
 " ===> Elixir
 " -----------
-let g:ale_elixir_elixir_ls_release = '~/.lsp/elixir/rel'
 let g:ale_elixir_credo_use_global = 0
+let g:ale_elixir_elixir_ls_release = '~/.lsp/elixir/rel'
+" Disable dialyzer
+let g:ale_elixir_elixir_ls_config = {'elixirLS': {'dialyzerEnabled': v:false}}
 
 " ---------
 " ===> Ruby
