@@ -81,6 +81,7 @@ packages=(
 "minikube"
 "kubernetes-cli"
 "redis"
+"direnv"
 )
 for i in "${packages[@]}"
 do

@@ -314,3 +314,5 @@ function dcr ; docker-compose run $argv ; end
 #----------------
 # Tree always with color
 function tc ; tree -C ; end
+
+eval (direnv hook fish)
