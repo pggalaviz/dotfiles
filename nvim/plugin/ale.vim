@@ -25,8 +25,8 @@ augroup END
 " Linters
 let g:ale_linters = {}
 let g:ale_linters.javascript = ['standard', 'eslint']
-let g:ale_linters.elixir = ['elixir-ls', 'credo', 'dialyxir']
-let g:ale_linters.ruby = ['rubocop']
+let g:ale_linters.elixir = ['elixir-ls', 'credo']
+let g:ale_linters.ruby = ['rubocop', 'ruby']
 let g:ale_linters.rust = ['rls', 'cargo']
 let g:ale_linters.go = ['gofmt']
 let g:ale_linters.vue = ['vls', 'standard']
@@ -35,6 +35,7 @@ let g:ale_linters.vue = ['vls', 'standard']
 let g:ale_fixers = {'*': ['remove_trailing_lines', 'trim_whitespace']}
 let g:ale_fixers.javascript = ['standard']
 let g:ale_fixers.css = ['prettier']
+let g:ale_fixers.elixir = ['mix_format']
 
 " Do not lint or fix minified files.
 let g:ale_pattern_options = {
@@ -61,7 +62,8 @@ endif
 " ===> Elixir
 " -----------
 let g:ale_elixir_credo_use_global = 0
-let g:ale_elixir_elixir_ls_release = '~/.lsp/elixir/rel'
+let g:ale_elixir_credo_strict = 1
+let g:ale_elixir_elixir_ls_release = expand("~/.lsp/elixir/rel")
 " Disable dialyzer
 let g:ale_elixir_elixir_ls_config = {'elixirLS': {'dialyzerEnabled': v:false}}
 
