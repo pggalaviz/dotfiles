@@ -190,7 +190,7 @@ let g:rooter_change_directory_for_non_project_files = ''
 " autozimu/LanguageClient-neovim
 " ==================================
 let g:LanguageClient_serverCommands = {}
-let g:LanguageClient_serverCommands.elixir = ['~/.lsp/elixir/rel/language_server.sh']
+let g:LanguageClient_serverCommands.elixir = ['~/.lsp/elixir/release/language_server.sh']
 let g:LanguageClient_serverCommands.javascript = ['javascript-typescript-stdio']
 let g:LanguageClient_serverCommands.jsx = ['javascript-typescript-stdio']
 let g:LanguageClient_serverCommands.ruby = ['~/.asdf/shims/solargraph', 'stdio']

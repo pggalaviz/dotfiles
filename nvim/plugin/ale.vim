@@ -63,7 +63,7 @@ endif
 " -----------
 let g:ale_elixir_credo_use_global = 0
 let g:ale_elixir_credo_strict = 1
-let g:ale_elixir_elixir_ls_release = expand("~/.lsp/elixir/rel")
+let g:ale_elixir_elixir_ls_release = expand("~/.lsp/elixir/release")
 " Disable dialyzer
 let g:ale_elixir_elixir_ls_config = {'elixirLS': {'dialyzerEnabled': v:false}}
 

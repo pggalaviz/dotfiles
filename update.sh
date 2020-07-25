@@ -74,10 +74,9 @@ if get_boolean_response "Running this command assumes you've previoulsy run the 
       if exists "mix"; then
         rm -rf ~/.lsp/elixir
         git clone https://github.com/elixir-lsp/elixir-ls.git ~/.lsp/elixir
-        mkdir -p ~/.lsp/elixir/rel
         cd ~/.lsp/elixir
         mix deps.get && mix compile
-        MIX_ENV=prod mix elixir_ls.release -o rel
+        MIX_ENV=prod mix elixir_ls.release
         cd
       fi
       if exists "solargraph"; then

@@ -445,10 +445,9 @@ if get_boolean_response "Do you want to install Language Servers (elixir)?"; the
   # Elixir
   if exists "mix"; then
     git clone https://github.com/elixir-lsp/elixir-ls.git ~/.lsp/elixir
-    mkdir -p ~/.lsp/elixir/rel
     cd ~/.lsp/elixir
     mix deps.get && mix compile
-    MIX_ENV=prod mix elixir_ls.release -o rel
+    MIX_ENV=prod mix elixir_ls.release
     cd
   fi
 else
