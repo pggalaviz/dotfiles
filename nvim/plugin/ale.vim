@@ -35,7 +35,7 @@ let g:ale_linters.vue = ['vls', 'standard']
 let g:ale_fixers = {'*': ['remove_trailing_lines', 'trim_whitespace']}
 let g:ale_fixers.javascript = ['standard']
 let g:ale_fixers.css = ['prettier']
-let g:ale_fixers.elixir = ['mix_format']
+" let g:ale_fixers.elixir = ['mix_format']
 
 " Do not lint or fix minified files.
 let g:ale_pattern_options = {
