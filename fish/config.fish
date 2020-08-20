@@ -316,5 +316,4 @@ function tc ; tree -C ; end
 # status --is-interactive; and source /usr/local/opt/asdf/asdf.fish
 test -d /usr/local/opt/asdf/ ;and source /usr/local/opt/asdf/asdf.fish
 
-
 eval (direnv hook fish)
