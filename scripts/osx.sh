@@ -498,7 +498,8 @@ echo_item "Time for some manual stuff, sorry!\n" yellow
 echo_item "Tmux"
 echo "To install tmux plugins, open tmux, type prefix (<Ctrl> + <space>) + 'I', or 'prefix' + 'U' to update them.\n"
 echo_item "Git"
-echo "Setup your git config:\ngit config --global user.email "pggalaviz@gmail.com"\ngit config --global user.name "PGGalaviz"\n"
+echo_item "IMPORTANT - Make sure you add your own Git credentials:" red
+echo "Setup your git config:\ngit config --global user.email "your_email@example.com"\ngit config --global user.name "Your Name"\n"
 echo_item "That's it!" blue
 echo_item "bye..." blue
 

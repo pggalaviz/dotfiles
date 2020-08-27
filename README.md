@@ -5,18 +5,21 @@ My personal configuration files for MacOS (Working on Linux support)
 ## Contents:
 
 Includes files for configuring:
+
 - Fish shell
 - iTerm2
 - Neovim
 - Tmux
 - Hyper.js Terminal
-- Phoenix (window and app manager)
+- [Phoenix](https://github.com/kasper/phoenix) (window and app manager)
 
 ## Default config:
 
 Contains plugins, dependencies and utilities to comfortably work with:
+
 - Javascript
 - Elixir
+- Erlang
 - Rust
 - Go
 - Crystal
@@ -28,23 +31,37 @@ But you can always customize it to add or remove stuff as you like.
 ## Use it!
 
 If you like this configuration just clone this repo:
-```
+
+```shell
 git clone https://github.com/pggalaviz/dotfiles.git ~/.dotfiles
 ```
+
 then run:
-```
+
+```shell
 cd ~/.dotfiles && ./install.sh
 ```
+
 Running `./install.sh` will run different instructions for OSX and Linux.
 On OSX, several utilities and dependencies will be installed via **Homebrew, Git & Node** (will ask to install them if not found).
 
 Once Homebrew, Git & Node are detected, these will install by default:
-- **tree** (Helps to visualize directory tree on terminal)
-- **ripgrep** (Line oriented search tool, better & faster than The Silver Searcher)
+
 - **Python 3** (Programming language)
+- **tree** (Helps to visualize directory tree on terminal)
+- [**ripgrep**](https://github.com/BurntSushi/ripgrep) (Line oriented search tool, better & faster than The Silver Searcher)
 - **reattach-to-user-namespace** (Hack to comfortably work with MacOS clipboard)
+- **coreutils** (GNU File, Shell, and Text utilities)
+- [**gpg**](https://gnupg.org/) (Encrypt and sign your data and communications)
+- **minikube** (For local kubernetes)
+- **kubernetes-cli** (The kubernetes CLI tool)
+- **redis** (Because it's redis...)
+- **direnv** (For easily working with env vars)
+- [**bat**](https://github.com/sharkdp/bat) (like `cat` but better)
+- [**git-delta**](https://github.com/dandavison/delta) (command line for Git utilities)
 
 Then you'll be prompted to install the following programs/tools:
+
 - Fish shell
 - Neovim
 - Rust
@@ -75,7 +92,13 @@ In order to fully display UI symbols, you need a 'Powerline patched font', you c
 from [https://github.com/powerline/fonts](https://github.com/powerline/fonts), I recomend using
 **Source Code Pro Medium**
 
-You can install almost any version of **Ruby** via **rbenv**: `rbenv install **Version**`.
+You can install almost any version of **Ruby** via **rbenv**: `rbenv install **Version**`, but if you installed `asdf` better use it instead.
+
+---
+
+**Important:** a symlink to your global `.gitconfig` will be created, make sure you update it with your personal credentials as by default it will contain mine. :)
+
+---
 
 ### Linux
 
