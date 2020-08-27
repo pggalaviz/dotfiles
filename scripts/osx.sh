@@ -82,6 +82,8 @@ packages=(
 "kubernetes-cli"
 "redis"
 "direnv"
+"bat"
+"git-delta"
 )
 for i in "${packages[@]}"
 do
@@ -125,6 +127,7 @@ if get_boolean_response "Do you want to install this apps?"; then
   "appcleaner"
   "postgres"
   "kitematic"
+  "alacritty"
   )
   for i in "${apps[@]}"
   do
@@ -474,6 +477,7 @@ echo "--------------------------------------------------------------------------
 echo_item "Creating main symlinks..." yellow
 ln -sf `pwd`/gemrc ~/.gemrc
 ln -sf `pwd`/default-gems ~/.default-gems
+ln -sf `pwd`/gitconfig ~/.gitconfig
 ln -sf `pwd`/gitignore_global ~/.gitignore_global
 
 echo_item "Creating phoenix symlinks..." yellow

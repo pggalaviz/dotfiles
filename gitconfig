@@ -1,0 +1,26 @@
+[user]
+  name = Pedro G. Galaviz
+  email = pggalaviz@gmail.com
+
+[core]
+  pager = delta
+
+[delta]
+  syntax-theme = Nord
+  side-by-side = true
+
+  line-numbers = true
+  line-numbers-zero-style = "#ffffff"
+  line-numbers-plus-style = bold green
+  line-numbers-minus-style = bold "#df8c8c"
+
+  plus-style = normal bold green
+  plus-emph-style = green bold "#2d862d"
+  plus-non-emph-style = syntax
+
+  minus-style = normal bold red
+  minus-emph-style = white bold "#ff4d4d"
+  minus-non-emph-style = syntax
+
+[interactive]
+  diffFilter = delta --color-only
