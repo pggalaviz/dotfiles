@@ -316,4 +316,8 @@ function tc ; tree -C ; end
 # status --is-interactive; and source /usr/local/opt/asdf/asdf.fish
 test -d /usr/local/opt/asdf/ ;and source /usr/local/opt/asdf/asdf.fish
 
-eval (direnv hook fish)
+# direnv config
+test -x /usr/local/bin/direnv ;and eval (direnv hook fish)
+
+# bat config
+test -x /usr/local/bin/bat ;and set -x BAT_THEME ansi-dark
