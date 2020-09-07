@@ -91,7 +91,7 @@ Plug 'airblade/vim-gitgutter'       " Show GIT changes status in the gutter
 Plug 'jreybert/vimagit',            {'on': 'Magit'} " Easier GIT workflow
 
 " Nerdtree
-Plug 'scrooloose/nerdtree'          " Directory & files tree
+Plug 'preservim/nerdtree'           " Directory & files tree
 Plug 'Xuyuanp/nerdtree-git-plugin'  " Nerdtree plugin to show GIT flags
 
 " Skim fuzzy finder

@@ -51,7 +51,8 @@ set listchars+=extends:»                        " show a » when a line goes of
 set listchars+=precedes:«                       " show a « when a line goes off the left edge of the screenk
 set conceallevel=2
 set colorcolumn=81                              " Color the colum 81
-set signcolumn=yes                              " Always show sign column
+set signcolumn=yes:1                            " Always show sign column
+set diffopt+=internal,algorithm:patience,iwhiteall
 
 " Files
 set autowrite                                   " Autosave before :next, :make, etc.

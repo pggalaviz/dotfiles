@@ -1,6 +1,5 @@
-
 " -------------------------------------------------------------------------------------------
-"  PLUGINS
+"  AUTOCOMMANDS
 " -------------------------------------------------------------------------------------------
 
 " Main autocomands
@@ -53,4 +52,15 @@ augroup filetype_config
   autocmd!
   " Add a pipe operator with pp
   autocmd FileType elixir iabbrev <buffer> pp \|>
+augroup END
+
+augroup filetype_fold
+  autocmd!
+  autocmd FileType vim setlocal foldmethod=marker
+  autocmd FileType vim setlocal foldlevel=0
+
+  autocmd FileType css,scss,json setlocal foldmethod=marker
+  autocmd FileType css,scss,json setlocal foldmarker={,}
+
+  autocmd FileType javascript,typescript,json,elixir,erlang setl foldmethod=syntax
 augroup END
