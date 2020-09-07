@@ -109,7 +109,7 @@ let g:gitgutter_map_keys = 0
 nmap <leader>g <Plug>(GitGutterNextHunk)
 nmap <leader>G <Plug>(GitGutterPrevHunk)
 
-" scrooloose/nerdtree {{{
+" scrooloose/nerdtree
 " ==================================
 map <leader>n :NERDTreeToggle<cr>
 map <leader>b :NERDTreeFind<cr>
@@ -117,21 +117,6 @@ let g:NERDTreeShowHidden = 1
 let g:NERDTreeAutoDeleteBuffer = 1
 let g:NERDTreeCascadeOpenSingleChildDir = 1
 let g:NERDTreeQuitOnOpen = 1
-
-augroup ntinit
-  autocmd FileType nerdtree call s:nerdtreeinit()
-augroup END
-
-function! s:nerdtreeinit() abort
-  set nolist
-  if !has("gui_running")
-    nunmap <buffer> K
-    nunmap <buffer> J
-    map <silent> <Tab> :call nerdtree#ui_glue#invokeKeyMap("A")<CR>
-  endif
-endf
-
-" }}}
 
 " lotabout/skim
 " ==================================

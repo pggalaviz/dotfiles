@@ -1,43 +1,41 @@
 " Shougo/deoplete
 " ==================================
 let g:deoplete#enable_at_startup = 1
-let g:deoplete#skip_chars = ['(', ')', '<', '>']
 let g:deoplete#tag#cache_limit_size = 800000
 
+call deoplete#custom#option({
+\ 'auto_complete_delay': 0,
+\ 'smart_case': v:true,
+\ 'skip_chars': ['(', ')', '<', '>']
+\})
+
 " Omni patterns
-let g:deoplete#omni_patterns = {}
-let g:deoplete#omni_patterns.html = '<[^>]*'
+call deoplete#custom#option('omni_patterns', {
+\ 'html': '<[^>]*',
+\ 'css': '',
+\ 'scss': ''
+\})
+
+" Omni input functions
+call deoplete#custom#source('omni', 'functions', {
+\ 'javascript': ['tern#Complete', 'jspc#omni'],
+\ 'css': ['csscomplete#CompleteCSS'],
+\ 'html': ['htmlcomplete#CompleteTags']
+\})
 
 " Omni input patterns
-let g:deoplete#omni#input_patterns = {}
-let g:deoplete#omni#input_patterns.html = '<[^>]*'
-let g:deoplete#omni#input_patterns.md = '<[^>]*'
-let g:deoplete#omni#input_patterns.css    = '^\s\+\w\+\|\w\+[):;]\?\s\+\w*\|[@!]'
-let g:deoplete#omni#input_patterns.scss   = '^\s\+\w\+\|\w\+[):;]\?\s\+\w*\|[@!]'
-let g:deoplete#omni#input_patterns.sass   = '^\s\+\w\+\|\w\+[):;]\?\s\+\w*\|[@!]'
-let g:deoplete#omni#input_patterns.stylus = '^\s\+\w\+\|\w\+[):;]\?\s\+\w*\|[@!]'
-let g:deoplete#omni#input_patterns.javascript = ''
-let g:deoplete#omni#input_patterns.ruby = ['[^. *\t]\.\w*', '[a-zA-Z_]\w*::']
+call deoplete#custom#var('omni', 'input_patterns', {
+  \ 'html': '<[^>]*',
+  \ 'md': '<[^>]*',
+  \ 'css'   : '^\s\+\w\+\|\w\+[):;]\?\s\+\w*\|[@!]',
+  \ 'scss'  : '^\s\+\w\+\|\w\+[):;]\?\s\+\w*\|[@!]',
+  \ 'sass'  : '^\s\+\w\+\|\w\+[):;]\?\s\+\w*\|[@!]',
+  \ 'stylus': '^\s\+\w\+\|\w\+[):;]\?\s\+\w*\|[@!]',
+  \ 'javascript': '',
+  \ 'ruby': ['[^. *\t]\.\w*', '[a-zA-Z_]\w*::']
+\})
 
-" Omni functions
-let g:deoplete#omni#functions = {}
-let g:deoplete#omni#functions.css = 'csscomplete#CompleteCSS'
-let g:deoplete#omni#functions.html = 'htmlcomplete#CompleteTags'
-let g:deoplete#omni#functions.javascript = [ 'tern#Complete', 'jspc#omni', 'javascriptcomplete#CompleteJS' ]
-" let g:deoplete#omni#functions.ruby = 'rubycomplete#Complete'
-
-" Custom sources
-" call deoplete#custom#option('sources', {
-" \ '_': ['ale', 'omni', 'neosnippet', 'member', 'include', 'file/include', 'file', 'tag', 'around', 'buffer', 'dictionary', 'tmuxcomplete', 'syntax'],
-" \ 'elixir': ['LanguageClient', 'alchemist'],
-" \ 'javascript': ['LanguageClient', 'ternjs'],
-" \ 'rust': ['LanguageClient', 'racer'],
-" \ 'go': ['LanguageClient', 'go'],
-" \ 'ruby': ['LanguageClient', 'ruby'],
-" \ 'vim': ['vim'],
-" \ 'fish': ['fish'],
-" \})
-
+" Custom sources {{{
 
 " Default rank is 100, higher is better
 call deoplete#custom#source('LanguageClient', 'rank', 610)
@@ -64,8 +62,8 @@ call deoplete#custom#source('vim', 'filetypes', ['vim'])
 call deoplete#custom#source('fish', 'rank', 600)
 call deoplete#custom#source('fish', 'filetypes', ['fish'])
 
-call deoplete#custom#source('omni',           'rank', 520)
-call deoplete#custom#source('neosnippet',     'rank', 510)
+call deoplete#custom#source('neosnippet',     'rank', 520)
+call deoplete#custom#source('omni',           'rank', 510)
 call deoplete#custom#source('member',         'rank', 500)
 call deoplete#custom#source('include',        'rank', 430)
 call deoplete#custom#source('file/include',   'rank', 420)
@@ -77,7 +75,9 @@ call deoplete#custom#source('dictionary',     'rank', 310)
 call deoplete#custom#source('tmuxcomplete',   'rank', 300)
 call deoplete#custom#source('syntax',         'rank', 200)
 
-" Custom Marks
+" }}}
+
+" Custom Marks {{{
 call deoplete#custom#source('LanguageClient', 'mark', '*')
 call deoplete#custom#source('ale',            'mark', 'A')
 call deoplete#custom#source('alchemist',      'mark', '⌁')
@@ -98,6 +98,8 @@ call deoplete#custom#source('buffer',         'mark', 'ℬ')
 call deoplete#custom#source('dictionary',     'mark', 'd')
 call deoplete#custom#source('tmuxcomplete',   'mark', '⊶')
 call deoplete#custom#source('syntax',         'mark', '♯')
+
+" }}}
 
 " Custom sorters, working well with neosnippet
 " call deoplete#custom#source('_', 'converters', [
