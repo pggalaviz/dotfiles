@@ -26,6 +26,8 @@ test -d $HOME/go ;and set -x GOPATH $HOME/go ;and set PATH $GOPATH/bin $PATH
 test -d /usr/local/opt/go/libexec ;and set -x GOROOT /usr/local/opt/go/libexec ;and set PATH $GOROOT/bin $PATH
 # set Rust lang path
 test -d $HOME/.cargo/bin ;and set PATH $HOME/.cargo/bin $PATH
+# set rebar3 for Erlang
+test -d $HOME/.cache/rebar3/bin ;and set PATH $HOME/.cache/rebar3/bin $PATH
 # set Java JDK to path
 test -d /usr/libexec/java_home ;and set -x JAVA_HOME (/usr/libexec/java_home)
 # test -d /usr/local/share/android-sdk ;and set -x ANDROID_SDK_ROOT /usr/local/share/android-sdk
