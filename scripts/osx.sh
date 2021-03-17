@@ -101,7 +101,7 @@ echo "--------------------------------------------------------------------------
 echo_item "iTerm2:" blue
 if get_boolean_response "Do you want to install iTerm2?"; then
   echo_item "Installing iterm2..." yellow
-  brew cask install iterm2
+  brew install --cask iterm2
   echo_item "iTerm2 successfully installed!" green
   echo "--------------------------------------------------------------------------"
 else
@@ -131,7 +131,7 @@ if get_boolean_response "Do you want to install this apps?"; then
   )
   for i in "${apps[@]}"
   do
-    brew cask install $i
+    brew install --cask $i
     echo "--------"
   done
   echo_item "Done!" green
