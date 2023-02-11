@@ -130,6 +130,8 @@ function brm
     brew deps $argv | xargs brew remove --ignore-dependencies | brew remove $argv | brew missing | cut -d: -f2 | sort | uniq | xargs brew install
 end
 
+set -x HOMEBREW_NO_AUTO_UPDATE 1
+
 #--------------
 #====> MAC
 #--------------
@@ -316,7 +318,8 @@ function tc ; tree -C ; end
 
 # add asdf to $PATH
 # status --is-interactive; and source /usr/local/opt/asdf/asdf.fish
-test -d /usr/local/opt/asdf/ ;and source /usr/local/opt/asdf/asdf.fish
+# test -d /usr/local/opt/asdf/ ;and source /usr/local/opt/asdf/asdf.fish
+test -d /usr/local/opt/asdf/ ;and source /usr/local/opt/asdf/libexec/asdf.fish
 
 # direnv config
 test -x /usr/local/bin/direnv ;and eval (direnv hook fish)

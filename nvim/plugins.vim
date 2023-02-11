@@ -40,7 +40,7 @@ Plug 'vim-erlang/vim-erlang-omnicomplete', {'for': 'erlang'}
 Plug 'vim-erlang/vim-erlang-compiler',     {'for': 'erlang'}
 
 " Elixir
-Plug 'elixir-editors/vim-elixir',   {'for': 'elixir'} " Elixir language highlighting
+Plug 'elixir-editors/vim-elixir',    {'for': 'elixir'} " Elixir language highlighting
 Plug 'slashmili/alchemist.vim',     {'for': 'elixir'} " Elixir Integration
 Plug 'mhinz/vim-mix-format',        {'for': 'elixir'} " Elixir formatter
 
@@ -129,6 +129,9 @@ Plug 'Shougo/deoplete.nvim',        { 'do': ':UpdateRemotePlugins' } " Completio
 Plug 'Shougo/context_filetype.vim'  " Find nested filetypes for example javascript on html files
 Plug 'Shougo/neoinclude.vim'        " Include completion framework
 Plug 'Shougo/neco-syntax'           " Syntax source
+
+" Copilot
+Plug 'github/copilot.vim'
 
 " Language Server Protocol (LSP)
 Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh' }

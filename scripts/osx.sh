@@ -13,7 +13,7 @@ else
   echo_item "Homebrew is not installed and is required for configuration!" yellow
   if get_boolean_response "Do you want to install Homebrew?"; then
     echo_item "Installing Homebrew, this can take some time..." yellow
-    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     echo_item "Done!" green
   else
     echo_item "Skipping Homebrew installation..." red

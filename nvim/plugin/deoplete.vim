@@ -3,6 +3,8 @@
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#tag#cache_limit_size = 800000
 
+call deoplete#custom#option('num_processes', 4)
+
 call deoplete#custom#option({
 \ 'auto_complete_delay': 0,
 \ 'smart_case': v:true,
