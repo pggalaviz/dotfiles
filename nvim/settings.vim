@@ -4,9 +4,9 @@
 " -------------------------------------------------------------------------------------------
 
 " Remap leader (Use space as leader)
-let g:mapleader = ' '
+" let g:mapleader = ' '
 " Map local leader
-let g:maplocalleader = ','
+" let g:maplocalleader = ','
 
 " Release keymappings prefixes, evict entirely for use of plug-ins.
 nnoremap <Space> <Nop>

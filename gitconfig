@@ -1,10 +1,6 @@
 [user]
   name = Pedro G. Galaviz
   email = pggalaviz@gmail.com
-	signingkey = 8A2AD35B2A837574
-
-[commit]
-	gpgsign = true
 
 [core]
   pager = delta
@@ -30,4 +26,4 @@
   diffFilter = delta --color-only
 
 [init]
-	defaultBranch = main
+  defaultBranch = main

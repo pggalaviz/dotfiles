@@ -6,14 +6,32 @@
 " /_/   \___/\___/\_,_/_/\_,_/|___/_//__/
 
 
-scriptencoding utf-8
-set encoding=utf-8
+lua <<EOF
+print('hello from lua')
+
+vim.g.scriptencoding = 'utf-8'
+vim.g.encoding = 'utf-8'
+
+vim.g.config_path = '~/.config/nvim/'
+
+-- Python 3 is needed for some plugins to work
+vim.g.python3_host_prog = '/opt/homebrew/bin/python3'
+
+-- I like block & always blinking cursor
+vim.opt.guicursor = 'a:block-blinkwait100-blinkoff150-blinkon175'
+
+require('settings')
+
+EOF
+
+" scriptencoding utf-8
+" set encoding=utf-8
 
 " Use full Vim features
 set nocompatible
 
 " Config file path
-let g:config_path = "~/.config/nvim/"
+" let g:config_path = "~/.config/nvim/"
 
 " Function for sourcing config modules
 function! ConfigInc(module)
@@ -21,11 +39,11 @@ function! ConfigInc(module)
 endfunction
 
 " Python 3 is needed for some plugins to work
-let g:python3_host_prog = '/usr/local/bin/python3'
+" let g:python3_host_prog = '/opt/homebrew/bin/python3'
 
 set termguicolors
 " I like block & always blinking cursor
-set guicursor=a:block-blinkwait100-blinkoff150-blinkon175
+" set guicursor=a:block-blinkwait100-blinkoff150-blinkon175
 
 " -------------------------------------------------------------------------------------------
 "  SETTINGS
@@ -151,6 +169,7 @@ vmap <leader>C <Plug>(sad-change-backward)
 " Move line down
 nmap ¶ <Plug>MoveLineDown
 nmap ∆ <Plug>MoveLineDown
+nmap <silent> <M-j> <Plug>MoveLineDown
 
 " Move block down
 vmap ¶ <Plug>MoveBlockDown
@@ -159,6 +178,7 @@ vmap ∆ <Plug>MoveBlockDown
 " Move line up
 nmap § <Plug>MoveLineUp
 nmap ˚ <Plug>MoveLineUp
+nmap <silent> <M-k> <Plug>MoveLineDown
 
 " Move block up
 vmap § <Plug>MoveBlockUp

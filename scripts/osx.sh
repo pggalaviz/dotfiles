@@ -13,7 +13,9 @@ else
   echo_item "Homebrew is not installed and is required for configuration!" yellow
   if get_boolean_response "Do you want to install Homebrew?"; then
     echo_item "Installing Homebrew, this can take some time..." yellow
+
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
     echo_item "Done!" green
   else
     echo_item "Skipping Homebrew installation..." red
@@ -47,28 +49,6 @@ echo "--------------------------------------------------------------------------
 
 
 
-# Install Node -----------------------------------------------------------------
-# ------------------------------------------------------------------------------
-if exists "node"; then
-  echo_item "Node.js is correctly installed." green
-else
-  echo_item "Node.js is not installed and is required for some tools to work." yellow
-  if get_boolean_response "Do you want to install Node?"; then
-    echo_item "Installing Node..." yellow
-    brew install node
-    brew install yarn
-    # Centralize global npm packages for different node versions
-    echo "prefix = /usr/local" > ~/.npmrc
-    echo_item "Done!" green
-  else
-    echo_item "Skipping Node.js installation..." red
-    echo_item "Node is a very useful tool, you'll probably need it."
-  fi
-fi
-echo "--------------------------------------------------------------------------"
-
-
-
 # Install Utilities ------------------------------------------------------------
 # ------------------------------------------------------------------------------
 packages=(
@@ -77,10 +57,6 @@ packages=(
 "gpg"
 "python3"
 "tree"
-"reattach-to-user-namespace"
-"minikube"
-"kubernetes-cli"
-"redis"
 "direnv"
 "bat"
 "git-delta"
@@ -90,7 +66,6 @@ do
   brew install $i
   echo "--------"
 done
-brew services start redis
 echo_item "Done!" green
 echo "--------------------------------------------------------------------------"
 
@@ -119,15 +94,11 @@ echo "Includes: flux, divvy, keka, macdown and others..."
 if get_boolean_response "Do you want to install this apps?"; then
   echo_item "Installing apps..." yellow
   apps=(
-  "phoenix"
   "flux"
   "keka"
   "macdown"
   "the-unarchiver"
   "appcleaner"
-  "postgres"
-  "kitematic"
-  "alacritty"
   )
   for i in "${apps[@]}"
   do
@@ -152,7 +123,7 @@ if get_boolean_response "Do you want to install and use Fish shell?"; then
   echo_item "Installing Fish shell..." yellow
   brew install fish
   echo_item "Changing to Fish shell... Might require password:" yellow
-  echo /usr/local/bin/fish | sudo tee -a /etc/shells
+  echo $(which fish) | sudo tee -a /etc/shells
   chsh -s $(which fish)
   echo_item "Fish shell successfully installed!" green
   echo "--------------------------------------------------------------------------"
@@ -179,25 +150,6 @@ echo "--------------------------------------------------------------------------
 
 
 
-# Install Hyper.js -------------------------------------------------------------
-# ------------------------------------------------------------------------------
-echo_item "Hyper.js terminal:" blue
-if get_boolean_response "Do you want to install Hyper.js Terminal?"; then
-  echo_item "Installing Hyper.js..." yellow
-  brew install hyper
-  echo_item "Hyper.js successfully installed!" green
-  echo "--------------------------------------------------------------------------"
-  echo_item "Symlinking Hyper.js configuration..." yellow
-  ln -sf `pwd`/hyper/hyper.js ~/.hyper.js
-  echo_item "Done!" green
-else
-  echo_item "Skipping Hyper.js installation..." red
-  echo_item "You'll need a true color terminal emulator like iTerm2 or Hyper.js"
-fi
-echo "--------------------------------------------------------------------------"
-
-
-
 # Install asdf ----------------------------------------------------------------
 # ------------------------------------------------------------------------------
 echo_item "asdf version manager (manage many languages versions):" blue
@@ -208,6 +160,7 @@ if get_boolean_response "Do you want to install asdf?"; then
   asdf plugin-add erlang
   asdf plugin-add elixir
   asdf plugin-add nodejs
+  asdf install nodejs 20.11.1
   echo_item "asdf successfully installed!" green
 else
   echo_item "Skipping asdf installation..."
@@ -259,6 +212,7 @@ if get_boolean_response "Do you want to install Neovim?"; then
   mkdir -p ~/.config/nvim
   mkdir -p ~/.config/nvim/plugin
   ln -sf `pwd`/nvim/init.vim ~/.config/nvim/
+  ln -sf `pwd`/nvim/init.lua ~/.config/nvim/
   ln -sf `pwd`/nvim/plugins.vim ~/.config/nvim/
   ln -sf `pwd`/nvim/functions.vim ~/.config/nvim/
   ln -sf `pwd`/nvim/autocmds.vim ~/.config/nvim/
@@ -266,6 +220,7 @@ if get_boolean_response "Do you want to install Neovim?"; then
   ln -sf `pwd`/nvim/settings.vim ~/.config/nvim/
   ln -sf `pwd`/nvim/editorconfig ~/.editorconfig
   ln -sf `pwd`/nvim/plugin/*.vim ~/.config/nvim/plugin/
+  ln -sf `pwd`/nvim/lua/*.lua ~/.config/nvim/lua/
   echo_item "Done!" green
   echo "--------------------------------------------------------------------------"
   echo_item "Downloading Neovim python 3 client..." yellow
@@ -309,7 +264,6 @@ modules=(
 "standard"
 "prettier"
 "javascript-typescript-langserver"
-"vue-language-server"
 )
 echo_item "Node Global Packages:" blue
 echo_item "Packages:"
@@ -317,7 +271,6 @@ echo "- standard (JS style, linting & formater)"
 echo "- prettier (Style formater for css, json and scss)"
 echo "- tern (required for Neovim JS linting)"
 echo "- javascript-typescript-langserver (Language Server for Javascript)\n"
-echo "- vue-language-server (Language Server for Vue.js)\n"
 if get_boolean_response "Do you want to install these global packages?"; then
   if get_boolean_response "Do you want to use yarn?"; then
     echo_item "Installing packages with yarn..." yellow
@@ -375,24 +328,10 @@ echo "--------------------------------------------------------------------------
 echo_item "Elixir:" blue
 if get_boolean_response "Do you want to install the Elixir programming language?"; then
   echo_item "Installing Elixir..." yellow
-  brew install elixir
+  asdf install elixir 1.16.1-otp-26
   echo_item "Elixir successfully installed!" green
 else
   echo_item "Skipping Elixir installation..."
-fi
-echo "--------------------------------------------------------------------------"
-
-
-
-# Install Crystal --------------------------------------------------------------
-# ------------------------------------------------------------------------------
-echo_item "Crystal:" blue
-if get_boolean_response "Do you want to install the Crystal programming language?"; then
-  echo_item "Installing Crystal..." yellow
-  brew install crystal-lang
-  echo_item "Crystal successfully installed!" green
-else
-  echo_item "Skipping Crystal installation..."
 fi
 echo "--------------------------------------------------------------------------"
 
@@ -423,10 +362,8 @@ echo "--------------------------------------------------------------------------
 # ------------------------------------------------------------------------------
 echo_item "Ctags:" blue
 if get_boolean_response "Do you want to install Ctags?"; then
-  echo_item "Brew tapping Universal Ctags..." yellow
-  brew tap universal-ctags/universal-ctags
   echo_item "Installing Universal Ctags..." yellow
-  brew install --HEAD universal-ctags
+  brew install universal-ctags
   echo_item "Done!" green
   echo "--------------------------------------------------------------------------"
   echo_item "Symlinking custom Ctags..." yellow
@@ -480,17 +417,6 @@ ln -sf `pwd`/default-gems ~/.default-gems
 ln -sf `pwd`/gitconfig ~/.gitconfig
 ln -sf `pwd`/gitignore_global ~/.gitignore_global
 
-echo_item "Creating phoenix symlinks..." yellow
-mkdir -p ~/.config/phoenix
-mkdir -p ~/.config/phoenix/config
-mkdir -p ~/.config/phoenix/helpers
-mkdir -p ~/.config/phoenix/shortcuts
-mkdir -p ~/.config/phoenix/spaces
-ln -sf `pwd`/phoenix/phoenix.js ~/.config/phoenix/
-ln -sf `pwd`/phoenix/config/*.js ~/.config/phoenix/config/
-ln -sf `pwd`/phoenix/helpers/*.js ~/.config/phoenix/helpers/
-ln -sf `pwd`/phoenix/shortcuts/*.js ~/.config/phoenix/shortcuts/
-ln -sf `pwd`/phoenix/spaces/*.js ~/.config/phoenix/spaces/
 
 
 echo_item "All done here!" blue

@@ -18,9 +18,15 @@ set -x fish_color_autosuggestion blue
 set -x fish_color_error red
 # set gpg tty
 set -x GPG_TTY (eval tty)
+
 # PATH
+# for apple intel
 test -d /usr/local/bin  ;and set PATH /usr/local/bin  $PATH
 test -d /usr/local/sbin ;and set PATH /usr/local/sbin $PATH
+# for apple silicon
+test -d /opt/homebrew/bin  ;and set PATH /opt/homebrew/bin  $PATH
+test -d /opt/homebrew/sbin ;and set PATH /opt/homebrew/sbin $PATH
+
 # Set GO lang path
 test -d $HOME/go ;and set -x GOPATH $HOME/go ;and set PATH $GOPATH/bin $PATH
 test -d /usr/local/opt/go/libexec ;and set -x GOROOT /usr/local/opt/go/libexec ;and set PATH $GOROOT/bin $PATH
@@ -316,13 +322,21 @@ function dcr ; docker-compose run $argv ; end
 # Tree always with color
 function tc ; tree -C ; end
 
+function tunnel_webhook_api ; ssh -L6550:webhook-api-staging-v1.c3owtriowgpi.us-west-2.rds.amazonaws.com:5432 ssm-user@bzero-i-0135c06b28990deca ; end
+function tunnel_webhook_api_prod ; ssh -L6551:webhook-api-prod-db-v1.c3owtriowgpi.us-west-2.rds.amazonaws.com:5432 ssm-user@bzero-i-01772b4038ba99673 ; end
+
 # add asdf to $PATH
-# status --is-interactive; and source /usr/local/opt/asdf/asdf.fish
-# test -d /usr/local/opt/asdf/ ;and source /usr/local/opt/asdf/asdf.fish
+# for apple intel
 test -d /usr/local/opt/asdf/ ;and source /usr/local/opt/asdf/libexec/asdf.fish
+# for apple silicon
+test -d /opt/homebrew/opt/asdf/ ;and source /opt/homebrew/opt/asdf/libexec/asdf.fish
 
 # direnv config
 test -x /usr/local/bin/direnv ;and eval (direnv hook fish)
 
 # bat config
 test -x /usr/local/bin/bat ;and set -x BAT_THEME ansi-dark
+
+# custom
+
+set -x AWS_REGION us-west-2

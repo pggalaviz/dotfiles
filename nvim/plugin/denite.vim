@@ -23,9 +23,9 @@ autocmd FileType denite-filter call s:denite_filter_settings()
 
 function! s:denite_filter_settings() abort
   imap <silent><buffer> kj
-        \ <Plug>(denite_filter_quit)
+        \ <Plug>(denite_filter_update)
   imap <silent><buffer> jk
-        \ <Plug>(denite_filter_quit)
+        \ <Plug>(denite_filter_update)
   inoremap <silent><buffer><expr> <Esc>
         \ denite#do_map('quit')
   nnoremap <silent><buffer><expr> <Esc>

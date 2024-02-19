@@ -134,7 +134,8 @@ Plug 'Shougo/neco-syntax'           " Syntax source
 Plug 'github/copilot.vim'
 
 " Language Server Protocol (LSP)
-Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh' }
+" Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh' }
+Plug 'neovim/nvim-lspconfig'        " Neovim LSP
 
 " Snippets
 Plug 'Shougo/neosnippet.vim'        " Snippets support
