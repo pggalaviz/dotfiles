@@ -160,7 +160,13 @@ if get_boolean_response "Do you want to install asdf?"; then
   asdf plugin-add erlang
   asdf plugin-add elixir
   asdf plugin-add nodejs
+
+  asdf install ruby 2.7.8
+  asdf global ruby 2.7.8
+
   asdf install nodejs 20.11.1
+  asdf global nodejs 20.11.1
+
   echo_item "asdf successfully installed!" green
 else
   echo_item "Skipping asdf installation..."
@@ -329,6 +335,9 @@ echo_item "Elixir:" blue
 if get_boolean_response "Do you want to install the Elixir programming language?"; then
   echo_item "Installing Elixir..." yellow
   asdf install elixir 1.16.1-otp-26
+  asdf install erlang 26.2.2
+  asdf global elixir 1.16.1-otp-26
+  asdf global erlang 26.2.2
   echo_item "Elixir successfully installed!" green
 else
   echo_item "Skipping Elixir installation..."
