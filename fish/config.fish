@@ -2,9 +2,9 @@
 ##### Fish Configuration #####
 ##############################
 function fish_greeting
-    echo "----------------------------------------------------------------------------"
+    echo ----------------------------------------------------------------------------
     echo "“Los únicos límites son, como siempre, aquellos de visión” - James Broughton"
-    echo "----------------------------------------------------------------------------"
+    echo ----------------------------------------------------------------------------
 end
 # set locale
 set -x LANG en_US.UTF-8
@@ -21,34 +21,34 @@ set -x GPG_TTY (eval tty)
 
 # PATH
 # for apple intel
-test -d /usr/local/bin  ;and set PATH /usr/local/bin  $PATH
-test -d /usr/local/sbin ;and set PATH /usr/local/sbin $PATH
+test -d /usr/local/bin; and set PATH /usr/local/bin $PATH
+test -d /usr/local/sbin; and set PATH /usr/local/sbin $PATH
 # for apple silicon
-test -d /opt/homebrew/bin  ;and set PATH /opt/homebrew/bin  $PATH
-test -d /opt/homebrew/sbin ;and set PATH /opt/homebrew/sbin $PATH
+test -d /opt/homebrew/bin; and set PATH /opt/homebrew/bin $PATH
+test -d /opt/homebrew/sbin; and set PATH /opt/homebrew/sbin $PATH
 
 # Set GO lang path
-test -d $HOME/go ;and set -x GOPATH $HOME/go ;and set PATH $GOPATH/bin $PATH
-test -d /usr/local/opt/go/libexec ;and set -x GOROOT /usr/local/opt/go/libexec ;and set PATH $GOROOT/bin $PATH
+test -d $HOME/go; and set -x GOPATH $HOME/go; and set PATH $GOPATH/bin $PATH
+test -d /usr/local/opt/go/libexec; and set -x GOROOT /usr/local/opt/go/libexec; and set PATH $GOROOT/bin $PATH
 # set Rust lang path
-test -d $HOME/.cargo/bin ;and set PATH $HOME/.cargo/bin $PATH
+test -d $HOME/.cargo/bin; and set PATH $HOME/.cargo/bin $PATH
 # set rebar3 for Erlang
-test -d $HOME/.cache/rebar3/bin ;and set PATH $HOME/.cache/rebar3/bin $PATH
+test -d $HOME/.cache/rebar3/bin; and set PATH $HOME/.cache/rebar3/bin $PATH
 # set Java JDK to path
-test -d /usr/libexec/java_home ;and set -x JAVA_HOME (/usr/libexec/java_home)
+test -d /usr/libexec/java_home; and set -x JAVA_HOME (/usr/libexec/java_home)
 # test -d /usr/local/share/android-sdk ;and set -x ANDROID_SDK_ROOT /usr/local/share/android-sdk
 # test -d /usr/local/share/android-sdk ;and set -x ANDROID_HOME /usr/local/share/android-sdk
 # add rbenv to $PATH
 # status --is-interactive; and source (rbenv init -|psub)
 # Need this to expose global packages installed via yarn
-test -d $HOME/.config/yarn/global/node_modules/.bin ;and set PATH $HOME/.config/yarn/global/node_modules/.bin $PATH
+test -d $HOME/.config/yarn/global/node_modules/.bin; and set PATH $HOME/.config/yarn/global/node_modules/.bin $PATH
 # set Android SDK
-test -d $HOME/Library/Android/ ;and set -x ANDROID_SDK_ROOT $HOME/Library/Android/sdk
-test -d $HOME/Library/Android/ ;and set -x ANDROID_HOME $HOME/Library/Android/sdk
-test -d $HOME/Library/Android/ ;and set PATH $ANDROID_HOME/tools $PATH
-test -d $HOME/Library/Android/ ;and set PATH $ANDROID_HOME/platform-tools $PATH
+test -d $HOME/Library/Android/; and set -x ANDROID_SDK_ROOT $HOME/Library/Android/sdk
+test -d $HOME/Library/Android/; and set -x ANDROID_HOME $HOME/Library/Android/sdk
+test -d $HOME/Library/Android/; and set PATH $ANDROID_HOME/tools $PATH
+test -d $HOME/Library/Android/; and set PATH $ANDROID_HOME/platform-tools $PATH
 # Postgres App
-test -d /Applications/Postgres.app/Contents/Versions/latest/bin ;and set PATH /Applications/Postgres.app/Contents/Versions/latest/bin $PATH
+test -d /Applications/Postgres.app/Contents/Versions/latest/bin; and set PATH /Applications/Postgres.app/Contents/Versions/latest/bin $PATH
 
 #############################
 ##### Functions/Aliases #####
@@ -58,23 +58,37 @@ test -d /Applications/Postgres.app/Contents/Versions/latest/bin ;and set PATH /A
 #====> UTILITIES
 #--------------------
 # clear command shortcut
-function cl ; clear ; end
+function cl
+    clear
+end
 # Neovim quick configuration
-function vconfig ; nvim ~/.config/nvim/init.vim ; end
+function vconfig
+    nvim ~/.config/nvim/init.vim
+end
 # Tmux quick configuration
-function tconfig ; nvim ~/.tmux.conf ; end
+function tconfig
+    nvim ~/.tmux.conf
+end
 # Fish shell quick configuration
-function fconfig ; nvim ~/.config/fish/config.fish ; end
+function fconfig
+    nvim ~/.config/fish/config.fish
+end
 # Fish shell reload
-function freload ; source ~/.config/fish/config.fish ; end
+function freload
+    source ~/.config/fish/config.fish
+end
 # Create a new directory and enter it
-function md ; mkdir -p $argv ;and cd $argv ; end
+function md
+    mkdir -p $argv; and cd $argv
+end
 # Remove all folder contents
 function rma
-    set_color blue; echo ">>> Delete everything on '$PWD'? (y/N)"; set_color normal;
+    set_color blue
+    echo ">>> Delete everything on '$PWD'? (y/N)"
+    set_color normal
     read yn
-    if test $yn = "y"
-        cd .. ;and rm -rf dir ;and  mkdir dir ;and cd dir
+    if test $yn = y
+        cd ..; and rm -rf dir; and mkdir dir; and cd dir
     end
 end
 function killp
@@ -85,52 +99,90 @@ end
 #====> DIRECTORY LISTING
 #----------------------------
 # Compact view, show colors
-function lc ; ls -G ; end
+function lc
+    ls -G
+end
 # Compact view, show hidden
-function la ; ls -AF ; end
+function la
+    ls -AF
+end
 # shortcut to 'ls -al'
-function ll ;  ls -al ; end
+function ll
+    ls -al
+end
 
 #-----------------
 #====> NEOVIM
 #-----------------
 # open neovim
-function v ; nvim $argv ; end
+function v
+    nvim $argv
+end
 # open neovim
-function vi ; nvim $argv ; end
+function vi
+    nvim $argv
+end
 # always open neovim & not vim
-function vim ; nvim $argv ; end
+function vim
+    nvim $argv
+end
 
 #---------------------
 #====> NAVIGATION
 #---------------------
 # Folder Nav
-function ..    ; cd .. ; end
-function ...   ; cd ../.. ; end
-function ....  ; cd ../../.. ; end
-function ..... ; cd ../../../.. ; end
+function ..
+    cd ..
+end
+function ...
+    cd ../..
+end
+function ....
+    cd ../../..
+end
+function .....
+    cd ../../../..
+end
 # back one folder
-function b ; pushd .. ; end
+function b
+    pushd ..
+end
 #forward one folder
-function f ; popd ; end
+function f
+    popd
+end
 
 #-------------------
 #====> HOMEBREW
 #-------------------
 # update & upgrade formulae
-function bup ; brew update ;and brew upgrade ; end
+function bup
+    brew update; and brew upgrade
+end
 # install formula
-function bin ; brew install $argv ; end
+function bin
+    brew install $argv
+end
 # List installed formulae with version number(s)
-function bls ; brew list --versions ; end
+function bls
+    brew list --versions
+end
 # List installed formulae & dependencies in a tree format
-function bdeps ; brew deps --installed --tree ; end
+function bdeps
+    brew deps --installed --tree
+end
 # List outdated formulae
-function bout ; brew outdated ; end
+function bout
+    brew outdated
+end
 # Check if formula is a dependency of another
-function buse ; brew uses --installed $argv ; end
+function buse
+    brew uses --installed $argv
+end
 # Clean past version(s) of formulae including cache
-function bcl ; brew cleanup -s ; end
+function bcl
+    brew cleanup -s
+end
 # uninstall formula including dependencies
 function brm
     brew deps $argv | xargs brew remove --ignore-dependencies | brew remove $argv | brew missing | cut -d: -f2 | sort | uniq | xargs brew install
@@ -143,199 +195,348 @@ set -x HOMEBREW_NO_AUTO_UPDATE 1
 #--------------
 
 # Open Google Chrome
-function chrome ; open -a google\ chrome ; end
+function chrome
+    open -a google\ chrome
+end
 # Open Safari
-function safari ; open -a safari ; end
+function safari
+    open -a safari
+end
 # Open current folder in finder
-function finder ; open -a Finder . ; end
+function finder
+    open -a Finder .
+end
 # Open text editor
-function text ; open -a TextEdit ; end
+function text
+    open -a TextEdit
+end
 # Flush dns cache
-function flush ; dscacheutil -flushcache ; end
+function flush
+    dscacheutil -flushcache
+end
 # Remove .DS_Store files recursively
-function dsclean ; find . -type f -name .DS_Store -print0 | xargs -0 rm ; end
+function dsclean
+    find . -type f -name .DS_Store -print0 | xargs -0 rm
+end
 # Show/hide 'dotfiles' system wide
 function showfiles
-    defaults write com.apple.finder AppleShowAllFiles -bool true ;and killall Finder
+    defaults write com.apple.finder AppleShowAllFiles -bool true; and killall Finder
 end
 function hidefiles
-    defaults write com.apple.finder AppleShowAllFiles -bool false ;and killall Finder
+    defaults write com.apple.finder AppleShowAllFiles -bool false; and killall Finder
 end
 # Show/hide desktop icons, useful for presentations
 function showicons
-    defaults write com.apple.finder CreateDesktop -bool true ;and killall Finder
+    defaults write com.apple.finder CreateDesktop -bool true; and killall Finder
 end
 function hideicons
-    defaults write com.apple.finder CreateDesktop -bool false ;and killall Finder
+    defaults write com.apple.finder CreateDesktop -bool false; and killall Finder
 end
-function redis ; redis-server /usr/local/etc/redis.conf ; end
+function redis
+    redis-server /usr/local/etc/redis.conf
+end
 
 #-------------------
 #====> TMUX
 #-------------------
 #Tmux shortcut
-function t ; tmux $argv ; end
+function t
+    tmux $argv
+end
 #Tmux new session
-function tn ; tmux new -s $argv ; end
+function tn
+    tmux new -s $argv
+end
 # Tmux list
-function tl ; tmux ls ; end
+function tl
+    tmux ls
+end
 # Tmux kill session
-function tk ; tmux kill-session -t $argv ; end
+function tk
+    tmux kill-session -t $argv
+end
 # Tmux kill all
-function tka ; tmux kill-server ; end
+function tka
+    tmux kill-server
+end
 # Tmux attach
-function ta ; tmux a -t $argv ; end
+function ta
+    tmux a -t $argv
+end
 # Tmux detach
-function td ; tmux detach ; end
+function td
+    tmux detach
+end
 
 #-------------------
 #====> GIT
 #-------------------
 # Git status
-function gs ; git status ; end
+function gs
+    git status
+end
 # Git log
-function gl ; git log --oneline --graph --color --decorate --date=relative --all ; end
+function gl
+    git log --oneline --graph --color --decorate --date=relative --all
+end
 # Git add
-function ga ; git add $argv ; end
+function ga
+    git add $argv
+end
 # Git add all
-function gaa ; git add -A . ; end
+function gaa
+    git add -A .
+end
 # Git Diff
-function gd ; git diff --color=always ; end
+function gd
+    git diff --color=always
+end
 # Git Branch
-function gb ; git branch ; end
+function gb
+    git branch
+end
 # Git checkout
-function gco ; git checkout ; end
+function gco
+    git checkout
+end
 # Git merge
-function gm ; git merge ; end
+function gm
+    git merge
+end
 # Git tag
-function gt ; git tag ; end
+function gt
+    git tag
+end
 # Git pull
-function pull ; git pull $argv ; end
+function pull
+    git pull $argv
+end
 # Git pull origin master
-function pullom ; git pull origin master ; end
+function pullom
+    git pull origin master
+end
 # Git commit
-function gc ; git commit -m $argv ; end
+function gc
+    git commit -m $argv
+end
 # Git push
-function gp ; git push $argv ; end
+function gp
+    git push $argv
+end
 # Git push origin master
-function gpom ; git push origin master ; end
+function gpom
+    git push origin master
+end
 
 #------------------
 #====> Npm / Yarn
 #------------------
 # Npm install global packages
-function ngi ; npm install -g $argv ; end
+function ngi
+    npm install -g $argv
+end
 # Npm uninstall global packages
-function ngu ; npm uninstall -g $argv ; end
+function ngu
+    npm uninstall -g $argv
+end
 # Npm list global packages
-function ngl ; npm -g ls --depth=0 ; end
+function ngl
+    npm -g ls --depth=0
+end
 # Npm list local packages
-function nll ; npm ls --depth=0 ; end
+function nll
+    npm ls --depth=0
+end
 # Npm project shortcuts
-function nt ; npm test ; end
-function ns ; npm start ; end
-function nr ; npm run ; end
-function nd ; npm run dev ; end
-function nb ; npm run build ; end
-function ndt ; npm run dev:test ; end
-function nds ; npm run dev:ssr ; end
+function nt
+    npm test
+end
+function ns
+    npm start
+end
+function nr
+    npm run
+end
+function nd
+    npm run dev
+end
+function nb
+    npm run build
+end
+function ndt
+    npm run dev:test
+end
+function nds
+    npm run dev:ssr
+end
 # Yarn install global packages
-function ygi ; yarn global add $argv ; end
+function ygi
+    yarn global add $argv
+end
 # Yarn uninstall global packages
-function ygu ; yarn global remove $argv ; end
+function ygu
+    yarn global remove $argv
+end
 # Yarn list global packages
-function ygl ; yarn global ls ; end
+function ygl
+    yarn global ls
+end
 # Yarn list local packages
-function yl ; yarn list --depth=0 ; end
+function yl
+    yarn list --depth=0
+end
 
 #------------------
 #====> ELIXIR
 #------------------
 # --- Phoenix ---
 # Phoenix version
-function phv ; mix phx.new -v ; end
+function phv
+    mix phx.new -v
+end
 # Phoenix server
-function phs ; mix phx.server ; end
+function phs
+    mix phx.server
+end
 # Phoenix server iex
-function phi ; iex -S mix phx.server ; end
+function phi
+    iex -S mix phx.server
+end
 # Phoenix gettext
-function phg ; mix gettext.extract ;and mix gettext.merge priv/gettext ; end
+function phg
+    mix gettext.extract; and mix gettext.merge priv/gettext
+end
 # Phoenix server named a
-function phsa ; env PORT=4000 iex --name a@127.0.0.1 -S mix phx.server ; end
+function phsa
+    env PORT=4000 iex --name a@127.0.0.1 -S mix phx.server
+end
 # Phoenix server named b
-function phsb ; env PORT=4001 iex --name b@127.0.0.1 -S mix phx.server ; end
+function phsb
+    env PORT=4001 iex --name b@127.0.0.1 -S mix phx.server
+end
 # Phoenix server named c
-function phsc ; env PORT=4002 iex --name c@127.0.0.1 -S mix phx.server ; end
+function phsc
+    env PORT=4002 iex --name c@127.0.0.1 -S mix phx.server
+end
 # --- MIX ---
 # mix format
-function mf ; mix format ; end
+function mf
+    mix format
+end
 # mix format check
-function mfc ; mix format --check-formatted ; end
+function mfc
+    mix format --check-formatted
+end
 # mix test
-function mt ; mix test ; end
+function mt
+    mix test
+end
 # mix test show slowest
-function mts ; mix test --slowest 5 ; end
+function mts
+    mix test --slowest 5
+end
 # mix unreachable
-function mu ; mix xref unreachable ; end
+function mu
+    mix xref unreachable
+end
 # mix callers
-function mc ; mix xref callers $argv ; end
+function mc
+    mix xref callers $argv
+end
 # mix graph
-function mg ; mix xref graph ; end
+function mg
+    mix xref graph
+end
 # mix deprecated
-function md ; mix xref deprecated ; end
+function md
+    mix xref deprecated
+end
 # mix outdated
-function mo ; mix hex.outdated $argv ; end
+function mo
+    mix hex.outdated $argv
+end
 # --- IEX ---
 # iex
-function im ; iex -S mix ; end
+function im
+    iex -S mix
+end
 
 #------------------
 #====> GO LANG
 #------------------
 # Fast cd to $GOPATH
-function cdg ; cd $GOPATH ; end
+function cdg
+    cd $GOPATH
+end
 
 #------------------
 #====> DOCKER
 #------------------
 # Remove Image
-function dri ; docker rmi $argv ; end
+function dri
+    docker rmi $argv
+end
 # Remove Dangling Images
-function drid ; docker images -qf dangling=true | xargs docker rmi ; end
+function drid
+    docker images -qf dangling=true | xargs docker rmi
+end
 # List Containers
-function dls ; docker container ls ; end
+function dls
+    docker container ls
+end
 # List all containers
-function dll ; docker container ls -a ; end
+function dll
+    docker container ls -a
+end
 # Run a command
-function dex ; docker exec --interactive --tty $argv ; end
+function dex
+    docker exec --interactive --tty $argv
+end
 # Remove a container
-function drc ; docker rm $argv ; end
+function drc
+    docker rm $argv
+end
 # Docker Compose
-function dc ; docker-compose $argv ; end
-function dcu ; docker-compose up $argv -d ; end
-function dcd ; docker-compose down ; end
-function dcr ; docker-compose run $argv ; end
+function dc
+    docker-compose $argv
+end
+function dcu
+    docker-compose up $argv -d
+end
+function dcd
+    docker-compose down
+end
+function dcr
+    docker-compose run $argv
+end
 
 #----------------
 #====> OTHER
 #----------------
 # Tree always with color
-function tc ; tree -C ; end
+function tc
+    tree -C
+end
 
-function tunnel_webhook_api ; ssh -L6550:webhook-api-staging-v1.c3owtriowgpi.us-west-2.rds.amazonaws.com:5432 ssm-user@bzero-i-0135c06b28990deca ; end
-function tunnel_webhook_api_prod ; ssh -L6551:webhook-api-prod-db-v1.c3owtriowgpi.us-west-2.rds.amazonaws.com:5432 ssm-user@bzero-i-01772b4038ba99673 ; end
+function tunnel_webhook_api
+    ssh -L6550:webhook-api-staging-v1.c3owtriowgpi.us-west-2.rds.amazonaws.com:5432 ssm-user@bzero-i-0135c06b28990deca
+end
+function tunnel_webhook_api_prod
+    ssh -L6551:webhook-api-prod-db-v1.c3owtriowgpi.us-west-2.rds.amazonaws.com:5432 ssm-user@bzero-i-01772b4038ba99673
+end
 
 # add asdf to $PATH
 # for apple intel
-test -d /usr/local/opt/asdf/ ;and source /usr/local/opt/asdf/libexec/asdf.fish
+test -d /usr/local/opt/asdf/; and source /usr/local/opt/asdf/libexec/asdf.fish
 # for apple silicon
-test -d /opt/homebrew/opt/asdf/ ;and source /opt/homebrew/opt/asdf/libexec/asdf.fish
+test -d /opt/homebrew/opt/asdf/; and source /opt/homebrew/opt/asdf/libexec/asdf.fish
 
 # direnv config
-test -x /usr/local/bin/direnv ;and eval (direnv hook fish)
+test -x /usr/local/bin/direnv; and eval (direnv hook fish)
+test -x /opt/homebrew/bin/direnv; and eval (direnv hook fish | source)
 
 # bat config
-test -x /usr/local/bin/bat ;and set -x BAT_THEME ansi-dark
+test -x /usr/local/bin/bat; and set -x BAT_THEME ansi-dark
 
 # custom
 

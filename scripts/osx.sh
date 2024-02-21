@@ -216,17 +216,16 @@ if get_boolean_response "Do you want to install Neovim?"; then
   echo "--------------------------------------------------------------------------"
   echo_item "Symlinking Neovim configuration..." yellow
   mkdir -p ~/.config/nvim
-  mkdir -p ~/.config/nvim/plugin
-  ln -sf `pwd`/nvim/init.vim ~/.config/nvim/
+  mkdir -p ~/.config/nvim/lua
+  mkdir -p ~/.config/nvim/lua/config
+  mkdir -p ~/.config/nvim/lua/plugins
   ln -sf `pwd`/nvim/init.lua ~/.config/nvim/
-  ln -sf `pwd`/nvim/plugins.vim ~/.config/nvim/
-  ln -sf `pwd`/nvim/functions.vim ~/.config/nvim/
-  ln -sf `pwd`/nvim/autocmds.vim ~/.config/nvim/
-  ln -sf `pwd`/nvim/keybindings.vim ~/.config/nvim/
-  ln -sf `pwd`/nvim/settings.vim ~/.config/nvim/
+  ln -sf `pwd`/nvim/.neoconf.json ~/.config/nvim/
+  ln -sf `pwd`/nvim/stylua.toml ~/.config/nvim/
   ln -sf `pwd`/nvim/editorconfig ~/.editorconfig
-  ln -sf `pwd`/nvim/plugin/*.vim ~/.config/nvim/plugin/
   ln -sf `pwd`/nvim/lua/*.lua ~/.config/nvim/lua/
+  ln -sf `pwd`/nvim/lua/config/*.lua ~/.config/nvim/lua/config
+  ln -sf `pwd`/nvim/lua/plugins/*.lua ~/.config/nvim/lua/plugins
   echo_item "Done!" green
   echo "--------------------------------------------------------------------------"
   echo_item "Downloading Neovim python 3 client..." yellow
@@ -240,21 +239,6 @@ if get_boolean_response "Do you want to install Neovim?"; then
   echo_item "Downloading Neovim node client..." yellow
   npm install -g neovim
   echo_item "Done!" green
-  echo "--------------------------------------------------------------------------"
-  echo_item "Downloading Neovim plugin manager (vim-plug)..." yellow
-  curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  echo_item "Done!" green
-  echo "--------------------------------------------------------------------------"
-  echo_item "Neovim plugins:" yellow
-  if  get_boolean_response "Install Neovim plugins?"; then
-    echo_item "Installing Neovim plugins..." yellow
-    nvim +PlugInstall +qa
-    echo_item "Done!" green
-  else
-    echo_item "Skipping plugins installation..." red
-    echo_item "To install plugins you must run ':PlugInstall' inside Neovim."
-  fi
 else
   echo_item "Skipping Neovim installation..." red
   echo_item "Neovim will drastically increment your productivity."
