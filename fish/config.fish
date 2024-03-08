@@ -540,4 +540,4 @@ test -x /usr/local/bin/bat; and set -x BAT_THEME ansi-dark
 
 # custom
 
-set -x AWS_REGION us-west-2
+set -x AWS_REGION us-east-2
